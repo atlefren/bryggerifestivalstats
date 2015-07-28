@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" media="all" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Bryggerifestivalen i Trondheim</h1>
+                <p>Basert på statistikk fra Untappd</p>
+            </div>
+        </div>
+        <div class="row">
+        {% for year in years %}
+            <div class="col-md-{{12 // years | length}}">
+                <h2>{{year.year}}</h2>
+                <dl class="dl-horizontal">
+                    <dt>Antall innsjekkinger:</dt>
+                    <dd>{{year.num_checkins}}</dd>
+                    <dt>Antall forskjellige øl:</dt>
+                    <dd>{{year.num_beers}}</dd>
+                    <dt>Mest innsjekkede øl:</dt>
+                    <dd>
+                        <ol>
+                            {% for beer in year.beer_top_5 %}
+                            <li>{{beer.brewery}} {{beer.beer}} ({{beer.num}})</li>
+                            {% endfor %}
+                        </ol>
+                    </dd>
+                    <dt>Høyest ratede øl:</dt>
+                    <dd>
+                        <ol>
+                            {% for beer in year.beer_top_5_score %}
+                            <li>{{beer.brewery}} {{beer.beer}} ({{beer.score}} / 5)</li>
+                            {% endfor %}
+                        </ol>
+                    </dd>
+                    <dt>Antall forskjellige bryggerier:</dt>
+                    <dd>{{year.num_breweries}}</dd>
+                    <dt>Mest innsjekkede bryggerier:</dt>
+                    <dd>
+                        <ol>
+                            {% for brewery in year.brewery_top_5 %}
+                            <li>{{brewery.name}} ({{brewery.num}})</li>
+                            {% endfor %}
+                        </ol>
+                    </dd>
+                    <dt>Antall forskjellige brukere:</dt>
+                    <dd>{{year.num_users}}</dd>
+                    <dt>Brukere med flest innsjekkinger:</dt>
+                    <dd>
+                        <ol>
+                            {% for user in year.user_top_5 %}
+                            <li>{{user.name}} ({{user.num}})</li>
+                            {% endfor %}
+                        </ol>
+                    </dd>
+                </dl>
+
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
