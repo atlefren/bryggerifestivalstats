@@ -13,16 +13,13 @@ def get(url):
     return r.json()
 
 
-def get_data(venue_id, filename):
+def get_data(url, filename):
     checkins = []
-
-    url = 'https://api.untappd.com/v4/venue/checkins/%s?client_id=%s&client_secret=%s' % (venue_id, CLIENT_ID, CLIENT_SECRET)
-
-    max_id = 0
+    max_id = 17409082
     while max_id is not None:
         d = get(url + '&max_id=%s' % max_id)
         if d['meta']['code'] == 500:
-            print('Error, id=' % max_id)
+            print 'Error, id=%s' % max_id
             break
         checkins = checkins + d['response']['checkins']['items']
         try:
@@ -37,5 +34,16 @@ def get_data(venue_id, filename):
         outfile.write(json.dumps(checkins, indent=4))
 
 
+def get_data_for_user(username, filename):
+    url = 'https://api.untappd.com/v4/user/checkins/%s?client_id=%s&client_secret=%s&limit=50' % (username, CLIENT_ID, CLIENT_SECRET)
+    get_data(url, filename)
+
+
+def get_data_for_venue(venue_id, filename):
+    url = 'https://api.untappd.com/v4/venue/checkins/%s?client_id=%s&client_secret=%s' % (venue_id, CLIENT_ID, CLIENT_SECRET)
+    get_data(url, filename)
+
+
 if __name__ == '__main__':
-    get_data('912196', 'run4.json')
+    #get_data_for_venue('912196', 'run4.json')
+    get_data_for_user('atlefren', 'atlefren.json')
