@@ -120,9 +120,6 @@ def get_positions(breweries):
 
 def generate_stats(checkins):
 
-    seen = set()
-    checkins = [c for c in checkins if c['checkin_id'] not in seen and not seen.add(c['checkin_id'])]
-
     year_stats = defaultdict(list)
 
     checkins = [Checkin(checkin) for checkin in checkins]
@@ -174,6 +171,14 @@ def generate_stats(checkins):
     return {'years': years}
 
 
+def load_checkins(file):
+    with open(file) as infile:
+        checkins = json.loads(infile.read())
+        seen = set()
+        return [c for c in checkins if c['checkin_id']
+                not in seen and not seen.add(c['checkin_id'])]
+
+
 def print_template(data):
     template_loader = jinja2.FileSystemLoader(searchpath=DIRECTORY)
     template_env = jinja2.Environment(loader=template_loader)
@@ -184,7 +189,6 @@ def print_template(data):
 
 
 if __name__ == '__main__':
-    with open('run3.json') as run2:
-        checkins = json.loads(run2.read())
+        checkins = load_checkins('run3.json')
         data = generate_stats(checkins)
         print_template(data)
