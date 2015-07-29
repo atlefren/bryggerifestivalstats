@@ -17,7 +17,7 @@
         {% for year in years %}
             <div class="col-md-{{12 // years | length}}">
                 <h2>{{year.year}}</h2>
-                <dl class="dl-horizontal">
+                <dl>
                     <dt>Antall innsjekkinger:</dt>
                     <dd>{{year.num_checkins}}</dd>
                     <dt>Antall forskjellige øl:</dt>
@@ -26,17 +26,28 @@
                     <dd>
                         <ol>
                             {% for beer in year.beer_top_5 %}
-                            <li>{{beer.brewery}} {{beer.beer}} ({{beer.num}})</li>
+                            <li>
+                                <a href="https://untappd.com/beer/{{beer.bid}}" target="_blank">
+                                    {{beer.brewery.brewery_name}} {{beer.beer_name}}
+                                </a>
+                                ({{beer.num}})
+                            </li>
                             {% endfor %}
                         </ol>
                     </dd>
-                    <dt>Høyest ratede øl:</dt>
+                    <dt>Høyest ratede øl*:</dt>
                     <dd>
                         <ol>
                             {% for beer in year.beer_top_5_score %}
-                            <li>{{beer.brewery}} {{beer.beer}} ({{beer.score}} / 5)</li>
+                            <li>
+                                <a href="https://untappd.com/beer/{{beer.bid}}" target="_blank">
+                                    {{beer.brewery.brewery_name}} {{beer.beer_name}}
+                                </a>
+                                ({{beer.score |round(2)}} / 5) ({{beer.num}} checkins)
+                            </li>
                             {% endfor %}
                         </ol>
+                        <p>*Øl med minst 2 checkins, snitt av alle ratinger på festivalen</p>
                     </dd>
                     <dt>Antall forskjellige bryggerier:</dt>
                     <dd>{{year.num_breweries}}</dd>
@@ -44,7 +55,12 @@
                     <dd>
                         <ol>
                             {% for brewery in year.brewery_top_5 %}
-                            <li>{{brewery.name}} ({{brewery.num}})</li>
+                                <li>
+                                    <a href="https://untappd.com/brewery/{{brewery.brewery_id}}" target="_blank">
+                                        {{brewery.brewery_name}}
+                                    </a>
+                                    ({{brewery.num}})
+                                </li>
                             {% endfor %}
                         </ol>
                     </dd>
@@ -54,11 +70,20 @@
                     <dd>
                         <ol>
                             {% for user in year.user_top_5 %}
-                            <li>{{user.name}} ({{user.num}})</li>
+                            <li>
+                                <a href="https://untappd.com/user/{{user.user_name}}" target="_blank">
+                                    {{user.user_name}}
+                                </a>
+                                ({{user.num}})
+                            </li>
                             {% endfor %}
                         </ol>
                     </dd>
                 </dl>
+                <h4>Bilder</h4>
+                {% for photo in year.photos %}
+                    <img src="{{photo}}" height="100" width="100" />
+                {% endfor %}
 
             </div>
         {% endfor %}
