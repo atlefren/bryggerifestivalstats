@@ -32,6 +32,7 @@
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
     <script src="http://code.highcharts.com/modules/drilldown.js"></script>
+    <script src="wordcloud2.js"></script>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -59,35 +60,35 @@
                                 
                                 <li>
                                     <a href="https://untappd.com/beer/345075" target="_blank">
-                                        CAP Brewery I'm Curious 13.1 - Imperial Stout
+                                        CAP Brewery - I'm Curious 13.1 - Imperial Stout
                                     </a>
                                     (28)
                                 </li>
                                 
                                 <li>
                                     <a href="https://untappd.com/beer/396363" target="_blank">
-                                        Austmann Bryggeri Northumberland
+                                        Austmann Bryggeri - Northumberland
                                     </a>
                                     (25)
                                 </li>
                                 
                                 <li>
                                     <a href="https://untappd.com/beer/325272" target="_blank">
-                                        HaandBryggeriet Humlesus
+                                        HaandBryggeriet - Humlesus
                                     </a>
                                     (19)
                                 </li>
                                 
                                 <li>
                                     <a href="https://untappd.com/beer/417622" target="_blank">
-                                        Nøgne Ø Imperial Premiant India Pilsner
+                                        Nøgne Ø - Imperial Premiant India Pilsner
                                     </a>
                                     (19)
                                 </li>
                                 
                                 <li>
                                     <a href="https://untappd.com/beer/420344" target="_blank">
-                                        Nøgne Ø Mandarina IPA
+                                        Nøgne Ø - Mandarina IPA
                                     </a>
                                     (19)
                                 </li>
@@ -100,42 +101,84 @@
                                 
                                 <li>
                                     <a href="https://untappd.com/beer/302487" target="_blank">
-                                        Nøgne Ø Dark Horizon 4th Edition
+                                        Nøgne Ø - Dark Horizon 4th Edition
                                     </a>
                                     (4.5 / 5) (8 checkins)
                                 </li>
                                 
                                 <li>
                                     <a href="https://untappd.com/beer/15929" target="_blank">
-                                        Nøgne Ø India Pale Ale (IPA)
+                                        Nøgne Ø - India Pale Ale (IPA)
                                     </a>
                                     (4.25 / 5) (4 checkins)
                                 </li>
                                 
                                 <li>
                                     <a href="https://untappd.com/beer/42871" target="_blank">
-                                        Nøgne Ø Imperial Stout
+                                        Nøgne Ø - Imperial Stout
                                     </a>
                                     (4.25 / 5) (2 checkins)
                                 </li>
                                 
                                 <li>
                                     <a href="https://untappd.com/beer/420607" target="_blank">
-                                        ClubGonzo Masturbator
+                                        ClubGonzo - Masturbator
                                     </a>
                                     (4.0 / 5) (2 checkins)
                                 </li>
                                 
                                 <li>
                                     <a href="https://untappd.com/beer/17844" target="_blank">
-                                        Ægir Bryggeri Ægir IPA
+                                        Ægir Bryggeri - Ægir IPA
                                     </a>
                                     (4.0 / 5) (2 checkins)
                                 </li>
                                 
                             </ol>
-                            <p>*Øl med minst 2 checkins, snitt av alle ratinger på festivalen</p>
                         </dd>
+                        <dt>Lavest ratede øl*:</dt>
+                        <dd>
+                            <ol>
+                                
+                                <li>
+                                    <a href="https://untappd.com/beer/9540" target="_blank">
+                                        Ringnes Bryggeri - Ringnes Lite
+                                    </a>
+                                    (0.5 / 5) (2 checkins)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/beer/67434" target="_blank">
+                                        Inderøy Gårdsbryggeri - Kvitweiss
+                                    </a>
+                                    (0.63 / 5) (4 checkins)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/beer/179" target="_blank">
+                                        Mikkeller - Beer Geek Breakfast
+                                    </a>
+                                    (1.0 / 5) (3 checkins)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/beer/197975" target="_blank">
+                                        Klostergården Håndbryggeri - Blond
+                                    </a>
+                                    (1.0 / 5) (6 checkins)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/beer/419327" target="_blank">
+                                        Klostergården Håndbryggeri - Byggvin 2010
+                                    </a>
+                                    (1.93 / 5) (7 checkins)
+                                </li>
+                                
+                            </ol>
+                            
+                        </dd>
+                        <p>*Øl med minst 2 checkins, snitt av alle ratinger på festivalen</p>
                         <dt>Antall forskjellige bryggerier:</dt>
                         <dd>19</dd>
                         <dt>Mest innsjekkede bryggerier:</dt>
@@ -289,6 +332,30 @@
                     </script>
 
                     <hr />
+                    <h4>Ordsky</h4>
+                    <canvas height="400" width="400" id="wordcloud-2013" style="width:100%;" class="thumbnail"></canvas>
+
+                    <script type="text/javascript">
+                        (function() {
+                            'use strict';
+                            var canvas = document.getElementById('wordcloud-2013');
+
+                            canvas.width  = $(canvas).width();
+                            WordCloud(
+                                canvas,
+                                {
+                                    list: [["helt", 24], [":)", 4], ["less", 4], ["bitter!", 8], ["ale", 8], ["skal", 4], ["godt", 8], ["ganske", 8], ["g\u00e5r", 4], ["alkoholisk", 4], ["pr\u00f8ves", 4], ["tror", 4], ["alt", 4], ["2013", 4], ["venner", 4], ["noks\u00e5", 4], ["wow!", 4], ["barlywine-tendenser", 4], ["heller", 4], ["porteraktig", 4], ["smakt", 8], ["justeres", 4], ["hops", 4], ["beste", 4], ["interessant", 4], ["better", 4], ["2010-vintage", 4], ["langt", 4], ["kirseb\u00e6r", 4], ["lett", 12], ["igjen", 12], ["sitrus", 12], ["pr\u00f8ve", 4], ["senere", 4], ["kanskje", 8], ["utfordrende", 4], ["match", 4], ["slett", 4], ["tja", 4], ["brown", 12], ["f\u00f8rste", 4], ["innertier", 4], ["emmen", 4], ["python", 4], ["noe", 8], ["de", 4], ["fat", 12], ["mot", 4], ["dark", 4], ["romtemperatur", 4], ["dessert\u00f8l", 4], ["teste", 4], ["s\u00e6rpreget", 4], ["trondheim", 4], ["god!", 12], ["burnt", 8], ["myehhumle", 4], ["prominent", 4], ["kaker", 4], ["s\u00f8te", 4], ["d", 4], ["flour", 4], ["portvin?", 4], ["vinous", 4], ["veldig", 20], ["ellers", 4], ["bad", 4], ["deilig", 8], ["coffeeish", 4], ["r\u00f8yk", 4], ["saker", 4], ["shocking", 4], ["works", 4], ["backlog", 12], ["balansert", 4], ["alene", 4], ["whiskufat", 4], ["\u00f8l", 12], ["kjedelig", 12], ["halvsur", 4], ["her!", 4], ["kaffe!", 4], ["drikke\u00f8l", 4], ["eb", 8], ["bare", 4], ["us", 4], ["doser", 4], ["overraskende", 4], ["tommy!", 8], ["odd", 8], ["gress", 4], ["(linda", 4], ["co2", 4], ["overkant", 4], ["d\u00e5rlig", 4], ["smaker", 12], ["fersk", 8], ["hjemmebrygg", 4], [":-d", 4], ["\u00f8l?", 4], ["sherrypreg", 4], ["bra!", 4], ["score", 4], ["bli", 4], ["nei!", 4], ["atypisk", 4], ["godt!", 4], ["smaken", 8], ["nope", 4], ["vintage", 8], ["full", 4], ["humle", 12], ["uvanlig", 4], ["ettersmak", 4], ["meh", 4], ["food?!", 4], ["quite", 4], ["ale?", 4], ["ike", 4], ["aldri", 4], ["suppe", 4], [";)", 8], ["ja", 4], ["chilli", 4], ["sm\u00e5", 4], ["ok", 4], ["pilsner", 4], ["sur\u00f8l", 4], ["lakris-smak", 4], ["usedvanlig", 8], ["hint", 4], ["gj\u00e6raroma", 4], ["agree", 4], ["thing", 4], ["tindved-b\u00e6r", 4], ["jo", 8], ["frisk!", 4], ["flavour", 4], ["opinion", 4], ["'im", 4], ["suitable", 4], ["mouth", 4], ["favoritt", 4], ["nice!", 8], ["nice", 4], ["ipa", 4], ["nesten", 4], ["kaffesmak", 4], ["desiliter", 4], ["allerede", 4], ["harmonic", 4], ["impstout", 4], ["wit", 4], ["mening", 4], ["type", 4], ["smak", 24], ["ekstremt", 4], ["thick", 4], ["lagring!", 4], ["smells", 4], ["kom", 4], ["gir", 4], ["stj\u00f8rdalsbrygg", 4], ["&", 4], ["humlearoma", 4], ["preg", 4], ["t\u00f8rr", 12], ["beer", 4], ["spennende", 4], ["likte", 4], ["klart", 4], ["m\u00f8rke", 4], ["ubalansert", 4], ["draft", 4], ["jeg", 20], ["frisk", 8], ["tatt", 4], ["alalkoholsmak", 4], ["bitter", 16], ["flat", 4], ["drikkes", 4], ["share", 4], ["g\u00e5rsdagens", 4], ["on!", 4], ["tr\u00f8tte", 4], ["t\u00f8rrere", 4], ["fruktig", 20], ["liker!", 4], ["saison", 12], ["kantete", 4], ["hb", 4], ["eple?!?", 4], ["believe", 4], ["5)\n\n:-)", 4], ["har", 8], ["fortsatt", 4], ["temmelig", 4], ["kjenner", 4], ["maltsoppa", 4], ["oksidert", 4], ["b\u00e5de", 4], ["solid", 4], ["etter", 12], ["malt", 12], ["northumberland", 4], ["batch", 4], ["oppskriften", 4], ["2010", 8], ["humla", 4], ["slo", 4], ["del", 4], ["thin", 4], ["den", 16], ["vm", 4], ["kaffe", 4], ["grei", 8], ["bedre", 8], ["curious'?", 4], ["lemongrass", 4], ["tar", 4], ["merkelig", 4], ["kjetil", 12], ["india", 4], ["m\u00f8rk", 12], ["oi!", 4], ["dog", 8], ["austmann", 4], ["blir", 12], ["rar", 4], ["nydelig", 4], ["idag", 20], ["imponert", 4], ["tidl", 16], ["kjempetypisk?", 4], ["utroli", 4], ["foredrag", 12], ["\u00f8lkurs", 24], ["litt", 84], ["nok", 4], ["funky", 4], ["igrunn", 4], ["food", 4], ["humletr\u00f8kk", 4], ["prefer", 4], ["dessert", 8], ["lite", 4], ["takk", 8], ["sin", 4], ["sp\u00f8r", 4], ["tam", 8], ["fyldig", 4], ["veit", 4], ["mat", 4], ["f\u00f8r!", 4], ["kreklingen", 4], ["premiere", 4], ["dette", 12], ["lakris", 4], ["innsjekk!", 4], ["usikker", 4], ["ryktes", 4], ["sterkere!", 4], ["surt", 4], ["saisonfan", 4], ["lagertype", 4], ["dobbel", 4], ["plenty", 4], ["mealy", 4], ["trenger", 4], ["duck!", 4], ["alcohol", 8], ["h\u00f8vringen!", 4], ["huska", 4], ["inder\u00f8y!", 4], ["eple", 4], ["m\u00e5tte", 8], ["samtidig", 4], ["tynn", 12], ["karakter", 4], ["si?", 4], ["skiftet", 4], ["h\u00e5ndtverk", 4], ["kurs", 4], ["geyser-feeling", 4], ["opinionated", 4], ["temperatur", 4], ["veal", 4], ["heftig", 4], ["jevnlig", 4], ["fresh", 4], ["alkohol", 4], ["raspberries?!", 4]],
+                                      gridSize: 18,
+                                      weightFactor: 3,
+                                      fontFamily: 'sans-serif',
+                                      color: 'random-dark',
+                                      backgroundColor: '#fff'
+                                }
+                            );
+                        }());
+                    </script>
+
+                    <hr />
                     <h4>Bilder</h4>
                     
                         <img class="thumbnail-img" src="https://untappd.akamaized.net/photo/2013_08_03/55dd0c967818159a8b7c0274a344fbc2_100x100.jpg" height="100" width="100" />
@@ -363,35 +430,35 @@
                                 
                                 <li>
                                     <a href="https://untappd.com/beer/762966" target="_blank">
-                                        Ringnes Bryggeri Polaris Baltisk Porter 
+                                        Ringnes Bryggeri - Polaris Baltisk Porter 
                                     </a>
                                     (70)
                                 </li>
                                 
                                 <li>
                                     <a href="https://untappd.com/beer/710343" target="_blank">
-                                        Kinn Bryggeri Skoddehav
+                                        Kinn Bryggeri - Skoddehav
                                     </a>
                                     (57)
                                 </li>
                                 
                                 <li>
                                     <a href="https://untappd.com/beer/419332" target="_blank">
-                                        Klostergården Håndbryggeri Byggvin 2013
+                                        Klostergården Håndbryggeri - Byggvin 2013
                                     </a>
                                     (56)
                                 </li>
                                 
                                 <li>
                                     <a href="https://untappd.com/beer/762334" target="_blank">
-                                        Austmann Bryggeri Ekofisk
+                                        Austmann Bryggeri - Ekofisk
                                     </a>
                                     (52)
                                 </li>
                                 
                                 <li>
                                     <a href="https://untappd.com/beer/519005" target="_blank">
-                                        Klostergården Håndbryggeri Alstadberger
+                                        Klostergården Håndbryggeri - Alstadberger
                                     </a>
                                     (49)
                                 </li>
@@ -404,42 +471,84 @@
                                 
                                 <li>
                                     <a href="https://untappd.com/beer/44455" target="_blank">
-                                        E. C. Dahls Bryggeri Dahls Pils
+                                        E. C. Dahls Bryggeri - Dahls Pils
                                     </a>
                                     (5.0 / 5) (2 checkins)
                                 </li>
                                 
                                 <li>
                                     <a href="https://untappd.com/beer/325272" target="_blank">
-                                        HaandBryggeriet Humlesus
+                                        HaandBryggeriet - Humlesus
                                     </a>
                                     (4.42 / 5) (6 checkins)
                                 </li>
                                 
                                 <li>
                                     <a href="https://untappd.com/beer/29512" target="_blank">
-                                        Kinn Bryggeri Vestkyst
+                                        Kinn Bryggeri - Vestkyst
                                     </a>
                                     (4.29 / 5) (14 checkins)
                                 </li>
                                 
                                 <li>
                                     <a href="https://untappd.com/beer/448458" target="_blank">
-                                        Ringnes Bryggeri Superior Polaris
+                                        Ringnes Bryggeri - Superior Polaris
                                     </a>
                                     (4.0 / 5) (4 checkins)
                                 </li>
                                 
                                 <li>
                                     <a href="https://untappd.com/beer/61682" target="_blank">
-                                        Kinn Bryggeri Bøvelen
+                                        Kinn Bryggeri - Bøvelen
                                     </a>
                                     (3.91 / 5) (11 checkins)
                                 </li>
                                 
                             </ol>
-                            <p>*Øl med minst 2 checkins, snitt av alle ratinger på festivalen</p>
                         </dd>
+                        <dt>Lavest ratede øl*:</dt>
+                        <dd>
+                            <ol>
+                                
+                                <li>
+                                    <a href="https://untappd.com/beer/594402" target="_blank">
+                                        To Tårn Bryggeri AS - Buøy-øl
+                                    </a>
+                                    (1.75 / 5) (2 checkins)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/beer/706837" target="_blank">
+                                        Namdalsbryggeriet - //namsen
+                                    </a>
+                                    (1.75 / 5) (2 checkins)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/beer/734607" target="_blank">
+                                        Ægir Bryggeri - Eir Wasabi Saison
+                                    </a>
+                                    (2.0 / 5) (4 checkins)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/beer/763304" target="_blank">
+                                        Røros Bryggeri Og Mineralvannfabrikk - Hovistuten Ekstra Dryg
+                                    </a>
+                                    (2.3 / 5) (5 checkins)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/beer/764049" target="_blank">
+                                        Namdalsøl - Sterk
+                                    </a>
+                                    (2.42 / 5) (13 checkins)
+                                </li>
+                                
+                            </ol>
+                            
+                        </dd>
+                        <p>*Øl med minst 2 checkins, snitt av alle ratinger på festivalen</p>
                         <dt>Antall forskjellige bryggerier:</dt>
                         <dd>33</dd>
                         <dt>Mest innsjekkede bryggerier:</dt>
@@ -589,6 +698,30 @@
 
                             map.fitBounds(features.getBounds());
                             features.addTo(map);
+                        }());
+                    </script>
+
+                    <hr />
+                    <h4>Ordsky</h4>
+                    <canvas height="400" width="400" id="wordcloud-2014" style="width:100%;" class="thumbnail"></canvas>
+
+                    <script type="text/javascript">
+                        (function() {
+                            'use strict';
+                            var canvas = document.getElementById('wordcloud-2014');
+
+                            canvas.width  = $(canvas).width();
+                            WordCloud(
+                                canvas,
+                                {
+                                    list: [["jaja", 4], ["bronse", 4], ["ansatstynn", 4], [":(", 4], [":)", 24], ["sommerdag", 4], ["#knalliter", 4], ["alts\u00e5", 8], ["kveite\u00f8lkonseptet", 4], ["ale", 28], ["hatt", 4], ["surt!", 4], ["mild", 60], ["woods", 4], ["gang", 12], ["go", 12], ["alt", 12], ["skambankt", 4], ["hmmm", 4], ["dessverre", 4], ["batcher", 4], ["batches", 4], ["drikkende", 4], ["gudbedremeg", 4], ["forutinntatt", 4], ["beste", 20], ["mindre", 4], ["sjoko", 4], ["smakl\u00f8st", 4], ["alksvak", 4], ["toromogkj\u00f8kke", 4], ["bli", 4], ["vel", 12], ["daler", 8], ["poenget", 4], ["vei", 4], ["brown", 20], ["metallisk", 4], ["l\u00f8fter", 4], ["norske", 4], ["far", 12], ["p\u00f8lsa", 4], ["fat", 8], ["hoards", 4], ["simpsons", 4], ["ukritisk", 4], ["avbalansert", 4], ["varermokka/sjokolade", 4], ["savner", 8], ["varmr\u00f8kt", 4], ["uklar", 16], ["fungerer", 4], ["noter", 4], ["n\u00e6rt", 4], ["metall?", 4], ["fantastisk", 36], ["hittil", 8], ["dagens", 4], ["lever", 4], ["45%", 4], ["faen", 8], ["balansert", 28], ["unexpected", 4], ["smakl\u00f8s", 4], ["sjokolademousse", 4], ["tea", 4], ["balanse", 8], ["balanseres", 4], ["pepper", 4], ["virkelig", 4], ["sl\u00e5r", 4], ["rate", 4], ["f\u00e6l", 4], ["baki", 4], ["ekstra", 16], ["skambankt!", 4], ["muligens", 4], ["akevittfatet", 4], ["r\u00f8ykeloven", 4], ["this'll", 4], ["d\u00e5rlig", 4], ["neh", 4], ["plomme", 8], ["fine", 4], ["ned", 4], ["smakfull", 4], ["sjampiskork", 4], ["kun", 4], ["melkesjokolade", 4], ["sur", 16], ["mokkajordb\u00e6r", 4], ["nei!", 4], ["godt!", 4], ["ever", 4], ["overraskende!", 4], ["body", 8], ["liquorice", 4], ["full", 8], ["denne!", 4], ["lei", 4], ["belgisk", 16], ["meh", 8], ["bringeb\u00e6raktig", 4], ["tykk", 4], ["b\u00e5l?", 4], ["aldri", 4], ["ansats", 12], ["langt", 8], ["dry", 8], ["ordentlig", 4], ["jord", 4], ["forhold", 4], ["vassat", 4], ["greipfruktskall", 4], ["(erlend!)", 4], ["verdig", 4], ["ideelt", 4], ["brente", 4], ["smoke", 4], ["dra", 4], ["kraftig", 12], ["hvetesmak", 4], ["gyllent", 8], ["\"lim\"", 4], ["#oif\u00f8lelsen", 4], ["virker", 4], ["spesielt", 8], ["love", 4], ["maltbase", 4], ["sjokolade", 32], ["vin", 4], ["tidenes", 4], ["m8n", 4], ["sterk", 36], ["att\u00e5t", 4], ["faktisk", 4], ["apple", 4], ["smak", 88], ["gj\u00e6rsmak", 4], ["hardt", 4], ["\u00e5r", 8], ["&", 8], ["preg", 12], ["smal", 4], ["paa", 4], ["sitter", 4], ["tydeligvis", 4], ["positivt", 4], ["kantete", 4], ["type", 20], ["s\u00e6rpreg", 8], ["skum", 20], ["drinkable", 4], ["vinner!", 4], ["sm\u00e5boblet", 4], ["helvete", 4], ["fruktig", 36], ["beers", 4], ["kandis?", 4], ["nehhhh", 4], ["h\u00f8ydare!", 4], ["kledelig", 4], ["starter", 8], ["whisky", 8], ["spritaktig", 4], ["f", 4], ["malt", 16], ["slapp", 4], ["t\u00f8rsteslukker", 8], ["mokka", 4], ["dei", 8], ["humla", 4], ["noe!!!", 4], ["del", 4], ["den", 64], ["ibu", 4], ["navnet", 4], ["whiskey", 4], ["bron", 4], ["imperial", 4], ["bunnen", 4], ["h\u00f8sthumle", 4], ["tar", 4], ["thaimatkandidat", 4], ["humlebalanse", 4], ["awesome", 4], ["ingef\u00e6r/sitron", 4], ["morsomt", 4], ["fuck", 4], ["absolutt", 4], ["kveldens", 8], ["humle", 40], ["hjemmebrygget", 4], ["salty", 4], ["nydelig", 76], ["uferdig?", 4], ["tam", 28], ["mmmmmn", 4], ["godkjent", 4], ["tak", 4], ["!", 4], ["\u00f8lsmaken", 4], ["milde", 4], ["roastbiff", 4], ["naice", 4], ["mja", 4], ["krydret", 4], ["avslutning", 4], ["dessert", 8], ["j\u00e6vel", 4], ["svakt", 4], ["sin", 8], ["f\u00f8r?", 4], ["knas!", 4], ["klar", 4], ["gj\u00e6r", 12], ["fram", 4], ["stil", 4], ["storboblet", 8], ["belgians", 4], ["nomenomenom", 4], ["floral", 4], ["r\u00f8yksmaken", 4], ["opp:)", 4], ["m\u00e6", 4], ["alkoholsterk", 4], ["b\u00e5l", 8], ["light", 4], ["parfymert?", 4], ["su", 4], ["favoritt", 8], ["friskus", 8], ["funker", 8], ["1000", 4], ["neida", 4], ["wine", 8], ["helt", 56], ["itj", 12], ["overmoden", 4], ["hvitt", 4], ["ender", 4], ["wit", 4], ["vaffal", 4], ["porter!", 4], ["ganske", 24], ["lukt", 16], ["maltdrikke", 4], ["bitterhet", 24], ["endel", 4], ["drikkelig", 4], ["kurant", 4], ["joda", 12], ["fis", 4], ["style", 4], ["pent", 16], ["kornpreg", 8], ["smakt", 12], ["r\u00f8yken", 4], ["fireplace", 4], ["friskt", 4], ["bringeb\u00e6r", 4], ["skvip", 4], ["better", 8], ["r\u00e5", 8], ["smake", 8], ["orange", 8], ["beklager", 4], ["kanskje", 20], ["tja", 24], ["nom", 4], ["alstadberger", 4], ["dag", 8], ["leskelig", 4], ["h\u00f8ydepunkt!", 4], ["nok", 24], ["citrus", 8], ["noe", 36], ["safe", 4], ["s\u00e6r", 4], ["ufiltrert", 4], ["varmen!", 4], ["sikkerstikket", 4], ["stout", 16], ["grapefrukt", 12], ["cyanid", 4], ["gressmalt\ns:", 4], ["moses!", 4], ["frisk?", 4], ["easily", 4], ["vannat", 4], ["name", 4], ["kurrant!", 4], ["jadaflott", 4], ["hvete", 4], ["veldig", 40], ["smak?", 4], ["maibock", 4], ["smak!", 4], ["ellers", 12], ["gangen", 4], ["check-in", 4], ["visstnok", 4], ["2c", 4], ["svakere", 4], ["frisk!", 4], ["saison?", 4], ["myeeee", 4], ["ej", 4], ["fisk", 4], ["fyldigere", 4], ["grei!", 4], ["gj\u00e6r\ns:", 4], ["wine!", 4], ["tr\u00f8kk", 4], ["ille", 4], ["(torskepate)", 4], ["saison'ish", 4], ["sm\u00f8r", 4], ["saison!", 8], ["nelson?", 4], ["klippfiskpotettr\u00f8ffelgreier", 4], ["alcohol", 4], ["testvinner", 4], ["satser", 4], ["svak", 20], ["heyheyheyhey!\nandre", 4], ["skiller", 4], ["farge", 8], ["ren", 8], ["barley", 12], ["grotteost", 4], ["vellykket", 4], ["hverken", 4], ["brewery", 4], ["solvegg\u00f8l", 4], ["kropp", 12], ["ettersmak", 76], ["greie", 4], ["daddel", 4], ["dette!", 4], ["quite", 4], ["mmm", 8], ["b\u00e5rd", 4], ["butikkjule\u00f8l", 4], ["ok\u00e5", 4], ["cabin", 4], ["gammel", 4], ["greit", 12], ["klarer", 4], ["ringnes", 8], ["maa", 4], ["friskis", 4], ["sprit", 4], ["appelsinsitronskallsvak", 4], ["blondeskum", 8], ["thing", 4], ["nuff", 4], ["massive", 4], ["helst", 4], ["think", 4], ["langvarige", 4], ["first", 4], ["og?", 4], ["einer", 8], ["nesten", 4], ["pga", 8], ["blant", 4], ["ingen", 8], ["m\u00f8ter", 4], ["one", 12], ["godsaker", 4], ["stj\u00f8rdals\u00f8l", 16], ["synes", 4], ["enig", 4], ["passer", 12], ["r\u00f8kt!", 4], ["tross", 4], ["fair", 8], ["trekker", 4], ["stram", 4], ["riga", 4], ["t\u00f8rr", 16], ["mellom", 8], ["\u00f8kologisk", 4], ["2", 8], ["jeg", 64], ["bomkj\u00f8p", 4], ["j\u00e6vligste", 4], ["kos", 4], ["bitter", 56], ["seri\u00f8st", 4], ["totre", 4], ["honningsmak", 4], ["alkoholprosent", 4], ["kanskje?", 4], ["s\u00f8dme", 44], ["bacon", 4], ["neste!", 4], ["altfor", 8], ["bitterhetfriskfin", 4], ["kamfulerer", 4], ["unektelig", 4], ["temperert", 4], ["forfriskende", 4], ["digg", 4], ["underlig", 4], [":-d", 4], ["blir", 8], ["malttung", 4], ["b\u00e5de", 4], ["kinn", 8], ["etter", 12], ["h\u00e6r", 4], ["siggy", 4], ["steiksola", 4], ["tamt", 8], ["spiss", 4], ["grei", 44], ["utvanna", 4], ["galt", 4], ["tasted", 4], ["delig", 4], ["merkelig", 8], ["well", 4], ["endelig", 8], ["b\u00f8tter", 4], ["skikkelig", 8], ["dash", 4], ["say", 4], ["spicy", 4], ["rar", 12], ["overtakende", 4], ["sommersmak", 4], ["yees", 4], ["turn", 4], ["gjort", 4], ["ferdig", 4], ["s\u00e5nn", 8], ["jo!\ns;sammensattfantastisk", 4], ["omnom", 4], ["frelst", 4], ["snop", 4], ["skottland", 4], ["rignes???", 4], ["masse", 24], ["appelsingrapefrukt", 4], ["r\u00f8yka", 4], ["best", 12], ["malty", 4], ["den!", 4], ["banan", 4], ["=", 4], ["ad", 8], ["kaldere", 4], ["fantastisk!", 4], ["s\u00f8teste", 4], ["eplevarianten", 4], ["miks", 4], ["ettersmaken", 4], ["dette", 32], ["f\u00f8rste", 8], ["surt", 4], ["said", 8], ["skinner", 4], ["foretrekker", 4], ["nothing", 4], ["bitterhetlang", 4], ["skjer", 4], ["god:)", 4], ["st\u00e5", 4], ["ogs\u00e5!", 8], ["vannsmak", 8], ["t\u00f8rreste", 4], ["lukter", 20], ["samtidig", 4], ["sommer\u00f8l", 4], ["dalpro", 4], ["later", 4], ["hipa", 4], ["dog", 8], ["potensiale", 4], ["pr\u00f8v", 4], ["leskedrikk!", 4], ["forventet", 4], ["plommer", 8], ["ogs\u00e5?", 4], ["flattamkjedelig", 4], ["r\u00f8ykpreg", 8], ["rating", 4], ["mutual\nmytji", 4], ["svovelaktig", 4], ["bitterhetlitt", 4], ["ingenting", 8], ["velbalansert", 4], ["liitt", 4], ["fint", 16], ["bokk\u00f8laktig", 4], ["frukt", 4], ["perfekt", 4], ["passe", 4], ["gutta", 4], ["plukke", 4], ["hoinnpess!", 4], ["hypen", 4], ["parfymeifisert", 4], ["brentsmak", 8], ["byggvin", 4], ["butikk-versjonen", 4], ["snev", 4], ["3", 12], ["interessant", 8], ["bokk\u00f8l", 4], ["jah", 12], ["69%", 8], ["lukt)", 4], ["8", 4], ["bourbon", 16], ["fort", 8], ["\u00e5r!", 4], ["herlig", 12], ["sitrongress", 8], ["lell", 4], ["l:humle", 4], ["tro!", 4], ["de", 12], ["snaidder!", 4], ["r\u00f8kete", 4], ["appelsinsaft", 8], ["made", 4], ["merker", 8], ["kompleks", 4], ["fin!", 8], ["hakk", 4], ["bittert", 4], ["reell", 4], ["smaken", 12], ["yumyum!!!", 4], ["leverer!", 4], ["pose\ns:", 4], ["r\u00f8dlig", 12], ["maltkarakter", 4], ["bad", 4], ["(whiskey-farget)", 4], ["rund", 32], ["boring", 4], ["balsam?", 4], ["helvetefin", 4], ["1!!!", 4], ["\u00f8l\nbra", 4], ["syre", 8], ["m\u00e6rr", 4], ["\u00f8l", 116], ["vanlig", 8], ["besk", 4], ["roasted", 4], ["rosin-aktig", 4], ["seg", 4], ["varm", 4], ["henger", 4], ["bare", 12], ["maltkarakteren", 4], ["sakte", 4], ["#3", 4], ["tjafin", 4], ["#1", 4], ["minner", 4], ["#5", 4], ["#4", 4], [":/", 4], ["egentlig", 4], ["co2", 4], ["forbehold", 4], ["likevel", 4], ["ting?", 4], ["smaker", 36], ["lots", 4], ["fors\u00f8k", 4], ["deilj", 4], ["bra?", 4], ["akevitt", 4], ["uffs\u00e6rpreg", 4], ["ansatsmokkasitrusdaler", 4], ["bra!", 4], ["knas", 8], ["fant", 4], ["herbal", 4], ["probably", 4], ["femmer", 4], ["vond", 4], ["grensa", 4], ["nomfine", 4], ["bl\u00e6h", 4], ["\u00f8nsket", 4], ["nam!", 8], ["rosin", 4], ["fruktighet", 4], ["spess", 4], ["kalvekjaken", 4], ["rundt", 4], ["annetkroppen", 4], ["whiskey-islandsmak", 4], ["jo", 28], ["minne:", 4], ["vin?", 4], ["malttoner", 4], ["ja", 16], ["typisk", 4], ["nummer", 4], ["ettersmaksnev", 4], ["butikk\u00f8l", 4], ["gj\u00e6rpreg", 4], ["sur\u00f8l", 8], ["lovende", 4], ["cup", 4], ["nicely!", 4], ["svaksvak", 4], ["minus", 4], ["flott", 20], ["hoyhoy", 4], ["s", 4], ["kommer", 8], ["s\u00e6re", 8], ["ung", 4], ["verken", 4], ["aaah", 4], ["among", 4], ["childhood", 4], ["brentmalt", 4], ["sweet", 8], ["desverredaler", 4], ["borte", 8], ["gitt", 4], ["r\u00f8kt", 8], ["liker", 12], ["65", 4], ["\u00f8ll", 4], ["bitterhetfruktigtropisklite", 4], ["blonde", 4], ["crispy", 4], ["nydelig!", 8], ["annerledes", 4], ["m\u00f8rkt", 8], ["dum", 4], ["fordel", 8], ["decent", 4], ["sikkert", 4], ["slosmak", 4], ["fusel", 4], ["d\u00e6vven!", 4], ["frutti", 4], ["beer", 12], ["noen", 4], ["forrige", 4], ["frisk", 40], ["ah", 8], ["s:", 16], ["sur'\u00f8la", 4], ["4", 4], ["desverre", 4], ["m\u00f8rk", 24], ["kroppbrent", 4], ["kjedelig!", 4], ["like!", 4], ["fesk", 4], ["syrlig", 32], ["saison", 28], ["r\u00f8yksmak", 8], ["har", 32], ["imperial/double", 4], ["fortsatt", 20], ["/", 4], ["kj\u00f8ttsmaken", 4], ["fin", 132], ["straight", 4], ["batch", 4], ["mokka\ns:", 8], ["smaktelite", 4], ["m\u00f8rk!", 4], ["kaffe\ns:", 8], ["kaffemalt", 4], ["eik", 12], ["kjellern", 4], ["smaksmessig", 4], ["va", 4], ["sammegod", 4], ["goooooood\ndrunk\nall", 4], ["alcoholic", 4], ["sushi", 4], ["skummelt!", 4], ["ramsl\u00f8kmajones", 4], ["good", 4], ["karamell", 4], ["snakka!", 4], ["imponert", 8], ["oliver", 4], ["h\u00e5i!", 4], ["sammen", 8], ["\u00f8lkurs", 20], ["flaske", 8], ["skuffa", 8], ["g\u00e5rd", 4], ["intens!", 4], ["litt", 256], ["forholdsvis", 8], ["munkebyen", 4], ["mos", 4], ["skjenker", 4], ["lite", 28], ["tydelig", 12], ["lammel\u00e5r", 4], ["g\u00e5r", 4], ["sopp", 4], ["used", 4], ["begrenset\ns:nydelig", 4], ["t\u00f8rst", 4], ["omgivelser", 4], ["lakris", 40], ["skuff", 4], ["prosenten", 4], ["(undergj\u00e6ret)", 4], ["fruit", 4], ["dobbel", 4], ["promp", 4], ["trenger", 8], ["robust", 8], ["tung", 4], ["s\u00e5langt!", 4], ["kompetent", 4], ["lagring", 12], ["tynn", 48], ["skuffende", 8], ["niiice", 4], ["br\u00f8d", 4], ["tynt", 4], ["s\u00e5pass", 4], ["forst\u00e5r", 4], ["vinter>h\u00f8st", 4], ["fruttilang", 4], ["witfan", 4], ["sitrus?", 4], ["smakte", 20], ["kald", 4], ["l\u00e5v", 4], ["anonym", 4], ["liker!", 4], ["-", 4], ["lansering!", 4], ["kreasjon!", 4], ["nam-nam!", 4], ["skal", 8], ["godt", 88], ["aroma", 8], ["ikkje", 4], ["ipa", 36], ["s\u00f8t", 24], ["thumbs", 4], ["anders", 4], ["likar", 4], ["oioi!", 4], ["nam", 12], ["ikkenoe?", 4], ["wits", 4], ["gode", 4], ["snasen", 4], ["tropisk", 8], ["gangen!", 4], ["hint", 8], ["festivalen", 4], ["fatet?", 4], ["humle!", 4], ["lett", 44], ["sitrus", 16], ["senere", 4], ["laks", 8], ["st\u00f8yt", 8], ["match", 4], ["spann", 4], ["god?", 4], ["skummelt", 4], ["rules", 4], ["fj\u00f8s", 16], ["mot", 4], ["dark", 4], ["v\u00e5tt", 4], ["rolig", 8], ["snoothieshoten", 4], ["crisp", 4], ["fatsmak", 4], ["god!", 24], ["checkins", 4], ["sukret", 4], ["camoflagued", 4], ["brygget?", 4], ["tykkere", 4], ["d", 4], ["h\u00f8rt", 4], ["eplesmak", 4], ["maltrik", 8], ["skarp", 4], ["besvart", 4], ["portvin", 8], ["s\u00f8tt", 4], ["r\u00f8yk", 28], ["glasset!", 4], ["akkurat", 4], ["konge", 4], ["nja", 8], ["debut", 4], ["luftig", 4], ["mening", 4], ["nje", 4], ["kjedelig", 8], ["m\u00f8rke", 4], ["sitruspreg", 8], ["kullsyre", 8], ["flat\ns:", 4], ["mmmmm", 8], ["%\nkanon", 4], ["r\u00f8yksmak\ngod", 4], ["trippel", 4], ["finne", 4], ["alkoholer", 4], ["sommer", 4], ["pale", 12], ["brent", 12], ["hmmmm", 4], ["wow", 4], ["akevittettersmak", 4], ["tropisk\ns:", 4], ["kaldt", 4], ["kupiss", 4], ["kork", 4], ["fersk", 8], ["foy", 4], ["\u00f8l!", 12], ["'nough", 4], ["gj\u00e6ringstemp", 4], ["laget", 4], ["jamen", 4], ["vanskelig", 4], ["aroma!!!", 4], ["porter", 56], ["skyld", 4], ["krydderet?", 4], ["ba", 4], ["rum", 4], ["svart", 4], ["mulig", 4], ["rug", 4], ["ettersmakvelbalansert", 4], ["f\u00e5tt", 4], ["artig", 4], ["overgj\u00e6r", 4], [";)", 4], ["exciting", 4], ["alkoholskarphet", 4], ["svisker", 4], ["t\u00e5rn", 4], ["krydder", 4], [":-)", 36], ["ok", 32], ["omnomnom\nmild", 4], ["oi", 4], ["p\u00e6\u00e5v", 4], ["lager!", 4], ["l:", 76], ["itte", 4], ["tutti", 8], ["feil", 4], ["mystisk", 4], ["up:-)", 4], ["classic!", 4], ["barlywine", 4], ["begrenset", 4], ["a4", 8], ["maltbasert", 4], ["kombo", 4], ["humle\ns:", 16], ["hjalp", 4], ["drikke!", 4], ["lies", 4], ["overkill", 8], ["sot", 4], ["aprikos", 4], ["askebeger", 4], ["overgj\u00e6ret", 4], ["bergen", 4], ["s\u00f8dme?", 4], ["multer?", 4], ["syrli", 4], ["spr\u00f8tt", 4], ["pilsner", 4], ["klassisk", 4], ["kj\u00f8tt", 8], ["honning", 4], ["genser", 4], ["spennende", 12], ["likte", 8], ["kartet!", 4], ["mulug", 4], ["kaffesyrligfin", 4], ["familiar?", 4], ["fatet", 4], ["h\u00f8y", 4], ["knallgod", 4], ["tynn?", 4], ["ganger)", 4], ["drikker", 4], ["friskt!", 4], ["karbonert", 4], ["seigmann", 4], ["jul", 4], ["overhodet", 4], ["rustikk", 4], ["lagres", 8], ["(spesielt", 4], ["s\u00f8tbitter", 4], ["sjokkis", 4], ["kjenner", 12], ["kjennes", 4], ["sterke", 4], ["skjemt", 4], ["la", 4], ["h\u00f8yere", 8], ["ruined", 4], ["humlen", 4], ["t\u00e5kete", 4], ["tynnt", 4], ["toner", 4], ["slutten", 4], ["wineous", 4], ["utmerket", 4], ["kaffe", 24], ["tastes", 4], ["bedre", 36], ["elefant\u00f8l", 4], ["r\u00f8yk!!", 4], ["skuddredde", 4], ["600", 4], ["iskaffe", 4], ["lys", 28], ["(gj\u00e6res", 4], ["flytende", 4], ["festival\u00f8l!!", 4], ["overraskende", 24], ["skandale!", 4], ["floralhumleny\u00e5pnet", 4], ["metall", 4], ["utrolig", 4], ["drikke", 12], ["smaksrik", 4], ["drikki", 4], ["ubalansert", 12], ["gjennomsnittlig", 4], ["greier", 4], ["forbausende", 4], ["treffer", 4], ["mangler", 12], ["sugar", 4], ["nah", 4], ["begrensetlitt", 4], ["g\u00e5tt", 4], ["tenker", 4], ["forferdelig", 4], ["nz", 4], ["f\u00e5r", 4], ["kraftigs\u00f8dme", 4], ["skuffer", 4], ["nr", 8], ["smell", 4], ["nice", 8], ["fyldig", 24], ["korn", 8], ["veit", 4], ["austmannbrygg?", 4], ["drar", 4], ["woho", 4], ["tr\u00f8ng", 4], ["annet", 12], ["again:", 4], ["annen", 8], ["humlegrapefrukt", 8], ["goid", 4], ["fresk", 4], ["a?", 4], ["lagret", 4], ["e", 4], ["47%", 4], ["fylde", 4], ["age", 4], ["fremtredende", 8], ["h\u00e5ndtverk", 4], ["burde", 4], ["barrel", 4], ["\u00f8ker", 4], ["blanding", 4], ["mass", 8], ["nelson", 4], ["smaklekkermen", 4], ["lakris!", 4], ["tungt", 4], ["rauchbier", 4], ["igjennom", 4], ["lyst", 8], ["alkohol", 16], ["appelsinhumle", 4]],
+                                      gridSize: 18,
+                                      weightFactor: 3,
+                                      fontFamily: 'sans-serif',
+                                      color: 'random-dark',
+                                      backgroundColor: '#fff'
+                                }
+                            );
                         }());
                     </script>
 

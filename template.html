@@ -32,6 +32,7 @@
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
     <script src="http://code.highcharts.com/modules/drilldown.js"></script>
+    <script src="wordcloud2.js"></script>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -59,7 +60,7 @@
                                 {% for beer in year.beer_top_5 %}
                                 <li>
                                     <a href="https://untappd.com/beer/{{beer.bid}}" target="_blank">
-                                        {{beer.brewery.brewery_name}} {{beer.beer_name}}
+                                        {{beer.brewery.brewery_name}} - {{beer.beer_name}}
                                     </a>
                                     ({{beer.num}})
                                 </li>
@@ -72,14 +73,28 @@
                                 {% for beer in year.beer_top_5_score %}
                                 <li>
                                     <a href="https://untappd.com/beer/{{beer.bid}}" target="_blank">
-                                        {{beer.brewery.brewery_name}} {{beer.beer_name}}
+                                        {{beer.brewery.brewery_name}} - {{beer.beer_name}}
                                     </a>
                                     ({{beer.score |round(2)}} / 5) ({{beer.num}} checkins)
                                 </li>
                                 {% endfor %}
                             </ol>
-                            <p>*Øl med minst 2 checkins, snitt av alle ratinger på festivalen</p>
                         </dd>
+                        <dt>Lavest ratede øl*:</dt>
+                        <dd>
+                            <ol>
+                                {% for beer in year.beer_bottom_5_score %}
+                                <li>
+                                    <a href="https://untappd.com/beer/{{beer.bid}}" target="_blank">
+                                        {{beer.brewery.brewery_name}} - {{beer.beer_name}}
+                                    </a>
+                                    ({{beer.score |round(2)}} / 5) ({{beer.num}} checkins)
+                                </li>
+                                {% endfor %}
+                            </ol>
+                            
+                        </dd>
+                        <p>*Øl med minst 2 checkins, snitt av alle ratinger på festivalen</p>
                         <dt>Antall forskjellige bryggerier:</dt>
                         <dd>{{year.num_breweries}}</dd>
                         <dt>Mest innsjekkede bryggerier:</dt>
@@ -173,6 +188,30 @@
 
                             map.fitBounds(features.getBounds());
                             features.addTo(map);
+                        }());
+                    </script>
+
+                    <hr />
+                    <h4>Ordsky</h4>
+                    <canvas height="400" width="400" id="wordcloud-{{year.year}}" style="width:100%;" class="thumbnail"></canvas>
+
+                    <script type="text/javascript">
+                        (function() {
+                            'use strict';
+                            var canvas = document.getElementById('wordcloud-{{year.year}}');
+
+                            canvas.width  = $(canvas).width();
+                            WordCloud(
+                                canvas,
+                                {
+                                    list: {{year.words}},
+                                      gridSize: 18,
+                                      weightFactor: 3,
+                                      fontFamily: 'sans-serif',
+                                      color: 'random-dark',
+                                      backgroundColor: '#fff'
+                                }
+                            );
                         }());
                     </script>
 

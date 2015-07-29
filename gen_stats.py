@@ -152,6 +152,22 @@ class Stats(object):
             'drilldowns': drilldowns
         }
 
+    def words(self):
+        skip = ["", " ", u"alle", u"andre", u"arbeid", u"av", u"begge", u"bort", u"bra", u"bruke", u"da", u"denne", u"der", u"deres", u"det", u"din", u"disse", u"du", u"eller", u"en", u"ene", u"eneste", u"enhver", u"enn", u"er", u"et", u"folk", u"for", u"fordi", u"forsøke", u"fra", u"få", u"før", u"først", u"gjorde", u"gjøre", u"god", u"gå", u"ha", u"hadde", u"han", u"hans", u"hennes", u"her", u"hva", u"hvem", u"hver", u"hvilken", u"hvis", u"hvor", u"hvordan", u"hvorfor", u"i", u"ikke", u"inn", u"innen", u"kan", u"kunne", u"lage", u"lang", u"lik", u"like", u"makt", u"mange", u"med", u"meg", u"meget", u"men", u"mens", u"mer", u"mest", u"min", u"mye", u"må", u"måte", u"navn", u"nei", u"ny", u"nå", u"når", u"og", u"også", u"om", u"opp", u"oss", u"over", u"part", u"punkt", u"på", u"rett", u"riktig", u"samme", u"sant", u"si", u"siden", u"sist", u"skulle", u"slik", u"slutt", u"som", u"start", u"stille", u"så", u"tid", u"til", u"tilbake", u"tilstand", u"under", u"ut", u"uten", u"var", u"ved", u"verdi", u"vi", u"vil", u"ville", u"vite", u"vår", u"være", u"vært", u"å", u"a", u"about", u"above", u"after", u"again", u"against", u"all", u"am", u"an", u"and", u"any", u"are", u"aren't", u"as", u"at", u"be", u"because", u"been", u"before", u"being", u"below", u"between", u"both", u"but", u"by", u"can", u"cannot", u"can't", u"com", u"could", u"couldn't", u"did", u"didn't", u"do", u"does", u"doesn't", u"doing", u"don't", u"down", u"during", u"each", u"few", u"for", u"from", u"further", u"get", u"had", u"hadn't", u"has", u"hasn't", u"have", u"haven't", u"having", u"he", u"he'd", u"he'll", u"her", u"here", u"here's", u"hers", u"herself", u"he's", u"him", u"himself", u"his", u"how", u"how's", u"http", u"i", u"i'd", u"if", u"i'll", u"i'm", u"in", u"into", u"is", u"isn't", u"it", u"its", u"it's", u"itself", u"i've", u"just", u"let's", u"like", u"me", u"more", u"most", u"mustn't", u"my", u"myself", u"no", u"nor", u"not", u"of", u"off", u"on", u"once", u"only", u"or", u"other", u"ought", u"our", u"ours ", u"ourselves", u"out", u"over", u"own", u"r", u"same", u"shan't", u"she", u"she'd", u"she'll", u"she's", u"should", u"shouldn't", u"so", u"some", u"such", u"than", u"that", u"that's", u"the", u"their", u"theirs", u"them", u"themselves", u"then", u"there", u"there's", u"these", u"they", u"they'd", u"they'll", u"they're", u"they've", u"this", u"those", u"through", u"to", u"too", u"under", u"until", u"up", u"very", u"was", u"wasn't", u"we", u"we'd", u"we'll", u"were", u"we're", u"weren't", u"we've", u"what", u"what's", u"when", u"when's", u"where", u"where's", u"which", u"while", u"who", u"whom", u"who's", u"why", u"why's", u"with", u"won't", u"would", u"wouldn't", u"www", u"you", u"you'd", u"you'll", u"your", u"you're", u"yours", u"yourself", u"yourselves", u"you've", ]
+        translation_table = dict.fromkeys(map(ord, '.,'), None)
+        words = []
+        for checkin in self.checkins:
+            words += [word.translate(translation_table).lower().strip()
+                      for word in checkin.data['checkin_comment'].split(' ')]
+        words = [word for word in words if word not in skip]
+        word_frequencies = defaultdict(int)
+        for word in words:
+            word_frequencies[word] += 1
+        res = []
+        for word, count in word_frequencies.items():
+            res.append([word, count * 4])
+        return res
+
 
 def get_positions(breweries):
     features = []
@@ -196,6 +212,7 @@ def generate_stats(checkins):
             'num_beers': len(stat.beers),
             'beer_top_5': stat.beers[:5],
             'beer_top_5_score': stat.beers_by_score()[:5],
+            'beer_bottom_5_score': stat.beers_by_score()[::-1][:5],
             'num_breweries': len(stat.breweries),
             'brewery_top_5': stat.breweries[:5],
             'num_users': len(stat.users),
@@ -203,6 +220,7 @@ def generate_stats(checkins):
             'photos': stat.photos(),
             'pos': json.dumps(get_positions(stat.breweries)),
             'date_stats': stat.hours(),
+            'words': json.dumps(stat.words())
         })
     return {'years': years}
 
