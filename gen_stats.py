@@ -189,6 +189,6 @@ def print_template(data):
 
 
 if __name__ == '__main__':
-        checkins = load_checkins('run3.json')
+        checkins = load_checkins('run4.json')
         data = generate_stats(checkins)
         print_template(data)

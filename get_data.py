@@ -38,4 +38,4 @@ def get_data(venue_id, filename):
 
 
 if __name__ == '__main__':
-    get_data('912196', 'run3.json')
+    get_data('912196', 'run4.json')
