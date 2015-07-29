@@ -15,6 +15,9 @@
 </head>
 <body>
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/drilldown.js"></script>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -202,6 +205,67 @@
                     </dd>
                 </dl>
 
+                <h4>Tidspunkter</h4>
+                <div id="container-2013" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                <script type="text/javascript">
+                    (function(argument) {
+                        'use strict';
+
+                        var dateStats = {'drilldowns': [{'data': [['00.00 - 01.00', 0], ['01.00 - 02.00', 0], ['02.00 - 03.00', 0], ['03.00 - 04.00', 0], ['04.00 - 05.00', 0], ['05.00 - 06.00', 0], ['06.00 - 07.00', 0], ['07.00 - 08.00', 0], ['08.00 - 09.00', 0], ['09.00 - 10.00', 0], ['10.00 - 11.00', 4], ['11.00 - 12.00', 20], ['12.00 - 13.00', 19], ['13.00 - 14.00', 13], ['14.00 - 15.00', 15], ['15.00 - 16.00', 7], ['16.00 - 17.00', 11], ['17.00 - 18.00', 3], ['18.00 - 19.00', 6], ['19.00 - 20.00', 0], ['20.00 - 21.00', 0], ['21.00 - 22.00', 0], ['22.00 - 23.00', 0], ['23.00 - 00.00', 0]], 'name': '01.01', 'id': '01.01'}, {'data': [['00.00 - 01.00', 0], ['01.00 - 02.00', 0], ['02.00 - 03.00', 0], ['03.00 - 04.00', 0], ['04.00 - 05.00', 0], ['05.00 - 06.00', 0], ['06.00 - 07.00', 0], ['07.00 - 08.00', 3], ['08.00 - 09.00', 6], ['09.00 - 10.00', 0], ['10.00 - 11.00', 6], ['11.00 - 12.00', 13], ['12.00 - 13.00', 11], ['13.00 - 14.00', 22], ['14.00 - 15.00', 31], ['15.00 - 16.00', 32], ['16.00 - 17.00', 66], ['17.00 - 18.00', 63], ['18.00 - 19.00', 51], ['19.00 - 20.00', 25], ['20.00 - 21.00', 2], ['21.00 - 22.00', 1], ['22.00 - 23.00', 0], ['23.00 - 00.00', 0]], 'name': '02.02', 'id': '02.02'}, {'data': [['00.00 - 01.00', 0], ['01.00 - 02.00', 0], ['02.00 - 03.00', 0], ['03.00 - 04.00', 0], ['04.00 - 05.00', 0], ['05.00 - 06.00', 0], ['06.00 - 07.00', 0], ['07.00 - 08.00', 0], ['08.00 - 09.00', 0], ['09.00 - 10.00', 4], ['10.00 - 11.00', 8], ['11.00 - 12.00', 4], ['12.00 - 13.00', 23], ['13.00 - 14.00', 14], ['14.00 - 15.00', 13], ['15.00 - 16.00', 5], ['16.00 - 17.00', 2], ['17.00 - 18.00', 3], ['18.00 - 19.00', 5], ['19.00 - 20.00', 0], ['20.00 - 21.00', 6], ['21.00 - 22.00', 0], ['22.00 - 23.00', 0], ['23.00 - 00.00', 0]], 'name': '03.03', 'id': '03.03'}, {'data': [['00.00 - 01.00', 0], ['01.00 - 02.00', 0], ['02.00 - 03.00', 0], ['03.00 - 04.00', 0], ['04.00 - 05.00', 0], ['05.00 - 06.00', 0], ['06.00 - 07.00', 0], ['07.00 - 08.00', 0], ['08.00 - 09.00', 0], ['09.00 - 10.00', 0], ['10.00 - 11.00', 0], ['11.00 - 12.00', 0], ['12.00 - 13.00', 0], ['13.00 - 14.00', 0], ['14.00 - 15.00', 0], ['15.00 - 16.00', 0], ['16.00 - 17.00', 0], ['17.00 - 18.00', 0], ['18.00 - 19.00', 0], ['19.00 - 20.00', 0], ['20.00 - 21.00', 0], ['21.00 - 22.00', 0], ['22.00 - 23.00', 0], ['23.00 - 00.00', 0]], 'name': '04.04', 'id': '04.04'}, {'data': [['00.00 - 01.00', 0], ['01.00 - 02.00', 0], ['02.00 - 03.00', 0], ['03.00 - 04.00', 0], ['04.00 - 05.00', 0], ['05.00 - 06.00', 0], ['06.00 - 07.00', 0], ['07.00 - 08.00', 0], ['08.00 - 09.00', 0], ['09.00 - 10.00', 0], ['10.00 - 11.00', 0], ['11.00 - 12.00', 2], ['12.00 - 13.00', 1], ['13.00 - 14.00', 0], ['14.00 - 15.00', 0], ['15.00 - 16.00', 0], ['16.00 - 17.00', 0], ['17.00 - 18.00', 0], ['18.00 - 19.00', 0], ['19.00 - 20.00', 0], ['20.00 - 21.00', 0], ['21.00 - 22.00', 0], ['22.00 - 23.00', 0], ['23.00 - 00.00', 0]], 'name': '05.05', 'id': '05.05'}], 'series': [{'y': 98, 'drilldown': '01.01', 'name': '01. Aug'}, {'y': 332, 'drilldown': '02.02', 'name': '02. Aug'}, {'y': 87, 'drilldown': '03.03', 'name': '03. Aug'}, {'y': 0, 'drilldown': '04.04', 'name': '04. Aug'}, {'y': 3, 'drilldown': '05.05', 'name': '05. Aug'}]};
+                        $('#container-2013').highcharts({
+                            chart: {type: 'column'},
+                            title: {text: ''},
+                            subtitle: {
+                                text: 'Klikk på kolonnene for å se detaljert dagsstatistikk'
+                            },
+                            xAxis: {type: 'category'},
+                            yAxis: {
+                                title: {
+                                    text: 'Antall checkins'
+                                }
+                            },
+                            legend: {enabled: false},
+                            plotOptions: {
+                                series: {
+                                    borderWidth: 0,
+                                    dataLabels: {
+                                        enabled: true,
+                                        format: '{point.y}'
+                                    }
+                                }
+                            },
+                            series: [{
+                                name: 'Innsjekkinger',
+                                colorByPoint: true,
+                                data: dateStats.series
+                            }],
+                            drilldown: {series: dateStats.drilldowns}
+                        });
+                    }());
+                </script>
+
+                <h4>Bryggerikart</h4>
+                <div id="map-2013" class="map"></div>
+
+                <script type="text/javascript">
+                    (function () {
+                        var positions = {"type": "FeatureCollection", "features": [{"geometry": {"type": "Point", "coordinates": [10.6386, 63.5648]}, "type": "Feature", "properties": {"name": "Klosterg\u00e5rden H\u00e5ndbryggeri"}}, {"geometry": {"type": "Point", "coordinates": [8.63723, 58.406]}, "type": "Feature", "properties": {"name": "N\u00f8gne \u00d8"}}, {"geometry": {"type": "Point", "coordinates": [10.3482, 63.4424]}, "type": "Feature", "properties": {"name": "Austmann Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [11.295, 63.8826]}, "type": "Feature", "properties": {"name": "Inder\u00f8y G\u00e5rdsbryggeri"}}, {"geometry": {"type": "Point", "coordinates": [12.5589, 55.6731]}, "type": "Feature", "properties": {"name": "Mikkeller"}}, {"geometry": {"type": "Point", "coordinates": [10.1814, 59.7398]}, "type": "Feature", "properties": {"name": "HaandBryggeriet"}}, {"geometry": {"type": "Point", "coordinates": [18.0032, 59.2988]}, "type": "Feature", "properties": {"name": "CAP Brewery"}}, {"geometry": {"type": "Point", "coordinates": [7.12075, 60.8381]}, "type": "Feature", "properties": {"name": "\u00c6gir Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.8328, 61.7313]}, "type": "Feature", "properties": {"name": "Atna \u00d8l"}}, {"geometry": {"type": "Point", "coordinates": [11.3867, 62.5763]}, "type": "Feature", "properties": {"name": "R\u00f8ros Bryggeri Og Mineralvannfabrikk"}}, {"geometry": {"type": "Point", "coordinates": [10.7592, 59.9301]}, "type": "Feature", "properties": {"name": "Ringnes Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-73.9575, 40.7215]}, "type": "Feature", "properties": {"name": "Brooklyn Brewery"}}, {"geometry": {"type": "Point", "coordinates": [10.7522, 59.9139]}, "type": "Feature", "properties": {"name": "Frydenlund Bryggerier (Ringnes A.S.)"}}, {"geometry": {"type": "Point", "coordinates": [10.427, 63.4409]}, "type": "Feature", "properties": {"name": "E. C. Dahls Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.374, 63.4242]}, "type": "Feature", "properties": {"name": "To T\u00e5rn Bryggeri AS"}}, {"geometry": {"type": "Point", "coordinates": [4.30729, 50.7667]}, "type": "Feature", "properties": {"name": "Brouwerij 3 Fonteinen"}}, {"geometry": {"type": "Point", "coordinates": [-2.04834, 57.3716]}, "type": "Feature", "properties": {"name": "BrewDog"}}, {"geometry": {"type": "Point", "coordinates": [12.8347, 50.8145]}, "type": "Feature", "properties": {"name": "Bergt Brauerei Reichenbrand"}}]};
+                        var map = L.map('map-2013');
+                        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                        }).addTo(map);
+
+                        var features = L.geoJson(positions, {
+                            onEachFeature: function (feature, layer) {
+                                layer.bindPopup(feature.properties.name);
+                            }
+                        });
+
+                        map.fitBounds(features.getBounds());
+                        features.addTo(map);
+                    }());
+                </script>
+
                 <h4>Bilder</h4>
                 
                     <img src="https://untappd.akamaized.net/photo/2013_08_03/55dd0c967818159a8b7c0274a344fbc2_100x100.jpg" height="100" width="100" />
@@ -259,39 +323,15 @@
                     <img src="https://untappd.akamaized.net/photo/2013_08_01/9254b94b9b0967dbee4e1b97acde4063_100x100.jpg" height="100" width="100" />
                 
 
-                <h4>Bryggerikart</h4>
-                <div id="map-2013" class="map"></div>
-
-                <script type="text/javascript">
-                    (function () {
-                        var positions = {"type": "FeatureCollection", "features": [{"geometry": {"type": "Point", "coordinates": [10.6386, 63.5648]}, "type": "Feature", "properties": {"name": "Klosterg\u00e5rden H\u00e5ndbryggeri"}}, {"geometry": {"type": "Point", "coordinates": [8.63723, 58.406]}, "type": "Feature", "properties": {"name": "N\u00f8gne \u00d8"}}, {"geometry": {"type": "Point", "coordinates": [10.3482, 63.4424]}, "type": "Feature", "properties": {"name": "Austmann Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [11.295, 63.8826]}, "type": "Feature", "properties": {"name": "Inder\u00f8y G\u00e5rdsbryggeri"}}, {"geometry": {"type": "Point", "coordinates": [12.5589, 55.6731]}, "type": "Feature", "properties": {"name": "Mikkeller"}}, {"geometry": {"type": "Point", "coordinates": [10.1814, 59.7398]}, "type": "Feature", "properties": {"name": "HaandBryggeriet"}}, {"geometry": {"type": "Point", "coordinates": [18.0032, 59.2988]}, "type": "Feature", "properties": {"name": "CAP Brewery"}}, {"geometry": {"type": "Point", "coordinates": [7.12075, 60.8381]}, "type": "Feature", "properties": {"name": "\u00c6gir Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.8328, 61.7313]}, "type": "Feature", "properties": {"name": "Atna \u00d8l"}}, {"geometry": {"type": "Point", "coordinates": [11.3867, 62.5763]}, "type": "Feature", "properties": {"name": "R\u00f8ros Bryggeri Og Mineralvannfabrikk"}}, {"geometry": {"type": "Point", "coordinates": [10.7592, 59.9301]}, "type": "Feature", "properties": {"name": "Ringnes Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-73.9575, 40.7215]}, "type": "Feature", "properties": {"name": "Brooklyn Brewery"}}, {"geometry": {"type": "Point", "coordinates": [10.7522, 59.9139]}, "type": "Feature", "properties": {"name": "Frydenlund Bryggerier (Ringnes A.S.)"}}, {"geometry": {"type": "Point", "coordinates": [10.427, 63.4409]}, "type": "Feature", "properties": {"name": "E. C. Dahls Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.374, 63.4242]}, "type": "Feature", "properties": {"name": "To T\u00e5rn Bryggeri AS"}}, {"geometry": {"type": "Point", "coordinates": [4.30729, 50.7667]}, "type": "Feature", "properties": {"name": "Brouwerij 3 Fonteinen"}}, {"geometry": {"type": "Point", "coordinates": [-2.04834, 57.3716]}, "type": "Feature", "properties": {"name": "BrewDog"}}, {"geometry": {"type": "Point", "coordinates": [12.8347, 50.8145]}, "type": "Feature", "properties": {"name": "Bergt Brauerei Reichenbrand"}}]};
-                        var map = L.map('map-2013');
-                        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-                            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                        }).addTo(map);
-
-                        var features = L.geoJson(positions, {
-                            onEachFeature: function (feature, layer) {
-                                layer.bindPopup(feature.properties.name);
-                            }
-                        });
-
-                        map.fitBounds(features.getBounds());
-                        features.addTo(map);
-                    }());
-
-
-                </script>
-
             </div>
         
             <div class="col-md-6">
                 <h2>2014</h2>
                 <dl>
                     <dt>Antall innsjekkinger:</dt>
-                    <dd>1766</dd>
+                    <dd>1764</dd>
                     <dt>Antall forskjellige øl:</dt>
-                    <dd>125</dd>
+                    <dd>123</dd>
                     <dt>Mest innsjekkede øl:</dt>
                     <dd>
                         <ol>
@@ -376,7 +416,7 @@
                         <p>*Øl med minst 2 checkins, snitt av alle ratinger på festivalen</p>
                     </dd>
                     <dt>Antall forskjellige bryggerier:</dt>
-                    <dd>34</dd>
+                    <dd>33</dd>
                     <dt>Mest innsjekkede bryggerier:</dt>
                     <dd>
                         <ol>
@@ -419,7 +459,7 @@
                         </ol>
                     </dd>
                     <dt>Antall forskjellige brukere:</dt>
-                    <dd>173</dd>
+                    <dd>172</dd>
                     <dt>Brukere med flest innsjekkinger:</dt>
                     <dd>
                         <ol>
@@ -462,6 +502,67 @@
                         </ol>
                     </dd>
                 </dl>
+
+                <h4>Tidspunkter</h4>
+                <div id="container-2014" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                <script type="text/javascript">
+                    (function(argument) {
+                        'use strict';
+
+                        var dateStats = {'drilldowns': [{'data': [['00.00 - 01.00', 0], ['01.00 - 02.00', 0], ['02.00 - 03.00', 0], ['03.00 - 04.00', 0], ['04.00 - 05.00', 0], ['05.00 - 06.00', 0], ['06.00 - 07.00', 0], ['07.00 - 08.00', 0], ['08.00 - 09.00', 0], ['09.00 - 10.00', 0], ['10.00 - 11.00', 0], ['11.00 - 12.00', 9], ['12.00 - 13.00', 6], ['13.00 - 14.00', 17], ['14.00 - 15.00', 36], ['15.00 - 16.00', 51], ['16.00 - 17.00', 45], ['17.00 - 18.00', 63], ['18.00 - 19.00', 54], ['19.00 - 20.00', 52], ['20.00 - 21.00', 28], ['21.00 - 22.00', 5], ['22.00 - 23.00', 2], ['23.00 - 00.00', 0]], 'name': '31.31', 'id': '31.31'}, {'data': [['00.00 - 01.00', 0], ['01.00 - 02.00', 0], ['02.00 - 03.00', 0], ['03.00 - 04.00', 0], ['04.00 - 05.00', 0], ['05.00 - 06.00', 0], ['06.00 - 07.00', 0], ['07.00 - 08.00', 0], ['08.00 - 09.00', 7], ['09.00 - 10.00', 1], ['10.00 - 11.00', 3], ['11.00 - 12.00', 10], ['12.00 - 13.00', 36], ['13.00 - 14.00', 35], ['14.00 - 15.00', 48], ['15.00 - 16.00', 71], ['16.00 - 17.00', 113], ['17.00 - 18.00', 120], ['18.00 - 19.00', 111], ['19.00 - 20.00', 92], ['20.00 - 21.00', 60], ['21.00 - 22.00', 23], ['22.00 - 23.00', 1], ['23.00 - 00.00', 0]], 'name': '01.01', 'id': '01.01'}, {'data': [['00.00 - 01.00', 0], ['01.00 - 02.00', 0], ['02.00 - 03.00', 0], ['03.00 - 04.00', 0], ['04.00 - 05.00', 0], ['05.00 - 06.00', 0], ['06.00 - 07.00', 0], ['07.00 - 08.00', 0], ['08.00 - 09.00', 0], ['09.00 - 10.00', 0], ['10.00 - 11.00', 7], ['11.00 - 12.00', 37], ['12.00 - 13.00', 69], ['13.00 - 14.00', 89], ['14.00 - 15.00', 89], ['15.00 - 16.00', 106], ['16.00 - 17.00', 56], ['17.00 - 18.00', 44], ['18.00 - 19.00', 33], ['19.00 - 20.00', 21], ['20.00 - 21.00', 24], ['21.00 - 22.00', 28], ['22.00 - 23.00', 29], ['23.00 - 00.00', 0]], 'name': '02.02', 'id': '02.02'}, {'data': [['00.00 - 01.00', 0], ['01.00 - 02.00', 0], ['02.00 - 03.00', 0], ['03.00 - 04.00', 0], ['04.00 - 05.00', 0], ['05.00 - 06.00', 0], ['06.00 - 07.00', 0], ['07.00 - 08.00', 0], ['08.00 - 09.00', 0], ['09.00 - 10.00', 0], ['10.00 - 11.00', 1], ['11.00 - 12.00', 0], ['12.00 - 13.00', 0], ['13.00 - 14.00', 0], ['14.00 - 15.00', 0], ['15.00 - 16.00', 0], ['16.00 - 17.00', 0], ['17.00 - 18.00', 0], ['18.00 - 19.00', 0], ['19.00 - 20.00', 0], ['20.00 - 21.00', 0], ['21.00 - 22.00', 0], ['22.00 - 23.00', 0], ['23.00 - 00.00', 0]], 'name': '03.03', 'id': '03.03'}, {'data': [['00.00 - 01.00', 0], ['01.00 - 02.00', 0], ['02.00 - 03.00', 0], ['03.00 - 04.00', 0], ['04.00 - 05.00', 0], ['05.00 - 06.00', 0], ['06.00 - 07.00', 0], ['07.00 - 08.00', 0], ['08.00 - 09.00', 0], ['09.00 - 10.00', 0], ['10.00 - 11.00', 0], ['11.00 - 12.00', 0], ['12.00 - 13.00', 0], ['13.00 - 14.00', 0], ['14.00 - 15.00', 0], ['15.00 - 16.00', 1], ['16.00 - 17.00', 6], ['17.00 - 18.00', 3], ['18.00 - 19.00', 12], ['19.00 - 20.00', 5], ['20.00 - 21.00', 3], ['21.00 - 22.00', 1], ['22.00 - 23.00', 0], ['23.00 - 00.00', 0]], 'name': '04.04', 'id': '04.04'}, {'data': [['00.00 - 01.00', 0], ['01.00 - 02.00', 0], ['02.00 - 03.00', 0], ['03.00 - 04.00', 0], ['04.00 - 05.00', 0], ['05.00 - 06.00', 0], ['06.00 - 07.00', 0], ['07.00 - 08.00', 0], ['08.00 - 09.00', 0], ['09.00 - 10.00', 0], ['10.00 - 11.00', 0], ['11.00 - 12.00', 0], ['12.00 - 13.00', 0], ['13.00 - 14.00', 0], ['14.00 - 15.00', 0], ['15.00 - 16.00', 0], ['16.00 - 17.00', 0], ['17.00 - 18.00', 0], ['18.00 - 19.00', 0], ['19.00 - 20.00', 0], ['20.00 - 21.00', 0], ['21.00 - 22.00', 0], ['22.00 - 23.00', 0], ['23.00 - 00.00', 0]], 'name': '05.05', 'id': '05.05'}, {'data': [['00.00 - 01.00', 0], ['01.00 - 02.00', 0], ['02.00 - 03.00', 0], ['03.00 - 04.00', 0], ['04.00 - 05.00', 0], ['05.00 - 06.00', 0], ['06.00 - 07.00', 0], ['07.00 - 08.00', 0], ['08.00 - 09.00', 0], ['09.00 - 10.00', 0], ['10.00 - 11.00', 0], ['11.00 - 12.00', 0], ['12.00 - 13.00', 0], ['13.00 - 14.00', 0], ['14.00 - 15.00', 0], ['15.00 - 16.00', 0], ['16.00 - 17.00', 0], ['17.00 - 18.00', 0], ['18.00 - 19.00', 0], ['19.00 - 20.00', 0], ['20.00 - 21.00', 1], ['21.00 - 22.00', 0], ['22.00 - 23.00', 0], ['23.00 - 00.00', 0]], 'name': '06.06', 'id': '06.06'}], 'series': [{'y': 368, 'drilldown': '31.31', 'name': '31. Jul'}, {'y': 731, 'drilldown': '01.01', 'name': '01. Aug'}, {'y': 632, 'drilldown': '02.02', 'name': '02. Aug'}, {'y': 1, 'drilldown': '03.03', 'name': '03. Aug'}, {'y': 31, 'drilldown': '04.04', 'name': '04. Aug'}, {'y': 0, 'drilldown': '05.05', 'name': '05. Aug'}, {'y': 1, 'drilldown': '06.06', 'name': '06. Aug'}]};
+                        $('#container-2014').highcharts({
+                            chart: {type: 'column'},
+                            title: {text: ''},
+                            subtitle: {
+                                text: 'Klikk på kolonnene for å se detaljert dagsstatistikk'
+                            },
+                            xAxis: {type: 'category'},
+                            yAxis: {
+                                title: {
+                                    text: 'Antall checkins'
+                                }
+                            },
+                            legend: {enabled: false},
+                            plotOptions: {
+                                series: {
+                                    borderWidth: 0,
+                                    dataLabels: {
+                                        enabled: true,
+                                        format: '{point.y}'
+                                    }
+                                }
+                            },
+                            series: [{
+                                name: 'Innsjekkinger',
+                                colorByPoint: true,
+                                data: dateStats.series
+                            }],
+                            drilldown: {series: dateStats.drilldowns}
+                        });
+                    }());
+                </script>
+
+                <h4>Bryggerikart</h4>
+                <div id="map-2014" class="map"></div>
+
+                <script type="text/javascript">
+                    (function () {
+                        var positions = {"type": "FeatureCollection", "features": [{"geometry": {"type": "Point", "coordinates": [10.6386, 63.5648]}, "type": "Feature", "properties": {"name": "Klosterg\u00e5rden H\u00e5ndbryggeri"}}, {"geometry": {"type": "Point", "coordinates": [5.03114, 61.6]}, "type": "Feature", "properties": {"name": "Kinn Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.3482, 63.4424]}, "type": "Feature", "properties": {"name": "Austmann Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.374, 63.4242]}, "type": "Feature", "properties": {"name": "To T\u00e5rn Bryggeri AS"}}, {"geometry": {"type": "Point", "coordinates": [10.1814, 59.7398]}, "type": "Feature", "properties": {"name": "HaandBryggeriet"}}, {"geometry": {"type": "Point", "coordinates": [8.63723, 58.406]}, "type": "Feature", "properties": {"name": "N\u00f8gne \u00d8"}}, {"geometry": {"type": "Point", "coordinates": [10.7592, 59.9301]}, "type": "Feature", "properties": {"name": "Ringnes Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [5.29608, 60.3326]}, "type": "Feature", "properties": {"name": "7 Fjell Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-73.9575, 40.7215]}, "type": "Feature", "properties": {"name": "Brooklyn Brewery"}}, {"geometry": {"type": "Point", "coordinates": [11.3867, 62.5763]}, "type": "Feature", "properties": {"name": "R\u00f8ros Bryggeri Og Mineralvannfabrikk"}}, {"geometry": {"type": "Point", "coordinates": [11.295, 63.8826]}, "type": "Feature", "properties": {"name": "Inder\u00f8y G\u00e5rdsbryggeri"}}, {"geometry": {"type": "Point", "coordinates": [18.0032, 59.2988]}, "type": "Feature", "properties": {"name": "CAP Brewery"}}, {"geometry": {"type": "Point", "coordinates": [7.12075, 60.8381]}, "type": "Feature", "properties": {"name": "\u00c6gir Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.7594, 59.925]}, "type": "Feature", "properties": {"name": "Gr\u00fcnerl\u00f8kka Brygghus"}}, {"geometry": {"type": "Point", "coordinates": [12.5297, 55.6648]}, "type": "Feature", "properties": {"name": "Jacobsen"}}, {"geometry": {"type": "Point", "coordinates": [9.921778, 63.564689]}, "type": "Feature", "properties": {"name": "Reins Kloster"}}, {"geometry": {"type": "Point", "coordinates": [10.7522, 59.9139]}, "type": "Feature", "properties": {"name": "Frydenlund Bryggerier (Ringnes A.S.)"}}, {"geometry": {"type": "Point", "coordinates": [10.8328, 61.7313]}, "type": "Feature", "properties": {"name": "Atna \u00d8l"}}, {"geometry": {"type": "Point", "coordinates": [10.427, 63.4409]}, "type": "Feature", "properties": {"name": "E. C. Dahls Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.3923, 63.4313]}, "type": "Feature", "properties": {"name": "Trondhjem Mikrobryggeri"}}, {"geometry": {"type": "Point", "coordinates": [12.5856, 55.7032]}, "type": "Feature", "properties": {"name": "To \u00d8l"}}, {"geometry": {"type": "Point", "coordinates": [4.90721, 50.2693]}, "type": "Feature", "properties": {"name": "Abbaye de Leffe"}}, {"geometry": {"type": "Point", "coordinates": [-87.9766, 41.8901]}, "type": "Feature", "properties": {"name": "Lunar Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [5.74646, 58.9457]}, "type": "Feature", "properties": {"name": "Lervig Aktiebryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.7244, 59.9244]}, "type": "Feature", "properties": {"name": "Oslo Mikrobryggeri"}}, {"geometry": {"type": "Point", "coordinates": [12.1292, 57.661]}, "type": "Feature", "properties": {"name": "Poppels Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [11.1143, 63.4639]}, "type": "Feature", "properties": {"name": "Ivar"}}]};
+                        var map = L.map('map-2014');
+                        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                        }).addTo(map);
+
+                        var features = L.geoJson(positions, {
+                            onEachFeature: function (feature, layer) {
+                                layer.bindPopup(feature.properties.name);
+                            }
+                        });
+
+                        map.fitBounds(features.getBounds());
+                        features.addTo(map);
+                    }());
+                </script>
 
                 <h4>Bilder</h4>
                 
@@ -1179,30 +1280,6 @@
                 
                     <img src="https://untappd.akamaized.net/photo/2014_07_31/77d5327d1bfd527a252cf64e5a30b3fb_100x100.jpg" height="100" width="100" />
                 
-
-                <h4>Bryggerikart</h4>
-                <div id="map-2014" class="map"></div>
-
-                <script type="text/javascript">
-                    (function () {
-                        var positions = {"type": "FeatureCollection", "features": [{"geometry": {"type": "Point", "coordinates": [10.6386, 63.5648]}, "type": "Feature", "properties": {"name": "Klosterg\u00e5rden H\u00e5ndbryggeri"}}, {"geometry": {"type": "Point", "coordinates": [5.03114, 61.6]}, "type": "Feature", "properties": {"name": "Kinn Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.3482, 63.4424]}, "type": "Feature", "properties": {"name": "Austmann Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.374, 63.4242]}, "type": "Feature", "properties": {"name": "To T\u00e5rn Bryggeri AS"}}, {"geometry": {"type": "Point", "coordinates": [10.1814, 59.7398]}, "type": "Feature", "properties": {"name": "HaandBryggeriet"}}, {"geometry": {"type": "Point", "coordinates": [8.63723, 58.406]}, "type": "Feature", "properties": {"name": "N\u00f8gne \u00d8"}}, {"geometry": {"type": "Point", "coordinates": [10.7592, 59.9301]}, "type": "Feature", "properties": {"name": "Ringnes Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [5.29608, 60.3326]}, "type": "Feature", "properties": {"name": "7 Fjell Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-73.9575, 40.7215]}, "type": "Feature", "properties": {"name": "Brooklyn Brewery"}}, {"geometry": {"type": "Point", "coordinates": [11.3867, 62.5763]}, "type": "Feature", "properties": {"name": "R\u00f8ros Bryggeri Og Mineralvannfabrikk"}}, {"geometry": {"type": "Point", "coordinates": [11.295, 63.8826]}, "type": "Feature", "properties": {"name": "Inder\u00f8y G\u00e5rdsbryggeri"}}, {"geometry": {"type": "Point", "coordinates": [18.0032, 59.2988]}, "type": "Feature", "properties": {"name": "CAP Brewery"}}, {"geometry": {"type": "Point", "coordinates": [7.12075, 60.8381]}, "type": "Feature", "properties": {"name": "\u00c6gir Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.7594, 59.925]}, "type": "Feature", "properties": {"name": "Gr\u00fcnerl\u00f8kka Brygghus"}}, {"geometry": {"type": "Point", "coordinates": [12.5297, 55.6648]}, "type": "Feature", "properties": {"name": "Jacobsen"}}, {"geometry": {"type": "Point", "coordinates": [9.921778, 63.564689]}, "type": "Feature", "properties": {"name": "Reins Kloster"}}, {"geometry": {"type": "Point", "coordinates": [10.7522, 59.9139]}, "type": "Feature", "properties": {"name": "Frydenlund Bryggerier (Ringnes A.S.)"}}, {"geometry": {"type": "Point", "coordinates": [10.8328, 61.7313]}, "type": "Feature", "properties": {"name": "Atna \u00d8l"}}, {"geometry": {"type": "Point", "coordinates": [10.427, 63.4409]}, "type": "Feature", "properties": {"name": "E. C. Dahls Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.3923, 63.4313]}, "type": "Feature", "properties": {"name": "Trondhjem Mikrobryggeri"}}, {"geometry": {"type": "Point", "coordinates": [12.5856, 55.7032]}, "type": "Feature", "properties": {"name": "To \u00d8l"}}, {"geometry": {"type": "Point", "coordinates": [4.90721, 50.2693]}, "type": "Feature", "properties": {"name": "Abbaye de Leffe"}}, {"geometry": {"type": "Point", "coordinates": [-87.9766, 41.8901]}, "type": "Feature", "properties": {"name": "Lunar Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [-2.04834, 57.3716]}, "type": "Feature", "properties": {"name": "BrewDog"}}, {"geometry": {"type": "Point", "coordinates": [5.74646, 58.9457]}, "type": "Feature", "properties": {"name": "Lervig Aktiebryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.7244, 59.9244]}, "type": "Feature", "properties": {"name": "Oslo Mikrobryggeri"}}, {"geometry": {"type": "Point", "coordinates": [12.1292, 57.661]}, "type": "Feature", "properties": {"name": "Poppels Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [11.1143, 63.4639]}, "type": "Feature", "properties": {"name": "Ivar"}}]};
-                        var map = L.map('map-2014');
-                        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-                            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                        }).addTo(map);
-
-                        var features = L.geoJson(positions, {
-                            onEachFeature: function (feature, layer) {
-                                layer.bindPopup(feature.properties.name);
-                            }
-                        });
-
-                        map.fitBounds(features.getBounds());
-                        features.addTo(map);
-                    }());
-
-
-                </script>
 
             </div>
         

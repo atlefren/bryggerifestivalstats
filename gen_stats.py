@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
 import os
-
+import math
 import json
 from dateutil.parser import parse
 from collections import defaultdict
 import jinja2
 
+from datetime import timedelta
 
 DIRECTORY = os.path.dirname(os.path.realpath(__file__))
 
@@ -27,7 +28,8 @@ class Checkin(object):
         return self.data['media']['count'] > 0
 
     def photos(self, size):
-        return [it['photo'][size] for it in self.data['media']['items'] if it['photo']]
+        return [it['photo'][size] for it
+                in self.data['media']['items'] if it['photo']]
 
 
 class Stats(object):
@@ -51,7 +53,9 @@ class Stats(object):
         for key, beerlist in beercheckins.items():
             beer = beerlist[0].beer
             beer['num'] = len(beerlist)
-            beer['score'] = sum([checkin.data['rating_score'] for checkin in beerlist]) / len(beerlist)
+            score_sum = sum([checkin.data['rating_score']
+                            for checkin in beerlist])
+            beer['score'] = score_sum / len(beerlist)
             beers.append(beer)
         self.beers = sorted(beers, key=lambda beer: beer['num'], reverse=True)
 
@@ -59,7 +63,11 @@ class Stats(object):
         for key, brewerylist in brewerycheckins.items():
             brewerylist[0]['num'] = len(brewerylist)
             breweries.append(brewerylist[0])
-        self.breweries = sorted(breweries, key=lambda brewery: brewery['num'], reverse=True)
+        self.breweries = sorted(
+            breweries,
+            key=lambda brewery: brewery['num'],
+            reverse=True
+        )
 
         users = []
         for key, userlist in usercheckins.items():
@@ -83,7 +91,11 @@ class Stats(object):
         return self._sorted()[-1].date()
 
     def beers_by_score(self):
-        sorted_score = sorted(self.beers, key=lambda beer: beer['score'], reverse=True)
+        sorted_score = sorted(
+            self.beers,
+            key=lambda beer: beer['score'],
+            reverse=True
+        )
         return [b for b in sorted_score if b['num'] > 1]
 
     def photos(self):
@@ -95,12 +107,59 @@ class Stats(object):
                 photos += wp.photos('photo_img_sm')
         return photos
 
+    def hours(self):
+
+        times = [checkin.date() for checkin in self.checkins]
+
+        start = min(times).replace(hour=0, minute=0, second=0, microsecond=0)
+
+        days = math.ceil(
+            (max(times) - start).total_seconds() / 60.0 / 60.0 / 24.0
+        )
+
+        series = []
+        drilldowns = []
+        for day in range(0, int(days)):
+            day = start + timedelta(days=day)
+            hours = [d for d in times
+                     if d >= day and d < day + timedelta(days=1)]
+            id = day.strftime('%d.%d')
+            series.append({
+                'name': day.strftime('%d. %b'),
+                'y': len(hours),
+                'drilldown': id,
+            })
+            drilldown_data = []
+            for hour in range(0, 24):
+                hour = day + timedelta(hours=hour)
+                next_hour = hour + timedelta(hours=1)
+
+                drilldown_data.append([
+                    '%s - %s' % (
+                        hour.strftime('%H.%M'),
+                        next_hour.strftime('%H.%M')
+                    ),
+                    len([t for t in hours if t >= hour and t < next_hour])
+                ])
+            drilldowns.append({
+                'data': drilldown_data,
+                'name': id,
+                'id': id
+            })
+
+        return {
+            'series': series,
+            'drilldowns': drilldowns
+        }
+
 
 def get_positions(breweries):
     features = []
     for brewery in breweries:
         if brewery['location'] is not None:
-            if brewery['location']['lng'] != 0 and brewery['location']['lat'] != 0:
+            has_lng = brewery['location']['lng'] != 0
+            has_lat = brewery['location']['lat'] != 0
+            if has_lat and has_lng:
                 features.append({
                     "type": "Feature",
                     "properties": {"name": brewery['brewery_name']},
@@ -121,53 +180,30 @@ def get_positions(breweries):
 def generate_stats(checkins):
 
     year_stats = defaultdict(list)
-
     checkins = [Checkin(checkin) for checkin in checkins]
+
+    checkins = [c for c in checkins if c.date().month in [7, 8]]
 
     for checkin in checkins:
         year_stats[checkin.date().year].append(checkin)
 
     years = []
     for checkins in year_stats.values():
-        year = {}
         stat = Stats(checkins)
-        print 'Year: %s' % stat.year()
-        year['year'] = stat.year()
-        print 'Num checkins: %s' % stat.num()
-        year['num_checkins'] = stat.num()
-        print 'First: %s' % stat.first()
-        print 'Last: %s' % stat.last()
-        print 'Num beers: %s' % len(stat.beers)
-        year['num_beers'] = len(stat.beers)
-        print 'Top 5 beers by checkins:'
-        year['beer_top_5'] = []
-        for beer in stat.beers[:5]:
-            print '\t%s - %s (%s)' % (beer['brewery']['brewery_name'], beer['beer_name'], beer['num'])
-            year['beer_top_5'].append(beer)
-        print 'Top 5 beers by score:'
-        year['beer_top_5_score'] = []
-        for beer in stat.beers_by_score()[:5]:
-            print '\t%s - %s (%.2f / 5)' % (beer['brewery']['brewery_name'], beer['beer_name'], beer['score'])
-            year['beer_top_5_score'].append(beer)
-        print 'Num breweries: %s' % len(stat.breweries)
-        year['num_breweries'] = len(stat.breweries)
-        print 'Top 5 breweries by checkins:'
-        year['brewery_top_5'] = []
-        for brewery in stat.breweries[:5]:
-            print '\t%s (%s)' % (brewery['brewery_name'], brewery['num'])
-            year['brewery_top_5'].append(brewery)
-        print 'Num drinkes: %s' % len(stat.users)
-        year['num_users'] = len(stat.users)
-        print 'Top 5 drinkers by checkins:'
-        year['user_top_5'] = []
-        for drinker in stat.users[:5]:
-            print '\t%s (%s)' % (drinker['user_name'], drinker['num'])
-            year['user_top_5'].append(drinker)
-        print '\n'
-        year['photos'] = stat.photos()
-        years.append(year)
-        year['pos'] = json.dumps(get_positions(stat.breweries))
-
+        years.append({
+            'year': stat.year(),
+            'num_checkins': stat.num(),
+            'num_beers': len(stat.beers),
+            'beer_top_5': stat.beers[:5],
+            'beer_top_5_score': stat.beers_by_score()[:5],
+            'num_breweries': len(stat.breweries),
+            'brewery_top_5': stat.breweries[:5],
+            'num_users': len(stat.users),
+            'user_top_5': stat.users[:5],
+            'photos': stat.photos(),
+            'pos': json.dumps(get_positions(stat.breweries)),
+            'date_stats': stat.hours(),
+        })
     return {'years': years}
 
 

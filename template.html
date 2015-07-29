@@ -15,6 +15,9 @@
 </head>
 <body>
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/drilldown.js"></script>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -90,10 +93,44 @@
                     </dd>
                 </dl>
 
-                <h4>Bilder</h4>
-                {% for photo in year.photos %}
-                    <img src="{{photo}}" height="100" width="100" />
-                {% endfor %}
+                <h4>Tidspunkter</h4>
+                <div id="container-{{year.year}}" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                <script type="text/javascript">
+                    (function(argument) {
+                        'use strict';
+
+                        var dateStats = {{year.date_stats}};
+                        $('#container-{{year.year}}').highcharts({
+                            chart: {type: 'column'},
+                            title: {text: ''},
+                            subtitle: {
+                                text: 'Klikk på kolonnene for å se detaljert dagsstatistikk'
+                            },
+                            xAxis: {type: 'category'},
+                            yAxis: {
+                                title: {
+                                    text: 'Antall checkins'
+                                }
+                            },
+                            legend: {enabled: false},
+                            plotOptions: {
+                                series: {
+                                    borderWidth: 0,
+                                    dataLabels: {
+                                        enabled: true,
+                                        format: '{point.y}'
+                                    }
+                                }
+                            },
+                            series: [{
+                                name: 'Innsjekkinger',
+                                colorByPoint: true,
+                                data: dateStats.series
+                            }],
+                            drilldown: {series: dateStats.drilldowns}
+                        });
+                    }());
+                </script>
 
                 <h4>Bryggerikart</h4>
                 <div id="map-{{year.year}}" class="map"></div>
@@ -115,9 +152,12 @@
                         map.fitBounds(features.getBounds());
                         features.addTo(map);
                     }());
-
-
                 </script>
+
+                <h4>Bilder</h4>
+                {% for photo in year.photos %}
+                    <img src="{{photo}}" height="100" width="100" />
+                {% endfor %}
 
             </div>
         {% endfor %}
