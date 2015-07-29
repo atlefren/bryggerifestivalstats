@@ -97,6 +97,10 @@ class Stats(object):
 
 
 def generate_stats(checkins):
+
+    seen = set()
+    checkins = [c for c in checkins if c['checkin_id'] not in seen and not seen.add(c['checkin_id'])]
+
     year_stats = defaultdict(list)
 
     checkins = [Checkin(checkin) for checkin in checkins]
@@ -157,7 +161,7 @@ def print_template(data):
 
 
 if __name__ == '__main__':
-    with open('run2.json') as run2:
+    with open('run3.json') as run2:
         checkins = json.loads(run2.read())
         data = generate_stats(checkins)
         print_template(data)
