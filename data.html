@@ -4,8 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" media="all" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <style type="text/css">
+        .map {
+            width: 100%;
+            height: 300px;
+
+        }
+    </style>
 </head>
 <body>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -192,6 +201,7 @@
                         </ol>
                     </dd>
                 </dl>
+
                 <h4>Bilder</h4>
                 
                     <img src="https://untappd.akamaized.net/photo/2013_08_03/55dd0c967818159a8b7c0274a344fbc2_100x100.jpg" height="100" width="100" />
@@ -248,6 +258,30 @@
                 
                     <img src="https://untappd.akamaized.net/photo/2013_08_01/9254b94b9b0967dbee4e1b97acde4063_100x100.jpg" height="100" width="100" />
                 
+
+                <h4>Bryggerikart</h4>
+                <div id="map-2013" class="map"></div>
+
+                <script type="text/javascript">
+                    (function () {
+                        var positions = {"type": "FeatureCollection", "features": [{"geometry": {"type": "Point", "coordinates": [10.6386, 63.5648]}, "type": "Feature", "properties": {"name": "Klosterg\u00e5rden H\u00e5ndbryggeri"}}, {"geometry": {"type": "Point", "coordinates": [8.63723, 58.406]}, "type": "Feature", "properties": {"name": "N\u00f8gne \u00d8"}}, {"geometry": {"type": "Point", "coordinates": [10.3482, 63.4424]}, "type": "Feature", "properties": {"name": "Austmann Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [11.295, 63.8826]}, "type": "Feature", "properties": {"name": "Inder\u00f8y G\u00e5rdsbryggeri"}}, {"geometry": {"type": "Point", "coordinates": [12.5589, 55.6731]}, "type": "Feature", "properties": {"name": "Mikkeller"}}, {"geometry": {"type": "Point", "coordinates": [10.1814, 59.7398]}, "type": "Feature", "properties": {"name": "HaandBryggeriet"}}, {"geometry": {"type": "Point", "coordinates": [18.0032, 59.2988]}, "type": "Feature", "properties": {"name": "CAP Brewery"}}, {"geometry": {"type": "Point", "coordinates": [7.12075, 60.8381]}, "type": "Feature", "properties": {"name": "\u00c6gir Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.8328, 61.7313]}, "type": "Feature", "properties": {"name": "Atna \u00d8l"}}, {"geometry": {"type": "Point", "coordinates": [11.3867, 62.5763]}, "type": "Feature", "properties": {"name": "R\u00f8ros Bryggeri Og Mineralvannfabrikk"}}, {"geometry": {"type": "Point", "coordinates": [10.7592, 59.9301]}, "type": "Feature", "properties": {"name": "Ringnes Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-73.9575, 40.7215]}, "type": "Feature", "properties": {"name": "Brooklyn Brewery"}}, {"geometry": {"type": "Point", "coordinates": [10.7522, 59.9139]}, "type": "Feature", "properties": {"name": "Frydenlund Bryggerier (Ringnes A.S.)"}}, {"geometry": {"type": "Point", "coordinates": [10.427, 63.4409]}, "type": "Feature", "properties": {"name": "E. C. Dahls Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.374, 63.4242]}, "type": "Feature", "properties": {"name": "To T\u00e5rn Bryggeri AS"}}, {"geometry": {"type": "Point", "coordinates": [4.30729, 50.7667]}, "type": "Feature", "properties": {"name": "Brouwerij 3 Fonteinen"}}, {"geometry": {"type": "Point", "coordinates": [-2.04834, 57.3716]}, "type": "Feature", "properties": {"name": "BrewDog"}}, {"geometry": {"type": "Point", "coordinates": [12.8347, 50.8145]}, "type": "Feature", "properties": {"name": "Bergt Brauerei Reichenbrand"}}]};
+                        var map = L.map('map-2013');
+                        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                        }).addTo(map);
+
+                        var features = L.geoJson(positions, {
+                            onEachFeature: function (feature, layer) {
+                                layer.bindPopup(feature.properties.name);
+                            }
+                        });
+
+                        map.fitBounds(features.getBounds());
+                        features.addTo(map);
+                    }());
+
+
+                </script>
 
             </div>
         
@@ -428,6 +462,7 @@
                         </ol>
                     </dd>
                 </dl>
+
                 <h4>Bilder</h4>
                 
                     <img src="https://untappd.akamaized.net/photo/2014_08_06/5b939ffa5a60d580d5a32e6a71d63807_100x100.jpg" height="100" width="100" />
@@ -1144,6 +1179,30 @@
                 
                     <img src="https://untappd.akamaized.net/photo/2014_07_31/77d5327d1bfd527a252cf64e5a30b3fb_100x100.jpg" height="100" width="100" />
                 
+
+                <h4>Bryggerikart</h4>
+                <div id="map-2014" class="map"></div>
+
+                <script type="text/javascript">
+                    (function () {
+                        var positions = {"type": "FeatureCollection", "features": [{"geometry": {"type": "Point", "coordinates": [10.6386, 63.5648]}, "type": "Feature", "properties": {"name": "Klosterg\u00e5rden H\u00e5ndbryggeri"}}, {"geometry": {"type": "Point", "coordinates": [5.03114, 61.6]}, "type": "Feature", "properties": {"name": "Kinn Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.3482, 63.4424]}, "type": "Feature", "properties": {"name": "Austmann Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.374, 63.4242]}, "type": "Feature", "properties": {"name": "To T\u00e5rn Bryggeri AS"}}, {"geometry": {"type": "Point", "coordinates": [10.1814, 59.7398]}, "type": "Feature", "properties": {"name": "HaandBryggeriet"}}, {"geometry": {"type": "Point", "coordinates": [8.63723, 58.406]}, "type": "Feature", "properties": {"name": "N\u00f8gne \u00d8"}}, {"geometry": {"type": "Point", "coordinates": [10.7592, 59.9301]}, "type": "Feature", "properties": {"name": "Ringnes Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [5.29608, 60.3326]}, "type": "Feature", "properties": {"name": "7 Fjell Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-73.9575, 40.7215]}, "type": "Feature", "properties": {"name": "Brooklyn Brewery"}}, {"geometry": {"type": "Point", "coordinates": [11.3867, 62.5763]}, "type": "Feature", "properties": {"name": "R\u00f8ros Bryggeri Og Mineralvannfabrikk"}}, {"geometry": {"type": "Point", "coordinates": [11.295, 63.8826]}, "type": "Feature", "properties": {"name": "Inder\u00f8y G\u00e5rdsbryggeri"}}, {"geometry": {"type": "Point", "coordinates": [18.0032, 59.2988]}, "type": "Feature", "properties": {"name": "CAP Brewery"}}, {"geometry": {"type": "Point", "coordinates": [7.12075, 60.8381]}, "type": "Feature", "properties": {"name": "\u00c6gir Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.7594, 59.925]}, "type": "Feature", "properties": {"name": "Gr\u00fcnerl\u00f8kka Brygghus"}}, {"geometry": {"type": "Point", "coordinates": [12.5297, 55.6648]}, "type": "Feature", "properties": {"name": "Jacobsen"}}, {"geometry": {"type": "Point", "coordinates": [-50.136, -25.0523]}, "type": "Feature", "properties": {"name": "Reins Kloster"}}, {"geometry": {"type": "Point", "coordinates": [10.7522, 59.9139]}, "type": "Feature", "properties": {"name": "Frydenlund Bryggerier (Ringnes A.S.)"}}, {"geometry": {"type": "Point", "coordinates": [10.8328, 61.7313]}, "type": "Feature", "properties": {"name": "Atna \u00d8l"}}, {"geometry": {"type": "Point", "coordinates": [10.427, 63.4409]}, "type": "Feature", "properties": {"name": "E. C. Dahls Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.3923, 63.4313]}, "type": "Feature", "properties": {"name": "Trondhjem Mikrobryggeri"}}, {"geometry": {"type": "Point", "coordinates": [12.5856, 55.7032]}, "type": "Feature", "properties": {"name": "To \u00d8l"}}, {"geometry": {"type": "Point", "coordinates": [4.90721, 50.2693]}, "type": "Feature", "properties": {"name": "Abbaye de Leffe"}}, {"geometry": {"type": "Point", "coordinates": [-87.9766, 41.8901]}, "type": "Feature", "properties": {"name": "Lunar Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [-2.04834, 57.3716]}, "type": "Feature", "properties": {"name": "BrewDog"}}, {"geometry": {"type": "Point", "coordinates": [5.74646, 58.9457]}, "type": "Feature", "properties": {"name": "Lervig Aktiebryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.7244, 59.9244]}, "type": "Feature", "properties": {"name": "Oslo Mikrobryggeri"}}, {"geometry": {"type": "Point", "coordinates": [12.1292, 57.661]}, "type": "Feature", "properties": {"name": "Poppels Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [11.1143, 63.4639]}, "type": "Feature", "properties": {"name": "Ivar"}}]};
+                        var map = L.map('map-2014');
+                        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                        }).addTo(map);
+
+                        var features = L.geoJson(positions, {
+                            onEachFeature: function (feature, layer) {
+                                layer.bindPopup(feature.properties.name);
+                            }
+                        });
+
+                        map.fitBounds(features.getBounds());
+                        features.addTo(map);
+                    }());
+
+
+                </script>
 
             </div>
         

@@ -96,6 +96,28 @@ class Stats(object):
         return photos
 
 
+def get_positions(breweries):
+    features = []
+    for brewery in breweries:
+        if brewery['location'] is not None:
+            if brewery['location']['lng'] != 0 and brewery['location']['lat'] != 0:
+                features.append({
+                    "type": "Feature",
+                    "properties": {"name": brewery['brewery_name']},
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            brewery['location']['lng'],
+                            brewery['location']['lat']
+                        ]
+                    }
+                })
+    return {
+        "type": "FeatureCollection",
+        "features": features
+    }
+
+
 def generate_stats(checkins):
 
     seen = set()
@@ -147,6 +169,7 @@ def generate_stats(checkins):
         print '\n'
         year['photos'] = stat.photos()
         years.append(year)
+        year['pos'] = json.dumps(get_positions(stat.breweries))
 
     return {'years': years}
 
