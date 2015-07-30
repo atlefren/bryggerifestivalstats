@@ -194,12 +194,13 @@ def get_positions(breweries):
     }
 
 
-def generate_stats(checkins):
+def generate_stats(checkins, report_type, limit_months=None):
 
     year_stats = defaultdict(list)
     checkins = [Checkin(checkin) for checkin in checkins]
 
-    checkins = [c for c in checkins if c.date().month in [7, 8]]
+    if limit_months:
+        checkins = [c for c in checkins if c.date().month in limit_months]
 
     for checkin in checkins:
         year_stats[checkin.date().year].append(checkin)
@@ -208,7 +209,7 @@ def generate_stats(checkins):
     for checkins in year_stats.values():
         stat = Stats(checkins)
 
-        years.append({
+        data = {
             'year': stat.year(),
             'num_checkins': stat.num(),
             'num_beers': len(stat.beers),
@@ -217,14 +218,16 @@ def generate_stats(checkins):
             'beer_bottom_5_score': stat.beers_by_score()[::-1][:5],
             'num_breweries': len(stat.breweries),
             'brewery_top_5': stat.breweries[:5],
-            'num_users': len(stat.users),
-            'user_top_5': stat.users[:5],
             'photos': stat.photos(),
             'pos': json.dumps(get_positions(stat.breweries)),
             'date_stats': stat.hours(),
             'words': json.dumps(stat.words())
-        })
+        }
 
+        if report_type == 'venue':
+            data['num_users'] = len(stat.users)
+            data['user_top_5'] = stat.users[:5]
+        years.append(data)
     return {'years': years}
 
 
@@ -236,16 +239,24 @@ def load_checkins(file):
                 not in seen and not seen.add(c['checkin_id'])]
 
 
-def print_template(data):
+def print_template(data, title, filename):
+    data['title'] = title
     template_loader = jinja2.FileSystemLoader(searchpath=DIRECTORY)
     template_env = jinja2.Environment(loader=template_loader)
     template = template_env.get_template('template.html')
     output_html = template.render(data)
-    with open('data2.html', 'w') as outfile:
+    with open(filename, 'w') as outfile:
         outfile.write(output_html.encode('utf-8'))
 
 
 if __name__ == '__main__':
-        checkins = load_checkins('atlefren.json')
-        data = generate_stats(checkins)
-        print_template(data)
+    
+    checkins = load_checkins('atlefren.json')
+    data = generate_stats(checkins, 'user')
+    print_template(data, 'Atles øldrikking', 'atlefren.html')
+    '''
+
+    checkins = load_checkins('run4.json')
+    data = generate_stats(checkins, 'venue', limit_months=[7, 8])
+    print_template(data, 'Bryggerifestivalen i Trondheim', 'venue.html')
+    '''

@@ -110,8 +110,11 @@
                                 {% endfor %}
                             </ol>
                         </dd>
+                        {% if year.num_users %}
                         <dt>Antall forskjellige brukere:</dt>
                         <dd>{{year.num_users}}</dd>
+                        {% endif %}
+                        {%if year.user_top_5 %}
                         <dt>Brukere med flest innsjekkinger:</dt>
                         <dd>
                             <ol>
@@ -125,6 +128,7 @@
                                 {% endfor %}
                             </ol>
                         </dd>
+                        {% endif %}
                     </dl>
 
 
