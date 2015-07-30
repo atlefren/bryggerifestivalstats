@@ -130,6 +130,25 @@
                             </ol>
                         </dd>
                         {% endif %}
+                        {% if year.num_venues %}
+                        <dt>Antall forskjellige steder:</dt>
+                        <dd>{{year.num_venues}}</dd>
+                        {% endif %}
+                        {%if year.venues_top_5 %}
+                        <dt>Steder med flest innsjekkinger:</dt>
+                        <dd>
+                            <ol>
+                                {% for venue in year.venues_top_5 %}
+                                <li>
+                                    <a href="https://untappd.com/venue/{{venue.venue_id}}" target="_blank">
+                                        {{venue.venue_name}}
+                                    </a>
+                                    ({{venue.num}})
+                                </li>
+                                {% endfor %}
+                            </ol>
+                        </dd>
+                        {% endif %}
                     </dl>
 
 
@@ -196,6 +215,30 @@
                         }());
                     </script>
 
+                    {% if year.venue_pos %}
+                    <hr />
+                    <h4>Stedkart</h4>
+                    <div id="map-venue-{{year.year}}" class="map thumbnail"></div>
+
+                    <script type="text/javascript">
+                        (function () {
+                            var positions = {{year.venue_pos}};
+                            var map = L.map('map-venue-{{year.year}}');
+                            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                            }).addTo(map);
+
+                            var features = L.geoJson(positions, {
+                                onEachFeature: function (feature, layer) {
+                                    layer.bindPopup(feature.properties.name);
+                                }
+                            });
+
+                            map.fitBounds(features.getBounds());
+                            features.addTo(map);
+                        }());
+                    </script>
+                    {% endif %}
                     <hr />
                     <h4>Ordsky</h4>
                     <canvas height="400" width="400" id="wordcloud-{{year.year}}" style="width:100%;" class="thumbnail"></canvas>

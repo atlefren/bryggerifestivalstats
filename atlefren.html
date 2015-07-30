@@ -225,6 +225,39 @@
                         </dd>
                         
                         
+                        
+                        <dt>Antall forskjellige steder:</dt>
+                        <dd>3</dd>
+                        
+                        
+                        <dt>Steder med flest innsjekkinger:</dt>
+                        <dd>
+                            <ol>
+                                
+                                <li>
+                                    <a href="https://untappd.com/venue/66084" target="_blank">
+                                        Den Gode Nabo
+                                    </a>
+                                    (14)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/venue/143239" target="_blank">
+                                        Ni Muser
+                                    </a>
+                                    (2)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/venue/135953" target="_blank">
+                                        Bakklandet Skydsstasjon
+                                    </a>
+                                    (1)
+                                </li>
+                                
+                            </ol>
+                        </dd>
+                        
                     </dl>
 
 
@@ -291,6 +324,30 @@
                         }());
                     </script>
 
+                    
+                    <hr />
+                    <h4>Stedkart</h4>
+                    <div id="map-venue-2011" class="map thumbnail"></div>
+
+                    <script type="text/javascript">
+                        (function () {
+                            var positions = {"type": "FeatureCollection", "features": [{"geometry": {"type": "Point", "coordinates": [10.4024, 63.428]}, "type": "Feature", "properties": {"name": "Den Gode Nabo"}}, {"geometry": {"type": "Point", "coordinates": [10.3936, 63.4274]}, "type": "Feature", "properties": {"name": "Ni Muser"}}, {"geometry": {"type": "Point", "coordinates": [10.4033, 63.4274]}, "type": "Feature", "properties": {"name": "Bakklandet Skydsstasjon"}}]};
+                            var map = L.map('map-venue-2011');
+                            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                            }).addTo(map);
+
+                            var features = L.geoJson(positions, {
+                                onEachFeature: function (feature, layer) {
+                                    layer.bindPopup(feature.properties.name);
+                                }
+                            });
+
+                            map.fitBounds(features.getBounds());
+                            features.addTo(map);
+                        }());
+                    </script>
+                    
                     <hr />
                     <h4>Ordsky</h4>
                     <canvas height="400" width="400" id="wordcloud-2011" style="width:100%;" class="thumbnail"></canvas>
@@ -506,6 +563,53 @@
                         </dd>
                         
                         
+                        
+                        <dt>Antall forskjellige steder:</dt>
+                        <dd>51</dd>
+                        
+                        
+                        <dt>Steder med flest innsjekkinger:</dt>
+                        <dd>
+                            <ol>
+                                
+                                <li>
+                                    <a href="https://untappd.com/venue/66084" target="_blank">
+                                        Den Gode Nabo
+                                    </a>
+                                    (104)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/venue/246703" target="_blank">
+                                        Haandbryggeriet
+                                    </a>
+                                    (25)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/venue/211066" target="_blank">
+                                        Studentersamfundet
+                                    </a>
+                                    (16)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/venue/78993" target="_blank">
+                                        Trondhjem Mikrobryggeri
+                                    </a>
+                                    (7)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/venue/157601" target="_blank">
+                                        Olavs Pub og Spiseri
+                                    </a>
+                                    (7)
+                                </li>
+                                
+                            </ol>
+                        </dd>
+                        
                     </dl>
 
 
@@ -572,6 +676,30 @@
                         }());
                     </script>
 
+                    
+                    <hr />
+                    <h4>Stedkart</h4>
+                    <div id="map-venue-2012" class="map thumbnail"></div>
+
+                    <script type="text/javascript">
+                        (function () {
+                            var positions = {"type": "FeatureCollection", "features": [{"geometry": {"type": "Point", "coordinates": [10.4024, 63.428]}, "type": "Feature", "properties": {"name": "Den Gode Nabo"}}, {"geometry": {"type": "Point", "coordinates": [10.1817, 59.7398]}, "type": "Feature", "properties": {"name": "Haandbryggeriet"}}, {"geometry": {"type": "Point", "coordinates": [10.3952, 63.4225]}, "type": "Feature", "properties": {"name": "Studentersamfundet"}}, {"geometry": {"type": "Point", "coordinates": [10.3929, 63.4313]}, "type": "Feature", "properties": {"name": "Trondhjem Mikrobryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.4013, 63.4326]}, "type": "Feature", "properties": {"name": "Olavs Pub og Spiseri"}}, {"geometry": {"type": "Point", "coordinates": [10.3959, 63.4332]}, "type": "Feature", "properties": {"name": "Nattergalen Pub"}}, {"geometry": {"type": "Point", "coordinates": [10.4029, 63.4284]}, "type": "Feature", "properties": {"name": "Antikvariatet"}}, {"geometry": {"type": "Point", "coordinates": [10.3936, 63.4274]}, "type": "Feature", "properties": {"name": "Ni Muser"}}, {"geometry": {"type": "Point", "coordinates": [10.7654, 59.9273]}, "type": "Feature", "properties": {"name": "Shamrock"}}, {"geometry": {"type": "Point", "coordinates": [10.3985, 63.4254]}, "type": "Feature", "properties": {"name": "Pstereo"}}, {"geometry": {"type": "Point", "coordinates": [10.3918, 63.4303]}, "type": "Feature", "properties": {"name": "Byscenen"}}, {"geometry": {"type": "Point", "coordinates": [10.3975, 63.4251]}, "type": "Feature", "properties": {"name": "Marinen"}}, {"geometry": {"type": "Point", "coordinates": [10.7397, 59.9151]}, "type": "Feature", "properties": {"name": "H\u00e5ndverkerstuene"}}, {"geometry": {"type": "Point", "coordinates": [5.73126, 58.971]}, "type": "Feature", "properties": {"name": "Cardinal"}}, {"geometry": {"type": "Point", "coordinates": [10.4118, 63.4345]}, "type": "Feature", "properties": {"name": "Bl\u00e6st"}}, {"geometry": {"type": "Point", "coordinates": [-6.26759, 53.345]}, "type": "Feature", "properties": {"name": "The Porterhouse"}}, {"geometry": {"type": "Point", "coordinates": [12.5695, 55.6839]}, "type": "Feature", "properties": {"name": "Torvehallerne"}}, {"geometry": {"type": "Point", "coordinates": [10.9176, 63.4543]}, "type": "Feature", "properties": {"name": "Trondheim Lufthavn, V\u00e6rnes (TRD)"}}, {"geometry": {"type": "Point", "coordinates": [10.7552, 59.9121]}, "type": "Feature", "properties": {"name": "Caf\u00e9 Fiasco"}}, {"geometry": {"type": "Point", "coordinates": [10.3959, 63.4221]}, "type": "Feature", "properties": {"name": "Lyche Bar og Kj\u00f8kken"}}, {"geometry": {"type": "Point", "coordinates": [10.4085, 63.4335]}, "type": "Feature", "properties": {"name": "Cafe L\u00f8kka"}}, {"geometry": {"type": "Point", "coordinates": [5.72203, 58.9395]}, "type": "Feature", "properties": {"name": "S\u00f8rmarka Arena"}}, {"geometry": {"type": "Point", "coordinates": [11.0991, 60.1939]}, "type": "Feature", "properties": {"name": "Oslo Lufthavn (OSL)"}}, {"geometry": {"type": "Point", "coordinates": [10.3975, 63.4331]}, "type": "Feature", "properties": {"name": "Choco Boco"}}, {"geometry": {"type": "Point", "coordinates": [10.7602, 59.9183]}, "type": "Feature", "properties": {"name": "Schouskjelleren Mikrobryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-9.97628, 52.0541]}, "type": "Feature", "properties": {"name": "The Ross Inn"}}, {"geometry": {"type": "Point", "coordinates": [10.7517, 59.9155]}, "type": "Feature", "properties": {"name": "People's"}}, {"geometry": {"type": "Point", "coordinates": [-6.26591, 53.3463]}, "type": "Feature", "properties": {"name": "The Morrison, a DoubleTree by Hilton Hotel"}}, {"geometry": {"type": "Point", "coordinates": [10.412, 63.434]}, "type": "Feature", "properties": {"name": "Bare Bl\u00e5b\u00e6r"}}, {"geometry": {"type": "Point", "coordinates": [10.7303, 59.9114]}, "type": "Feature", "properties": {"name": "Alfred"}}, {"geometry": {"type": "Point", "coordinates": [10.3933, 63.4318]}, "type": "Feature", "properties": {"name": "Familien"}}, {"geometry": {"type": "Point", "coordinates": [-6.25844, 53.3471]}, "type": "Feature", "properties": {"name": "J.W. Sweetman"}}, {"geometry": {"type": "Point", "coordinates": [10.3942, 63.4321]}, "type": "Feature", "properties": {"name": "Bari"}}, {"geometry": {"type": "Point", "coordinates": [10.3946, 63.4306]}, "type": "Feature", "properties": {"name": "Lille Pizza"}}, {"geometry": {"type": "Point", "coordinates": [10.7483, 59.9142]}, "type": "Feature", "properties": {"name": "Cafe S\u00f8r"}}, {"geometry": {"type": "Point", "coordinates": [10.7546, 59.9129]}, "type": "Feature", "properties": {"name": "Oslo Spektrum"}}, {"geometry": {"type": "Point", "coordinates": [10.759, 59.9244]}, "type": "Feature", "properties": {"name": "Mangiamo"}}, {"geometry": {"type": "Point", "coordinates": [10.3984, 63.4339]}, "type": "Feature", "properties": {"name": "Kos bar & lounge"}}, {"geometry": {"type": "Point", "coordinates": [-9.97576, 52.0555]}, "type": "Feature", "properties": {"name": "Rossbeigh Beach"}}, {"geometry": {"type": "Point", "coordinates": [10.3923, 63.4304]}, "type": "Feature", "properties": {"name": "Supa"}}, {"geometry": {"type": "Point", "coordinates": [10.7331, 59.9137]}, "type": "Feature", "properties": {"name": "Dr. Jekyll's Pub"}}, {"geometry": {"type": "Point", "coordinates": [13.3747, 52.5044]}, "type": "Feature", "properties": {"name": "Scandic Berlin Potsdamer Platz"}}, {"geometry": {"type": "Point", "coordinates": [10.1945, 59.7435]}, "type": "Feature", "properties": {"name": "Moa Moa"}}, {"geometry": {"type": "Point", "coordinates": [10.4024, 63.4281]}, "type": "Feature", "properties": {"name": "Bryggen Asian Cooking"}}, {"geometry": {"type": "Point", "coordinates": [10.7507, 59.9161]}, "type": "Feature", "properties": {"name": "Tilt"}}, {"geometry": {"type": "Point", "coordinates": [10.4003, 63.4332]}, "type": "Feature", "properties": {"name": "Dromedar Kaffebar"}}, {"geometry": {"type": "Point", "coordinates": [10.8061, 59.9204]}, "type": "Feature", "properties": {"name": "Vallhall Arena"}}, {"geometry": {"type": "Point", "coordinates": [10.3921, 63.4303]}, "type": "Feature", "properties": {"name": "Brukbar"}}, {"geometry": {"type": "Point", "coordinates": [10.4005, 63.4328]}, "type": "Feature", "properties": {"name": "Egon"}}, {"geometry": {"type": "Point", "coordinates": [10.4127, 63.4346]}, "type": "Feature", "properties": {"name": "Solsiden"}}, {"geometry": {"type": "Point", "coordinates": [10.3906, 63.4319]}, "type": "Feature", "properties": {"name": "Bangkok Caf\u00e9"}}]};
+                            var map = L.map('map-venue-2012');
+                            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                            }).addTo(map);
+
+                            var features = L.geoJson(positions, {
+                                onEachFeature: function (feature, layer) {
+                                    layer.bindPopup(feature.properties.name);
+                                }
+                            });
+
+                            map.fitBounds(features.getBounds());
+                            features.addTo(map);
+                        }());
+                    </script>
+                    
                     <hr />
                     <h4>Ordsky</h4>
                     <canvas height="400" width="400" id="wordcloud-2012" style="width:100%;" class="thumbnail"></canvas>
@@ -855,6 +983,53 @@
                         </dd>
                         
                         
+                        
+                        <dt>Antall forskjellige steder:</dt>
+                        <dd>83</dd>
+                        
+                        
+                        <dt>Steder med flest innsjekkinger:</dt>
+                        <dd>
+                            <ol>
+                                
+                                <li>
+                                    <a href="https://untappd.com/venue/66084" target="_blank">
+                                        Den Gode Nabo
+                                    </a>
+                                    (111)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/venue/912196" target="_blank">
+                                        Bryggerifestivalen
+                                    </a>
+                                    (27)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/venue/749954" target="_blank">
+                                        Haand Internasjonale Ølfestival 2013
+                                    </a>
+                                    (26)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/venue/87730" target="_blank">
+                                        Diskoteket Bar
+                                    </a>
+                                    (19)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/venue/225403" target="_blank">
+                                        Antikvariatet
+                                    </a>
+                                    (9)
+                                </li>
+                                
+                            </ol>
+                        </dd>
+                        
                     </dl>
 
 
@@ -921,6 +1096,30 @@
                         }());
                     </script>
 
+                    
+                    <hr />
+                    <h4>Stedkart</h4>
+                    <div id="map-venue-2013" class="map thumbnail"></div>
+
+                    <script type="text/javascript">
+                        (function () {
+                            var positions = {"type": "FeatureCollection", "features": [{"geometry": {"type": "Point", "coordinates": [10.4024, 63.428]}, "type": "Feature", "properties": {"name": "Den Gode Nabo"}}, {"geometry": {"type": "Point", "coordinates": [10.3956, 63.4307]}, "type": "Feature", "properties": {"name": "Bryggerifestivalen"}}, {"geometry": {"type": "Point", "coordinates": [10.1783, 59.7408]}, "type": "Feature", "properties": {"name": "Haand Internasjonale \u00d8lfestival 2013"}}, {"geometry": {"type": "Point", "coordinates": [10.3992, 63.4339]}, "type": "Feature", "properties": {"name": "Diskoteket Bar"}}, {"geometry": {"type": "Point", "coordinates": [10.4029, 63.4284]}, "type": "Feature", "properties": {"name": "Antikvariatet"}}, {"geometry": {"type": "Point", "coordinates": [10.7397, 59.9151]}, "type": "Feature", "properties": {"name": "H\u00e5ndverkerstuene"}}, {"geometry": {"type": "Point", "coordinates": [-122.408, 37.7991]}, "type": "Feature", "properties": {"name": "Hotel Boh\u00e8me"}}, {"geometry": {"type": "Point", "coordinates": [14.4267, 50.0907]}, "type": "Feature", "properties": {"name": "Prague Beer Museum"}}, {"geometry": {"type": "Point", "coordinates": [-1.20329, 52.939]}, "type": "Feature", "properties": {"name": "FOSS4G"}}, {"geometry": {"type": "Point", "coordinates": [10.3965, 63.4306]}, "type": "Feature", "properties": {"name": "\u00c5got Lian"}}, {"geometry": {"type": "Point", "coordinates": [173.96, -41.5136]}, "type": "Feature", "properties": {"name": "Blenheim"}}, {"geometry": {"type": "Point", "coordinates": [10.7534, 59.9172]}, "type": "Feature", "properties": {"name": "Crowbar & Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [173.96, -41.5015]}, "type": "Feature", "properties": {"name": "Dodson Street"}}, {"geometry": {"type": "Point", "coordinates": [5.3235, 60.3914]}, "type": "Feature", "properties": {"name": "Radisson Blu Hotel Norge"}}, {"geometry": {"type": "Point", "coordinates": [10.3985, 63.4254]}, "type": "Feature", "properties": {"name": "Pstereo"}}, {"geometry": {"type": "Point", "coordinates": [-122.422, 37.7701]}, "type": "Feature", "properties": {"name": "Zeitgeist"}}, {"geometry": {"type": "Point", "coordinates": [-122.409, 37.7757]}, "type": "Feature", "properties": {"name": "City Beer Store"}}, {"geometry": {"type": "Point", "coordinates": [5.32069, 60.3918]}, "type": "Feature", "properties": {"name": "Henrik \u00d8l- & Vinstove"}}, {"geometry": {"type": "Point", "coordinates": [-122.411, 37.8002]}, "type": "Feature", "properties": {"name": "Rogue Ales Public House"}}, {"geometry": {"type": "Point", "coordinates": [-122.431, 37.7719]}, "type": "Feature", "properties": {"name": "Toronado"}}, {"geometry": {"type": "Point", "coordinates": [10.3987, 63.4316]}, "type": "Feature", "properties": {"name": "Britannia Hotel"}}, {"geometry": {"type": "Point", "coordinates": [-1.20294, 52.938]}, "type": "Feature", "properties": {"name": "East Midlands Conference Centre"}}, {"geometry": {"type": "Point", "coordinates": [8.57271, 61.8385]}, "type": "Feature", "properties": {"name": "Fossheim Hotell"}}, {"geometry": {"type": "Point", "coordinates": [10.375, 63.4231]}, "type": "Feature", "properties": {"name": "To T\u00e5rn Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [172.535, -43.5193]}, "type": "Feature", "properties": {"name": "Airways Motel"}}, {"geometry": {"type": "Point", "coordinates": [10.4025, 63.4309]}, "type": "Feature", "properties": {"name": "Bouvet ASA"}}, {"geometry": {"type": "Point", "coordinates": [103.853, 1.29545]}, "type": "Feature", "properties": {"name": "Carlton Hotel"}}, {"geometry": {"type": "Point", "coordinates": [13.0633, 63.4034]}, "type": "Feature", "properties": {"name": "\u00c5re Fj\u00e4llby"}}, {"geometry": {"type": "Point", "coordinates": [10.3921, 63.4303]}, "type": "Feature", "properties": {"name": "Brukbar"}}, {"geometry": {"type": "Point", "coordinates": [172.683, -43.5494]}, "type": "Feature", "properties": {"name": "Twisted Hop"}}, {"geometry": {"type": "Point", "coordinates": [10.3941, 63.4323]}, "type": "Feature", "properties": {"name": "Frati"}}, {"geometry": {"type": "Point", "coordinates": [11.4879, 64.4685]}, "type": "Feature", "properties": {"name": "Scandic Rock City"}}, {"geometry": {"type": "Point", "coordinates": [13.0808, 63.3992]}, "type": "Feature", "properties": {"name": "\u00c5re Delikatess"}}, {"geometry": {"type": "Point", "coordinates": [171.6, -41.7596]}, "type": "Feature", "properties": {"name": "Westport Motor Hotel"}}, {"geometry": {"type": "Point", "coordinates": [103.838, 1.30103]}, "type": "Feature", "properties": {"name": "JiBiru Craft Beer Bar"}}, {"geometry": {"type": "Point", "coordinates": [103.844, 1.28964]}, "type": "Feature", "properties": {"name": "Brewerkz Restaurant & Microbrewery"}}, {"geometry": {"type": "Point", "coordinates": [10.2616, 63.4176]}, "type": "Feature", "properties": {"name": "Skistua"}}, {"geometry": {"type": "Point", "coordinates": [171.599, -41.754]}, "type": "Feature", "properties": {"name": "Porto Bello Cafe And Bar"}}, {"geometry": {"type": "Point", "coordinates": [10.3984, 63.4339]}, "type": "Feature", "properties": {"name": "To Rom Og Kj\u00f8kken"}}, {"geometry": {"type": "Point", "coordinates": [-122.409, 37.7836]}, "type": "Feature", "properties": {"name": "Mikkeller Bar"}}, {"geometry": {"type": "Point", "coordinates": [168.659, -45.0318]}, "type": "Feature", "properties": {"name": "Queenstown"}}, {"geometry": {"type": "Point", "coordinates": [10.7504, 59.9125]}, "type": "Feature", "properties": {"name": "Clarion Hotel Royal Christiania"}}, {"geometry": {"type": "Point", "coordinates": [2.15997, 41.3862]}, "type": "Feature", "properties": {"name": "BierCab"}}, {"geometry": {"type": "Point", "coordinates": [10.3958, 63.4225]}, "type": "Feature", "properties": {"name": "Daglighallen"}}, {"geometry": {"type": "Point", "coordinates": [10.3918, 63.4303]}, "type": "Feature", "properties": {"name": "Byscenen"}}, {"geometry": {"type": "Point", "coordinates": [-122.415, 37.8041]}, "type": "Feature", "properties": {"name": "Kennedy's Irish Pub & Indian Curry House"}}, {"geometry": {"type": "Point", "coordinates": [8.98748, 61.8517]}, "type": "Feature", "properties": {"name": "Rasteplass"}}, {"geometry": {"type": "Point", "coordinates": [10.3936, 63.4274]}, "type": "Feature", "properties": {"name": "Ni Muser"}}, {"geometry": {"type": "Point", "coordinates": [10.4019, 63.4339]}, "type": "Feature", "properties": {"name": "Bl\u00e5 Lotus"}}, {"geometry": {"type": "Point", "coordinates": [5.32309, 60.3919]}, "type": "Feature", "properties": {"name": "Kontoret"}}, {"geometry": {"type": "Point", "coordinates": [10.3922, 63.4293]}, "type": "Feature", "properties": {"name": "Tr\u00f8ndelag Teater"}}, {"geometry": {"type": "Point", "coordinates": [10.3942, 63.4321]}, "type": "Feature", "properties": {"name": "Bari"}}, {"geometry": {"type": "Point", "coordinates": [2.1565, 41.3842]}, "type": "Feature", "properties": {"name": "Rosses i Torrades"}}, {"geometry": {"type": "Point", "coordinates": [103.852, 1.29513]}, "type": "Feature", "properties": {"name": "Chijmes"}}, {"geometry": {"type": "Point", "coordinates": [10.3971, 63.434]}, "type": "Feature", "properties": {"name": "Raus"}}, {"geometry": {"type": "Point", "coordinates": [10.4069, 63.4191]}, "type": "Feature", "properties": {"name": "D\u00f8dens Dal"}}, {"geometry": {"type": "Point", "coordinates": [10.3929, 63.4313]}, "type": "Feature", "properties": {"name": "Trondhjem Mikrobryggeri"}}, {"geometry": {"type": "Point", "coordinates": [168.658, -45.0334]}, "type": "Feature", "properties": {"name": "Atlas Cafe"}}, {"geometry": {"type": "Point", "coordinates": [103.845, 1.29048]}, "type": "Feature", "properties": {"name": "The Pump Room"}}, {"geometry": {"type": "Point", "coordinates": [10.4323, 63.4127]}, "type": "Feature", "properties": {"name": "Moholt studentby (B)"}}, {"geometry": {"type": "Point", "coordinates": [9.1261, 62.0751]}, "type": "Feature", "properties": {"name": "Minnesmerke over Telegrafdirekt\u00f8r Carsten Tank Nielsen"}}, {"geometry": {"type": "Point", "coordinates": [12.5576, 55.6721]}, "type": "Feature", "properties": {"name": "Mikkeller Bar"}}, {"geometry": {"type": "Point", "coordinates": [10.4091, 63.4353]}, "type": "Feature", "properties": {"name": "Nyfiken"}}, {"geometry": {"type": "Point", "coordinates": [9.37766, 62.1508]}, "type": "Feature", "properties": {"name": "Haukskardmyrin naturreservat"}}, {"geometry": {"type": "Point", "coordinates": [10.4014, 63.4339]}, "type": "Feature", "properties": {"name": "Caf\u00e9 3B"}}, {"geometry": {"type": "Point", "coordinates": [103.846, 1.28941]}, "type": "Feature", "properties": {"name": "SQUE Rotisserie & Alehouse"}}, {"geometry": {"type": "Point", "coordinates": [5.3262, 60.3928]}, "type": "Feature", "properties": {"name": "Jacob Aall Brasserie & Bar"}}, {"geometry": {"type": "Point", "coordinates": [8.91479, 61.8069]}, "type": "Feature", "properties": {"name": "Brimi S\u00e6ter"}}, {"geometry": {"type": "Point", "coordinates": [2.16658, 41.3855]}, "type": "Feature", "properties": {"name": "Hotel Lle\u00f3"}}, {"geometry": {"type": "Point", "coordinates": [10.3975, 63.4251]}, "type": "Feature", "properties": {"name": "Marinen"}}, {"geometry": {"type": "Point", "coordinates": [10.4101, 63.4351]}, "type": "Feature", "properties": {"name": "Una Pizzeria E Bar"}}, {"geometry": {"type": "Point", "coordinates": [10.3942, 63.4331]}, "type": "Feature", "properties": {"name": "O'Learys"}}, {"geometry": {"type": "Point", "coordinates": [103.845, 1.29171]}, "type": "Feature", "properties": {"name": "Thirsty The Beer Shop"}}, {"geometry": {"type": "Point", "coordinates": [-0.458316, 51.4705]}, "type": "Feature", "properties": {"name": "Bridge Bar, Lounge & Dinning"}}, {"geometry": {"type": "Point", "coordinates": [8.91665, 61.8036]}, "type": "Feature", "properties": {"name": "Laingshytta p\u00e5 Nordseter"}}, {"geometry": {"type": "Point", "coordinates": [173.96, -41.5016]}, "type": "Feature", "properties": {"name": "8 Wired"}}, {"geometry": {"type": "Point", "coordinates": [11.1061, 60.1934]}, "type": "Feature", "properties": {"name": "News Bar"}}, {"geometry": {"type": "Point", "coordinates": [10.281, 63.285]}, "type": "Feature", "properties": {"name": "Melhus Bedehus"}}, {"geometry": {"type": "Point", "coordinates": [10.4044, 63.4174]}, "type": "Feature", "properties": {"name": "NTNU Gl\u00f8shaugen"}}, {"geometry": {"type": "Point", "coordinates": [10.2045, 59.7441]}, "type": "Feature", "properties": {"name": "Drammen"}}, {"geometry": {"type": "Point", "coordinates": [14.416, 50.0879]}, "type": "Feature", "properties": {"name": "The PUB Praha 1"}}, {"geometry": {"type": "Point", "coordinates": [174.774, -41.2843]}, "type": "Feature", "properties": {"name": "James Cook Hotel Grand Chancellor"}}, {"geometry": {"type": "Point", "coordinates": [9.73027, 62.6055]}, "type": "Feature", "properties": {"name": "Oppdal kirke"}}]};
+                            var map = L.map('map-venue-2013');
+                            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                            }).addTo(map);
+
+                            var features = L.geoJson(positions, {
+                                onEachFeature: function (feature, layer) {
+                                    layer.bindPopup(feature.properties.name);
+                                }
+                            });
+
+                            map.fitBounds(features.getBounds());
+                            features.addTo(map);
+                        }());
+                    </script>
+                    
                     <hr />
                     <h4>Ordsky</h4>
                     <canvas height="400" width="400" id="wordcloud-2013" style="width:100%;" class="thumbnail"></canvas>
@@ -1182,6 +1381,53 @@
                         </dd>
                         
                         
+                        
+                        <dt>Antall forskjellige steder:</dt>
+                        <dd>76</dd>
+                        
+                        
+                        <dt>Steder med flest innsjekkinger:</dt>
+                        <dd>
+                            <ol>
+                                
+                                <li>
+                                    <a href="https://untappd.com/venue/66084" target="_blank">
+                                        Den Gode Nabo
+                                    </a>
+                                    (74)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/venue/912196" target="_blank">
+                                        Bryggerifestivalen
+                                    </a>
+                                    (32)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/venue/87730" target="_blank">
+                                        Diskoteket Bar
+                                    </a>
+                                    (24)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/venue/1652807" target="_blank">
+                                        Haandbryggeriet Ølfestival 2014
+                                    </a>
+                                    (22)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/venue/225403" target="_blank">
+                                        Antikvariatet
+                                    </a>
+                                    (21)
+                                </li>
+                                
+                            </ol>
+                        </dd>
+                        
                     </dl>
 
 
@@ -1248,6 +1494,30 @@
                         }());
                     </script>
 
+                    
+                    <hr />
+                    <h4>Stedkart</h4>
+                    <div id="map-venue-2014" class="map thumbnail"></div>
+
+                    <script type="text/javascript">
+                        (function () {
+                            var positions = {"type": "FeatureCollection", "features": [{"geometry": {"type": "Point", "coordinates": [10.4024, 63.428]}, "type": "Feature", "properties": {"name": "Den Gode Nabo"}}, {"geometry": {"type": "Point", "coordinates": [10.3956, 63.4307]}, "type": "Feature", "properties": {"name": "Bryggerifestivalen"}}, {"geometry": {"type": "Point", "coordinates": [10.3992, 63.4339]}, "type": "Feature", "properties": {"name": "Diskoteket Bar"}}, {"geometry": {"type": "Point", "coordinates": [10.1782, 59.7408]}, "type": "Feature", "properties": {"name": "Haandbryggeriet \u00d8lfestival 2014"}}, {"geometry": {"type": "Point", "coordinates": [10.4029, 63.4284]}, "type": "Feature", "properties": {"name": "Antikvariatet"}}, {"geometry": {"type": "Point", "coordinates": [4.3468, 50.8451]}, "type": "Feature", "properties": {"name": "Moeder Lambic"}}, {"geometry": {"type": "Point", "coordinates": [100.588, 13.7277]}, "type": "Feature", "properties": {"name": "Mikkeller"}}, {"geometry": {"type": "Point", "coordinates": [10.4025, 63.4309]}, "type": "Feature", "properties": {"name": "Bouvet ASA"}}, {"geometry": {"type": "Point", "coordinates": [7.99393, 58.1446]}, "type": "Feature", "properties": {"name": "Christianssand Brygghus"}}, {"geometry": {"type": "Point", "coordinates": [10.4128, 63.4342]}, "type": "Feature", "properties": {"name": "SOT bar & burger"}}, {"geometry": {"type": "Point", "coordinates": [10.3958, 63.4225]}, "type": "Feature", "properties": {"name": "Daglighallen"}}, {"geometry": {"type": "Point", "coordinates": [12.5562, 55.668]}, "type": "Feature", "properties": {"name": "Fermentoren"}}, {"geometry": {"type": "Point", "coordinates": [10.9129, 63.4491]}, "type": "Feature", "properties": {"name": "Scandic Hell"}}, {"geometry": {"type": "Point", "coordinates": [-122.666, 45.5159]}, "type": "Feature", "properties": {"name": "Hair of the Dog Brewery & Tasting Room"}}, {"geometry": {"type": "Point", "coordinates": [12.5431, 55.6947]}, "type": "Feature", "properties": {"name": "Mikkeller & Friends"}}, {"geometry": {"type": "Point", "coordinates": [-122.686, 45.513]}, "type": "Feature", "properties": {"name": "Rogue Hall"}}, {"geometry": {"type": "Point", "coordinates": [98.9562, 7.82624]}, "type": "Feature", "properties": {"name": "Koh Jum"}}, {"geometry": {"type": "Point", "coordinates": [9.35579, 60.2467]}, "type": "Feature", "properties": {"name": "Eggedal"}}, {"geometry": {"type": "Point", "coordinates": [10.3985, 63.4254]}, "type": "Feature", "properties": {"name": "Pstereo"}}, {"geometry": {"type": "Point", "coordinates": [-9.15097, 38.7151]}, "type": "Feature", "properties": {"name": "Cerveteca Lisboa"}}, {"geometry": {"type": "Point", "coordinates": [4.34993, 50.846]}, "type": "Feature", "properties": {"name": "N\u00fcetnigenough"}}, {"geometry": {"type": "Point", "coordinates": [10.4027, 63.4397]}, "type": "Feature", "properties": {"name": "Clarion Hotel og Congress Trondheim"}}, {"geometry": {"type": "Point", "coordinates": [10.3978, 63.4305]}, "type": "Feature", "properties": {"name": "Tulla Fischer"}}, {"geometry": {"type": "Point", "coordinates": [12.5573, 55.6725]}, "type": "Feature", "properties": {"name": "dia'legd"}}, {"geometry": {"type": "Point", "coordinates": [-122.658, 45.5231]}, "type": "Feature", "properties": {"name": "Burnside Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [-122.653, 45.5047]}, "type": "Feature", "properties": {"name": "APEX"}}, {"geometry": {"type": "Point", "coordinates": [-122.675, 45.5179]}, "type": "Feature", "properties": {"name": "Rock Bottom Brewery"}}, {"geometry": {"type": "Point", "coordinates": [5.32069, 60.3918]}, "type": "Feature", "properties": {"name": "Henrik \u00d8l- & Vinstove"}}, {"geometry": {"type": "Point", "coordinates": [4.33537, 50.8414]}, "type": "Feature", "properties": {"name": "Brasserie Cantillon Brouwerij"}}, {"geometry": {"type": "Point", "coordinates": [-122.655, 45.5066]}, "type": "Feature", "properties": {"name": "Baerlic Brewing"}}, {"geometry": {"type": "Point", "coordinates": [-122.662, 45.5275]}, "type": "Feature", "properties": {"name": "FOSS4G PDX 2014"}}, {"geometry": {"type": "Point", "coordinates": [10.4023, 63.4346]}, "type": "Feature", "properties": {"name": "Brygghus 9"}}, {"geometry": {"type": "Point", "coordinates": [4.35229, 50.844]}, "type": "Feature", "properties": {"name": "Coming Soon"}}, {"geometry": {"type": "Point", "coordinates": [-122.682, 45.5245]}, "type": "Feature", "properties": {"name": "Deschutes Brewery & Public House"}}, {"geometry": {"type": "Point", "coordinates": [4.35609, 50.8487]}, "type": "Feature", "properties": {"name": "\u00c0 la Mort Subite"}}, {"geometry": {"type": "Point", "coordinates": [-122.718, 45.5107]}, "type": "Feature", "properties": {"name": "World Forestry Center"}}, {"geometry": {"type": "Point", "coordinates": [-122.657, 45.5163]}, "type": "Feature", "properties": {"name": "Green Dragon Bistro & Brew Pub"}}, {"geometry": {"type": "Point", "coordinates": [12.5576, 55.6721]}, "type": "Feature", "properties": {"name": "Mikkeller Bar"}}, {"geometry": {"type": "Point", "coordinates": [10.412, 63.4339]}, "type": "Feature", "properties": {"name": "B\u00e6r og Bar"}}, {"geometry": {"type": "Point", "coordinates": [100.537, 13.7023]}, "type": "Feature", "properties": {"name": "Chatrium Residence Bangkok-Sathon"}}, {"geometry": {"type": "Point", "coordinates": [106.7, 10.7695]}, "type": "Feature", "properties": {"name": "Signature Saigon hotel"}}, {"geometry": {"type": "Point", "coordinates": [24.1068, 56.9484]}, "type": "Feature", "properties": {"name": "Egle"}}, {"geometry": {"type": "Point", "coordinates": [-122.678, 45.5225]}, "type": "Feature", "properties": {"name": "Bailey's Taproom"}}, {"geometry": {"type": "Point", "coordinates": [10.4772, 61.117]}, "type": "Feature", "properties": {"name": "Radisson Blu Lillehammer Hotel"}}, {"geometry": {"type": "Point", "coordinates": [4.34902, 50.8464]}, "type": "Feature", "properties": {"name": "Brasserie du Lombard"}}, {"geometry": {"type": "Point", "coordinates": [10.571, 63.4359]}, "type": "Feature", "properties": {"name": "V\u00e6reholmen"}}, {"geometry": {"type": "Point", "coordinates": [100.511, 13.7287]}, "type": "Feature", "properties": {"name": "Millennium Hilton Bangkok"}}, {"geometry": {"type": "Point", "coordinates": [10.476, 61.1101]}, "type": "Feature", "properties": {"name": "Maihaugen"}}, {"geometry": {"type": "Point", "coordinates": [4.35078, 50.8467]}, "type": "Feature", "properties": {"name": "Azimut Flathotel"}}, {"geometry": {"type": "Point", "coordinates": [10.3929, 63.4313]}, "type": "Feature", "properties": {"name": "Trondhjem Mikrobryggeri"}}, {"geometry": {"type": "Point", "coordinates": [4.34996, 50.8448]}, "type": "Feature", "properties": {"name": "Poechenellekelder"}}, {"geometry": {"type": "Point", "coordinates": [4.34474, 50.8241]}, "type": "Feature", "properties": {"name": "Moeder Lambic"}}, {"geometry": {"type": "Point", "coordinates": [10.3998, 63.42]}, "type": "Feature", "properties": {"name": "H\u00f8gskoleparken"}}, {"geometry": {"type": "Point", "coordinates": [10.4033, 63.4274]}, "type": "Feature", "properties": {"name": "Bakklandet Skydsstasjon"}}, {"geometry": {"type": "Point", "coordinates": [-9.14257, 38.7113]}, "type": "Feature", "properties": {"name": "Silk Club"}}, {"geometry": {"type": "Point", "coordinates": [-9.13171, 38.7124]}, "type": "Feature", "properties": {"name": "Pal\u00e1cio Belmonte"}}, {"geometry": {"type": "Point", "coordinates": [5.73126, 58.971]}, "type": "Feature", "properties": {"name": "Cardinal"}}, {"geometry": {"type": "Point", "coordinates": [5.73177, 58.9701]}, "type": "Feature", "properties": {"name": "Fish & Cow"}}, {"geometry": {"type": "Point", "coordinates": [98.9174, 8.05534]}, "type": "Feature", "properties": {"name": "Baan Andaman Hotel"}}, {"geometry": {"type": "Point", "coordinates": [8.81966, 58.3932]}, "type": "Feature", "properties": {"name": "Torungen Fyr"}}, {"geometry": {"type": "Point", "coordinates": [4.35264, 50.8469]}, "type": "Feature", "properties": {"name": "Aux Vieux Temps"}}, {"geometry": {"type": "Point", "coordinates": [12.561, 55.6674]}, "type": "Feature", "properties": {"name": "Jolene Bar"}}, {"geometry": {"type": "Point", "coordinates": [4.35001, 50.8464]}, "type": "Feature", "properties": {"name": "Yaki"}}, {"geometry": {"type": "Point", "coordinates": [100.539, 13.7459]}, "type": "Feature", "properties": {"name": "CentralWorld (\u0e40\u0e0b\u0e47\u0e19\u0e17\u0e23\u0e31\u0e25\u0e40\u0e27\u0e34\u0e25\u0e14\u0e4c)"}}, {"geometry": {"type": "Point", "coordinates": [-9.1484, 38.7275]}, "type": "Feature", "properties": {"name": "SANA Lisboa Hotel"}}, {"geometry": {"type": "Point", "coordinates": [10.4029, 63.4283]}, "type": "Feature", "properties": {"name": "Kalas & Canasta"}}, {"geometry": {"type": "Point", "coordinates": [10.4112, 63.4347]}, "type": "Feature", "properties": {"name": "S\u00f8strene Karlsen"}}, {"geometry": {"type": "Point", "coordinates": [12.556, 55.6919]}, "type": "Feature", "properties": {"name": "Empire Bio"}}, {"geometry": {"type": "Point", "coordinates": [4.35383, 50.8485]}, "type": "Feature", "properties": {"name": "Hoppy Loft"}}, {"geometry": {"type": "Point", "coordinates": [12.5578, 55.6685]}, "type": "Feature", "properties": {"name": "Mother"}}, {"geometry": {"type": "Point", "coordinates": [10.5115, 63.4313]}, "type": "Feature", "properties": {"name": "Ranheimsfj\u00e6ra"}}, {"geometry": {"type": "Point", "coordinates": [10.4118, 63.4345]}, "type": "Feature", "properties": {"name": "Bl\u00e6st"}}, {"geometry": {"type": "Point", "coordinates": [98.9559, 7.8263]}, "type": "Feature", "properties": {"name": "Koh Pu"}}, {"geometry": {"type": "Point", "coordinates": [11.0733, 49.4555]}, "type": "Feature", "properties": {"name": "Hotel Elch"}}, {"geometry": {"type": "Point", "coordinates": [12.5587, 55.6692]}, "type": "Feature", "properties": {"name": "Pat\u00e9 Pat\u00e9"}}, {"geometry": {"type": "Point", "coordinates": [10.4101, 63.4351]}, "type": "Feature", "properties": {"name": "Una Pizzeria E Bar"}}]};
+                            var map = L.map('map-venue-2014');
+                            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                            }).addTo(map);
+
+                            var features = L.geoJson(positions, {
+                                onEachFeature: function (feature, layer) {
+                                    layer.bindPopup(feature.properties.name);
+                                }
+                            });
+
+                            map.fitBounds(features.getBounds());
+                            features.addTo(map);
+                        }());
+                    </script>
+                    
                     <hr />
                     <h4>Ordsky</h4>
                     <canvas height="400" width="400" id="wordcloud-2014" style="width:100%;" class="thumbnail"></canvas>
@@ -1485,6 +1755,53 @@
                         </dd>
                         
                         
+                        
+                        <dt>Antall forskjellige steder:</dt>
+                        <dd>52</dd>
+                        
+                        
+                        <dt>Steder med flest innsjekkinger:</dt>
+                        <dd>
+                            <ol>
+                                
+                                <li>
+                                    <a href="https://untappd.com/venue/66084" target="_blank">
+                                        Den Gode Nabo
+                                    </a>
+                                    (27)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/venue/2285829" target="_blank">
+                                        Haandbryggeriet
+                                    </a>
+                                    (16)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/venue/87730" target="_blank">
+                                        Diskoteket Bar
+                                    </a>
+                                    (12)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/venue/1335811" target="_blank">
+                                        Mikkeller
+                                    </a>
+                                    (10)
+                                </li>
+                                
+                                <li>
+                                    <a href="https://untappd.com/venue/2524762" target="_blank">
+                                        Bror
+                                    </a>
+                                    (9)
+                                </li>
+                                
+                            </ol>
+                        </dd>
+                        
                     </dl>
 
 
@@ -1551,6 +1868,30 @@
                         }());
                     </script>
 
+                    
+                    <hr />
+                    <h4>Stedkart</h4>
+                    <div id="map-venue-2015" class="map thumbnail"></div>
+
+                    <script type="text/javascript">
+                        (function () {
+                            var positions = {"type": "FeatureCollection", "features": [{"geometry": {"type": "Point", "coordinates": [10.4024, 63.428]}, "type": "Feature", "properties": {"name": "Den Gode Nabo"}}, {"geometry": {"type": "Point", "coordinates": [10.2314, 59.742]}, "type": "Feature", "properties": {"name": "Haandbryggeriet"}}, {"geometry": {"type": "Point", "coordinates": [10.3992, 63.4339]}, "type": "Feature", "properties": {"name": "Diskoteket Bar"}}, {"geometry": {"type": "Point", "coordinates": [100.588, 13.7277]}, "type": "Feature", "properties": {"name": "Mikkeller"}}, {"geometry": {"type": "Point", "coordinates": [10.3973, 63.4331]}, "type": "Feature", "properties": {"name": "Bror"}}, {"geometry": {"type": "Point", "coordinates": [-122.431, 37.7719]}, "type": "Feature", "properties": {"name": "Toronado"}}, {"geometry": {"type": "Point", "coordinates": [10.3929, 63.4313]}, "type": "Feature", "properties": {"name": "Trondhjem Mikrobryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.4038, 63.4295]}, "type": "Feature", "properties": {"name": "Taps Trondheim (Monkey Brew)"}}, {"geometry": {"type": "Point", "coordinates": [12.5562, 55.668]}, "type": "Feature", "properties": {"name": "Fermentoren"}}, {"geometry": {"type": "Point", "coordinates": [13.1563, 63.3856]}, "type": "Feature", "properties": {"name": "\u00c5re Bj\u00f6rnen"}}, {"geometry": {"type": "Point", "coordinates": [10.4128, 63.4342]}, "type": "Feature", "properties": {"name": "SOT bar & burger"}}, {"geometry": {"type": "Point", "coordinates": [-122.422, 37.7701]}, "type": "Feature", "properties": {"name": "Zeitgeist"}}, {"geometry": {"type": "Point", "coordinates": [-122.413, 37.8019]}, "type": "Feature", "properties": {"name": "La Trappe"}}, {"geometry": {"type": "Point", "coordinates": [10.4023, 63.4346]}, "type": "Feature", "properties": {"name": "Brygghus 9"}}, {"geometry": {"type": "Point", "coordinates": [12.5598, 55.6683]}, "type": "Feature", "properties": {"name": "Warpigs Brewpub (Mikkeller)"}}, {"geometry": {"type": "Point", "coordinates": [10.7593, 59.925]}, "type": "Feature", "properties": {"name": "Gr\u00fcnerl\u00f8kka Brygghus"}}, {"geometry": {"type": "Point", "coordinates": [-122.411, 37.8002]}, "type": "Feature", "properties": {"name": "Rogue Ales Public House"}}, {"geometry": {"type": "Point", "coordinates": [12.5578, 55.6893]}, "type": "Feature", "properties": {"name": "\u00d8lbaren"}}, {"geometry": {"type": "Point", "coordinates": [10.7158, 59.9288]}, "type": "Feature", "properties": {"name": "Den Gamle Major"}}, {"geometry": {"type": "Point", "coordinates": [10.752, 59.9218]}, "type": "Feature", "properties": {"name": "D\u00f8gnvill Bar & Burger"}}, {"geometry": {"type": "Point", "coordinates": [-122.409, 37.7757]}, "type": "Feature", "properties": {"name": "City Beer Store"}}, {"geometry": {"type": "Point", "coordinates": [10.7527, 59.9221]}, "type": "Feature", "properties": {"name": "Smelteverket"}}, {"geometry": {"type": "Point", "coordinates": [-122.393, 37.7824]}, "type": "Feature", "properties": {"name": "21st Amendment Brewery & Restaurant"}}, {"geometry": {"type": "Point", "coordinates": [12.5715, 55.6762]}, "type": "Feature", "properties": {"name": "Taphouse"}}, {"geometry": {"type": "Point", "coordinates": [11.0344, 63.2257]}, "type": "Feature", "properties": {"name": "Selbu"}}, {"geometry": {"type": "Point", "coordinates": [-122.414, 37.7757]}, "type": "Feature", "properties": {"name": "Mapbox SF"}}, {"geometry": {"type": "Point", "coordinates": [12.5589, 55.6681]}, "type": "Feature", "properties": {"name": "K\u00f8dbyens Mad & Marked"}}, {"geometry": {"type": "Point", "coordinates": [-122.411, 37.7771]}, "type": "Feature", "properties": {"name": "Cellarmaker Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [10.9176, 63.4543]}, "type": "Feature", "properties": {"name": "Trondheim Lufthavn, V\u00e6rnes (TRD)"}}, {"geometry": {"type": "Point", "coordinates": [10.4029, 63.4283]}, "type": "Feature", "properties": {"name": "Kalas & Canasta"}}, {"geometry": {"type": "Point", "coordinates": [10.7541, 59.9176]}, "type": "Feature", "properties": {"name": "Caf\u00e9 Sara"}}, {"geometry": {"type": "Point", "coordinates": [12.565, 55.6834]}, "type": "Feature", "properties": {"name": "Caf\u00e9 Banker\u00e5t"}}, {"geometry": {"type": "Point", "coordinates": [9.54496, 62.2497]}, "type": "Feature", "properties": {"name": "Dovrefjell-Sunndalsfjella Nasjonalpark"}}, {"geometry": {"type": "Point", "coordinates": [-122.42, 37.7738]}, "type": "Feature", "properties": {"name": "City of San Francisco"}}, {"geometry": {"type": "Point", "coordinates": [18.6002, 54.3812]}, "type": "Feature", "properties": {"name": "Best Burger"}}, {"geometry": {"type": "Point", "coordinates": [11.3259, 59.5557]}, "type": "Feature", "properties": {"name": "Mysen"}}, {"geometry": {"type": "Point", "coordinates": [18.6552, 54.3453]}, "type": "Feature", "properties": {"name": "Qubus Hotel Gdansk"}}, {"geometry": {"type": "Point", "coordinates": [10.6242, 63.5839]}, "type": "Feature", "properties": {"name": "Klosterg\u00e5rden"}}, {"geometry": {"type": "Point", "coordinates": [10.5847, 59.6533]}, "type": "Feature", "properties": {"name": "Gr\u00f8nsand G\u00e5rd"}}, {"geometry": {"type": "Point", "coordinates": [10.519, 59.8859]}, "type": "Feature", "properties": {"name": "Thon Hotel Oslofjord"}}, {"geometry": {"type": "Point", "coordinates": [10.3955, 63.4221]}, "type": "Feature", "properties": {"name": "Klubben"}}, {"geometry": {"type": "Point", "coordinates": [10.4068, 63.4333]}, "type": "Feature", "properties": {"name": "Caya"}}, {"geometry": {"type": "Point", "coordinates": [10.4118, 63.4345]}, "type": "Feature", "properties": {"name": "BrukBar & Bl\u00e6st"}}, {"geometry": {"type": "Point", "coordinates": [-122.408, 37.7991]}, "type": "Feature", "properties": {"name": "Hotel Boh\u00e8me"}}, {"geometry": {"type": "Point", "coordinates": [13.0789, 63.4003]}, "type": "Feature", "properties": {"name": "Dahlbom p\u00e5 Torget"}}, {"geometry": {"type": "Point", "coordinates": [10.4027, 63.4272]}, "type": "Feature", "properties": {"name": "G\u00e5saparken"}}, {"geometry": {"type": "Point", "coordinates": [12.5695, 55.6839]}, "type": "Feature", "properties": {"name": "Torvehallerne"}}, {"geometry": {"type": "Point", "coordinates": [10.4772, 61.117]}, "type": "Feature", "properties": {"name": "Radisson Blu Lillehammer Hotel"}}, {"geometry": {"type": "Point", "coordinates": [10.3933, 63.4318]}, "type": "Feature", "properties": {"name": "Familien"}}, {"geometry": {"type": "Point", "coordinates": [10.4027, 63.4284]}, "type": "Feature", "properties": {"name": "Bybroen Antikvariat"}}, {"geometry": {"type": "Point", "coordinates": [10.4029, 63.4284]}, "type": "Feature", "properties": {"name": "Antikvariatet"}}, {"geometry": {"type": "Point", "coordinates": [10.3906, 63.4319]}, "type": "Feature", "properties": {"name": "Bangkok Caf\u00e9"}}]};
+                            var map = L.map('map-venue-2015');
+                            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                            }).addTo(map);
+
+                            var features = L.geoJson(positions, {
+                                onEachFeature: function (feature, layer) {
+                                    layer.bindPopup(feature.properties.name);
+                                }
+                            });
+
+                            map.fitBounds(features.getBounds());
+                            features.addTo(map);
+                        }());
+                    </script>
+                    
                     <hr />
                     <h4>Ordsky</h4>
                     <canvas height="400" width="400" id="wordcloud-2015" style="width:100%;" class="thumbnail"></canvas>

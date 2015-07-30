@@ -20,6 +20,7 @@ class Checkin(object):
         self.beer['brewery'] = data['brewery']
         self.brewery = data['brewery']
         self.user = data['user']
+        self.venue = data['venue']
 
     def date(self):
         return parse(self.data['created_at'])
@@ -42,12 +43,15 @@ class Stats(object):
         beercheckins = defaultdict(list)
         brewerycheckins = defaultdict(list)
         usercheckins = defaultdict(list)
+        venuecheckins = defaultdict(list)
         for checkin in self.checkins:
             beercheckins[checkin.beer['bid']].append(checkin)
             brewerycheckins[checkin.brewery['brewery_id']].append(
                 checkin.brewery
             )
             usercheckins[checkin.user['uid']].append(checkin.user)
+            if checkin.venue:
+                venuecheckins[checkin.venue['venue_id']].append(checkin.venue)
 
         beers = []
         for key, beerlist in beercheckins.items():
@@ -74,6 +78,12 @@ class Stats(object):
             userlist[0]['num'] = len(userlist)
             users.append(userlist[0])
         self.users = sorted(users, key=lambda user: user['num'], reverse=True)
+
+        venues = []
+        for key, venuelist in venuecheckins.items():
+            venuelist[0]['num'] = len(venuelist)
+            venues.append(venuelist[0])
+        self.venues = sorted(venues, key=lambda venue: venue['num'], reverse=True)
 
     def _sorted(self):
         return sorted(self.checkins, key=lambda checkin: checkin.date())
@@ -169,22 +179,21 @@ class Stats(object):
         return res
 
 
-
-def get_positions(breweries):
+def get_positions(places, name_param):
     features = []
-    for brewery in breweries:
-        if brewery['location'] is not None:
-            has_lng = brewery['location']['lng'] != 0
-            has_lat = brewery['location']['lat'] != 0
+    for place in places:
+        if place['location'] is not None:
+            has_lng = place['location']['lng'] != 0
+            has_lat = place['location']['lat'] != 0
             if has_lat and has_lng:
                 features.append({
                     "type": "Feature",
-                    "properties": {"name": brewery['brewery_name']},
+                    "properties": {"name": place[name_param]},
                     "geometry": {
                         "type": "Point",
                         "coordinates": [
-                            brewery['location']['lng'],
-                            brewery['location']['lat']
+                            place['location']['lng'],
+                            place['location']['lat']
                         ]
                     }
                 })
@@ -219,7 +228,7 @@ def generate_stats(checkins, report_type, limit_months=None):
             'num_breweries': len(stat.breweries),
             'brewery_top_5': stat.breweries[:5],
             'photos': stat.photos(),
-            'pos': json.dumps(get_positions(stat.breweries)),
+            'pos': json.dumps(get_positions(stat.breweries, 'brewery_name')),
             'date_stats': stat.hours(),
             'words': json.dumps(stat.words())
         }
@@ -227,6 +236,11 @@ def generate_stats(checkins, report_type, limit_months=None):
         if report_type == 'venue':
             data['num_users'] = len(stat.users)
             data['user_top_5'] = stat.users[:5]
+        if report_type == 'user':
+            data['num_venues'] = len(stat.venues)
+            data['venues_top_5'] = stat.venues[:5]
+            data['venue_pos'] = json.dumps(get_positions(stat.venues, 'venue_name'))
+
         years.append(data)
     return {'years': years}
 
@@ -250,7 +264,7 @@ def print_template(data, title, filename):
 
 
 if __name__ == '__main__':
-    
+    '''
     checkins = load_checkins('atlefren.json')
     data = generate_stats(checkins, 'user')
     print_template(data, u'Atles øldrikking', 'atlefren.html')
@@ -258,5 +272,5 @@ if __name__ == '__main__':
 
     checkins = load_checkins('run4.json')
     data = generate_stats(checkins, 'venue', limit_months=[7, 8])
-    print_template(data, 'Bryggerifestivalen i Trondheim', 'venue.html')
-    '''
+    print_template(data, 'Bryggerifestivalen i Trondheim', 'data.html')
+    
