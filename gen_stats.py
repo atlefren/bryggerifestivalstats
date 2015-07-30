@@ -53,10 +53,10 @@ class Stats(object):
         for key, beerlist in beercheckins.items():
             beer = beerlist[0].beer
             beer['num'] = len(beerlist)
-            score_sum = sum([checkin.data['rating_score']
-                            for checkin in beerlist])
-            beer['score'] = score_sum / len(beerlist)
-            beers.append(beer)
+            scores = [checkin.data['rating_score'] for checkin in beerlist if checkin.data['rating_score'] > 0]
+            if len(scores):
+                beer['score'] = sum(scores) / len(scores)
+                beers.append(beer)
         self.beers = sorted(beers, key=lambda beer: beer['num'], reverse=True)
 
         breweries = []
@@ -253,7 +253,7 @@ if __name__ == '__main__':
     
     checkins = load_checkins('atlefren.json')
     data = generate_stats(checkins, 'user')
-    print_template(data, 'Atles øldrikking', 'atlefren.html')
+    print_template(data, u'Atles øldrikking', 'atlefren.html')
     '''
 
     checkins = load_checkins('run4.json')
