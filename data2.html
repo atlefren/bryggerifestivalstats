@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" media="all" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <style type="text/css">
+        .map {
+            width: 100%;
+            height: 300px;
+
+        }
+    </style>
+</head>
+<body>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Bryggerifestivalen i Trondheim</h1>
+                <p>Basert på statistikk fra Untappd</p>
+            </div>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-2">
+                <h2>2011</h2>
+                <dl>
+                    <dt>Antall innsjekkinger:</dt>
+                    <dd>86</dd>
+                    <dt>Antall forskjellige øl:</dt>
+                    <dd>43</dd>
+                    <dt>Mest innsjekkede øl:</dt>
+                    <dd>
+                        <ol>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/44455" target="_blank">
+                                    E. C. Dahls Bryggeri Dahls Pils
+                                </a>
+                                (10)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/104733" target="_blank">
+                                    Aass Bryggeri Juleøl Premium
+                                </a>
+                                (6)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/99648" target="_blank">
+                                    E. C. Dahls Bryggeri Julebrygg
+                                </a>
+                                (6)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/24388" target="_blank">
+                                    Aass Bryggeri Pilsner
+                                </a>
+                                (6)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/106412" target="_blank">
+                                    E. C. Dahls Bryggeri Dahls Juleøl 4.5%
+                                </a>
+                                (4)
+                            </li>
+                            
+                        </ol>
+                    </dd>
+                    <dt>Høyest ratede øl*:</dt>
+                    <dd>
+                        <ol>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/866538" target="_blank">
+                                    Aass Bryggeri Juleøl Vellagret
+                                </a>
+                                (5.0 / 5) (4 checkins)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/104733" target="_blank">
+                                    Aass Bryggeri Juleøl Premium
+                                </a>
+                                (4.0 / 5) (6 checkins)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/24388" target="_blank">
+                                    Aass Bryggeri Pilsner
+                                </a>
+                                (4.0 / 5) (6 checkins)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/6469" target="_blank">
+                                    Goose Island Beer Co. Honker's Ale
+                                </a>
+                                (4.0 / 5) (4 checkins)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/31859" target="_blank">
+                                    Nøgne Ø Bitter
+                                </a>
+                                (4.0 / 5) (4 checkins)
+                            </li>
+                            
+                        </ol>
+                        <p>*Øl med minst 2 checkins, snitt av alle ratinger på festivalen</p>
+                    </dd>
+                    <dt>Antall forskjellige bryggerier:</dt>
+                    <dd>26</dd>
+                    <dt>Mest innsjekkede bryggerier:</dt>
+                    <dd>
+                        <ol>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/4" target="_blank">
+                                        Aass Bryggeri
+                                    </a>
+                                    (24)
+                                </li>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/10626" target="_blank">
+                                        E. C. Dahls Bryggeri
+                                    </a>
+                                    (21)
+                                </li>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/923" target="_blank">
+                                        Nøgne Ø
+                                    </a>
+                                    (7)
+                                </li>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/2898" target="_blank">
+                                        Goose Island Beer Co.
+                                    </a>
+                                    (4)
+                                </li>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/5953" target="_blank">
+                                        Ringnes Bryggeri
+                                    </a>
+                                    (3)
+                                </li>
+                            
+                        </ol>
+                    </dd>
+                    <dt>Antall forskjellige brukere:</dt>
+                    <dd>1</dd>
+                    <dt>Brukere med flest innsjekkinger:</dt>
+                    <dd>
+                        <ol>
+                            
+                            <li>
+                                <a href="https://untappd.com/user/atlefren" target="_blank">
+                                    atlefren
+                                </a>
+                                (86)
+                            </li>
+                            
+                        </ol>
+                    </dd>
+                </dl>
+
+                <h4>Bilder</h4>
+                
+                    <img src="https://untappd.akamaized.net/photo/2011_12_09/327e601a3ea296d0fc97d6702b50c27a_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2011_12_07/d581a0e4de41e2ff70b20100b75aafd1_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2011_12_03/082efdb808229cf2a5422d8ec249b9af_100x100.jpg" height="100" width="100" />
+                
+
+                <h4>Bryggerikart</h4>
+                <div id="map-2011" class="map"></div>
+
+                <script type="text/javascript">
+                    (function () {
+                        var positions = {"type": "FeatureCollection", "features": [{"geometry": {"type": "Point", "coordinates": [10.2117, 59.7417]}, "type": "Feature", "properties": {"name": "Aass Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.427, 63.4409]}, "type": "Feature", "properties": {"name": "E. C. Dahls Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [8.63723, 58.406]}, "type": "Feature", "properties": {"name": "N\u00f8gne \u00d8"}}, {"geometry": {"type": "Point", "coordinates": [-87.6721, 41.8871]}, "type": "Feature", "properties": {"name": "Goose Island Beer Co."}}, {"geometry": {"type": "Point", "coordinates": [10.7592, 59.9301]}, "type": "Feature", "properties": {"name": "Ringnes Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [12.535, 55.6673]}, "type": "Feature", "properties": {"name": "Carlsberg Group"}}, {"geometry": {"type": "Point", "coordinates": [-73.9575, 40.7215]}, "type": "Feature", "properties": {"name": "Brooklyn Brewery"}}, {"geometry": {"type": "Point", "coordinates": [5.25793, 60.294]}, "type": "Feature", "properties": {"name": "Hansa Borg Bryggerier"}}, {"geometry": {"type": "Point", "coordinates": [12.5297, 55.6648]}, "type": "Feature", "properties": {"name": "Jacobsen"}}, {"geometry": {"type": "Point", "coordinates": [-2.04834, 57.3716]}, "type": "Feature", "properties": {"name": "BrewDog"}}, {"geometry": {"type": "Point", "coordinates": [10.4524, 55.3067]}, "type": "Feature", "properties": {"name": "Midtfyns Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [10.1814, 59.7398]}, "type": "Feature", "properties": {"name": "HaandBryggeriet"}}, {"geometry": {"type": "Point", "coordinates": [5.74646, 58.9457]}, "type": "Feature", "properties": {"name": "Lervig Aktiebryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-6.24792, 53.3614]}, "type": "Feature", "properties": {"name": "Guinness"}}, {"geometry": {"type": "Point", "coordinates": [13.3861, 49.7466]}, "type": "Feature", "properties": {"name": "Plzensky Prazdroj"}}, {"geometry": {"type": "Point", "coordinates": [10.7522, 59.9139]}, "type": "Feature", "properties": {"name": "Frydenlund Bryggerier (Ringnes A.S.)"}}, {"geometry": {"type": "Point", "coordinates": [-3.47195, 56.4178]}, "type": "Feature", "properties": {"name": "Inveralmond Brewery"}}, {"geometry": {"type": "Point", "coordinates": [17.6627, 59.8544]}, "type": "Feature", "properties": {"name": "Slottsk\u00e4llans Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [12.5509, 56.9008]}, "type": "Feature", "properties": {"name": "Carlsberg Sverige"}}, {"geometry": {"type": "Point", "coordinates": [10.242, 59.1296]}, "type": "Feature", "properties": {"name": "Grans Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [0.714876, 52.2411]}, "type": "Feature", "properties": {"name": "Greene King"}}, {"geometry": {"type": "Point", "coordinates": [4.30729, 50.7667]}, "type": "Feature", "properties": {"name": "Brouwerij 3 Fonteinen"}}, {"geometry": {"type": "Point", "coordinates": [5.1288, 51.5435]}, "type": "Feature", "properties": {"name": "Bierbrouwerij De Koningshoeven"}}, {"geometry": {"type": "Point", "coordinates": [-117.149, 33.1416]}, "type": "Feature", "properties": {"name": "Port Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [14.4762, 48.9936]}, "type": "Feature", "properties": {"name": "Brewery Budweiser Budvar (BBNP)"}}]};
+                        var map = L.map('map-2011');
+                        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                        }).addTo(map);
+
+                        var features = L.geoJson(positions, {
+                            onEachFeature: function (feature, layer) {
+                                layer.bindPopup(feature.properties.name);
+                            }
+                        });
+
+                        map.fitBounds(features.getBounds());
+                        features.addTo(map);
+                    }());
+
+
+                </script>
+
+            </div>
+        
+            <div class="col-md-2">
+                <h2>2012</h2>
+                <dl>
+                    <dt>Antall innsjekkinger:</dt>
+                    <dd>851</dd>
+                    <dt>Antall forskjellige øl:</dt>
+                    <dd>549</dd>
+                    <dt>Mest innsjekkede øl:</dt>
+                    <dd>
+                        <ol>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/44455" target="_blank">
+                                    E. C. Dahls Bryggeri Dahls Pils
+                                </a>
+                                (42)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/24388" target="_blank">
+                                    Aass Bryggeri Pilsner
+                                </a>
+                                (21)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/6469" target="_blank">
+                                    Goose Island Beer Co. Honker's Ale
+                                </a>
+                                (12)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/46454" target="_blank">
+                                    Atna Øl Nakenbad
+                                </a>
+                                (11)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/3558" target="_blank">
+                                    Brooklyn Brewery Brooklyn Lager
+                                </a>
+                                (11)
+                            </li>
+                            
+                        </ol>
+                    </dd>
+                    <dt>Høyest ratede øl*:</dt>
+                    <dd>
+                        <ol>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/124451" target="_blank">
+                                    HaandBryggeriet Fyr & Flamme
+                                </a>
+                                (5.0 / 5) (6 checkins)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/3954" target="_blank">
+                                    Brouwerij Verhaeghe Duchesse de Bourgogne
+                                </a>
+                                (5.0 / 5) (6 checkins)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/866538" target="_blank">
+                                    Aass Bryggeri Juleøl Vellagret
+                                </a>
+                                (5.0 / 5) (4 checkins)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/6860" target="_blank">
+                                    Omer Vander Ghinste Brewery Cuvée Des Jacobins Rouge
+                                </a>
+                                (5.0 / 5) (3 checkins)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/142353" target="_blank">
+                                    Nøgne Ø Imperial Rye Porter
+                                </a>
+                                (5.0 / 5) (3 checkins)
+                            </li>
+                            
+                        </ol>
+                        <p>*Øl med minst 2 checkins, snitt av alle ratinger på festivalen</p>
+                    </dd>
+                    <dt>Antall forskjellige bryggerier:</dt>
+                    <dd>208</dd>
+                    <dt>Mest innsjekkede bryggerier:</dt>
+                    <dd>
+                        <ol>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/2206" target="_blank">
+                                        HaandBryggeriet
+                                    </a>
+                                    (54)
+                                </li>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/923" target="_blank">
+                                        Nøgne Ø
+                                    </a>
+                                    (52)
+                                </li>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/10626" target="_blank">
+                                        E. C. Dahls Bryggeri
+                                    </a>
+                                    (48)
+                                </li>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/2813" target="_blank">
+                                        Mikkeller
+                                    </a>
+                                    (36)
+                                </li>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/4" target="_blank">
+                                        Aass Bryggeri
+                                    </a>
+                                    (35)
+                                </li>
+                            
+                        </ol>
+                    </dd>
+                    <dt>Antall forskjellige brukere:</dt>
+                    <dd>1</dd>
+                    <dt>Brukere med flest innsjekkinger:</dt>
+                    <dd>
+                        <ol>
+                            
+                            <li>
+                                <a href="https://untappd.com/user/atlefren" target="_blank">
+                                    atlefren
+                                </a>
+                                (851)
+                            </li>
+                            
+                        </ol>
+                    </dd>
+                </dl>
+
+                <h4>Bilder</h4>
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_12_25/ae6af2c6bc26abb69026d0d14280ee35_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_12_15/61b801ad133b82a8e6bdb3eba0fb741c_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_09_10/ff1202e4c02a656f460833515462e524_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_08_31/2ead22793aea14d78f526d6422c3918e_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_08_25/639611093cc62b19547631f397585bbe_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_08_25/c19d04befc932fa52828e3627d482e7e_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_08_22/e14a7bc8a549c0be3e00b5e460fd6083_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_07_21/43983f1911667aee636b881063b40c5d_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_07_14/0cc9e2023a50887ff6a9469088b3a8a8_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_07_14/f3ac1e1f12ea4474f70476eb2e9912a4_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_07_06/438f7b67568afad706906c9e1af72523_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_07_06/3cbff1d8e107e173cf1fd74f30031a51_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_07_05/bb7e9c1f6b99f4466fc67eb206eb2305_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_07_04/2979fa9a9d7c5e1f47c5a72fb4179691_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_07_04/13cc30e1af213a4e95276356abdb5f88_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_07_04/31693fd903c9c7b061e744b8ffe05bd9_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_07_04/31a537f4d11d8ab3c6972c37e3115f3f_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_07_02/f024c7050e38287d3385081790c071aa_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_07_02/06cdea9245fe41cd82f5a446f2fb0586_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_06_30/b4d7499ea3492ed4e45036c54da998ca_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_06_30/759a5b50965167b621d2eeeb0c227452_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_06_30/0b9601112dcebcb20c19ffe0ff494dc4_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_06_29/882aac9ef4a10344054451fae49a6783_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_06_29/7f3b12f3710c40c961722166f754a5b7_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_06_29/c98bd6b1323974b490b92efa2b367505_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_06_29/66b4f08ee18291e00f7066a63f0b4ef8_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_06_28/e1cda622122ac1e9ddc75ecd53d3a4e8_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_06_28/edc561fe162b7a4238dca00ddd3fc2a5_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_06_28/3b2607fd8e7bdc88b3b8a5d9ad16af6c_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_06_28/8e2f0cf492fe6dbd5d5d32e6b81f1f5b_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_06_14/2df5176ef555127e09137a5336914d65_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_06_07/c85886fbe70854d7862f4609c0a1fb20_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_06_02/a6cfdefb1e670f09122bb72a8e5e367d_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_03_31/9759e70540408e4e18f75d028db4ae58_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_03_16/335595106c64290132698e9342376217_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_01_27/9c11aa55dd1801473f802cbd416608a0_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2012_01_19/8dca247525032bb0612c1576a0198063_100x100.jpg" height="100" width="100" />
+                
+
+                <h4>Bryggerikart</h4>
+                <div id="map-2012" class="map"></div>
+
+                <script type="text/javascript">
+                    (function () {
+                        var positions = {"type": "FeatureCollection", "features": [{"geometry": {"type": "Point", "coordinates": [10.1814, 59.7398]}, "type": "Feature", "properties": {"name": "HaandBryggeriet"}}, {"geometry": {"type": "Point", "coordinates": [8.63723, 58.406]}, "type": "Feature", "properties": {"name": "N\u00f8gne \u00d8"}}, {"geometry": {"type": "Point", "coordinates": [10.427, 63.4409]}, "type": "Feature", "properties": {"name": "E. C. Dahls Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [12.5589, 55.6731]}, "type": "Feature", "properties": {"name": "Mikkeller"}}, {"geometry": {"type": "Point", "coordinates": [10.2117, 59.7417]}, "type": "Feature", "properties": {"name": "Aass Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-2.04834, 57.3716]}, "type": "Feature", "properties": {"name": "BrewDog"}}, {"geometry": {"type": "Point", "coordinates": [-73.9575, 40.7215]}, "type": "Feature", "properties": {"name": "Brooklyn Brewery"}}, {"geometry": {"type": "Point", "coordinates": [5.03114, 61.6]}, "type": "Feature", "properties": {"name": "Kinn Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [7.12075, 60.8381]}, "type": "Feature", "properties": {"name": "\u00c6gir Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.8328, 61.7313]}, "type": "Feature", "properties": {"name": "Atna \u00d8l"}}, {"geometry": {"type": "Point", "coordinates": [-87.6721, 41.8871]}, "type": "Feature", "properties": {"name": "Goose Island Beer Co."}}, {"geometry": {"type": "Point", "coordinates": [5.74646, 58.9457]}, "type": "Feature", "properties": {"name": "Lervig Aktiebryggeri"}}, {"geometry": {"type": "Point", "coordinates": [11.935, 55.7075]}, "type": "Feature", "properties": {"name": "Hornbeer"}}, {"geometry": {"type": "Point", "coordinates": [4.74211, 52.0857]}, "type": "Feature", "properties": {"name": "Brouwerij De Molen"}}, {"geometry": {"type": "Point", "coordinates": [10.4524, 55.3067]}, "type": "Feature", "properties": {"name": "Midtfyns Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [10.7522, 59.9139]}, "type": "Feature", "properties": {"name": "Frydenlund Bryggerier (Ringnes A.S.)"}}, {"geometry": {"type": "Point", "coordinates": [10.7592, 59.9301]}, "type": "Feature", "properties": {"name": "Ringnes Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [12.5297, 55.6648]}, "type": "Feature", "properties": {"name": "Jacobsen"}}, {"geometry": {"type": "Point", "coordinates": [11.295, 63.8826]}, "type": "Feature", "properties": {"name": "Inder\u00f8y G\u00e5rdsbryggeri"}}, {"geometry": {"type": "Point", "coordinates": [0.714876, 52.2411]}, "type": "Feature", "properties": {"name": "Greene King"}}, {"geometry": {"type": "Point", "coordinates": [-71.1034, 42.3144]}, "type": "Feature", "properties": {"name": "Boston Beer Company (Samuel Adams)"}}, {"geometry": {"type": "Point", "coordinates": [10.3923, 63.4313]}, "type": "Feature", "properties": {"name": "Trondhjem Mikrobryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-121.815, 39.7242]}, "type": "Feature", "properties": {"name": "Sierra Nevada Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [12.4959, 55.6617]}, "type": "Feature", "properties": {"name": "Evil Twin Brewing"}}, {"geometry": {"type": "Point", "coordinates": [14.4762, 48.9936]}, "type": "Feature", "properties": {"name": "Brewery Budweiser Budvar (BBNP)"}}, {"geometry": {"type": "Point", "coordinates": [-77.4265, 39.3627]}, "type": "Feature", "properties": {"name": "Flying Dog Brewery"}}, {"geometry": {"type": "Point", "coordinates": [4.33562, 50.8416]}, "type": "Feature", "properties": {"name": "Brasserie Cantillon"}}, {"geometry": {"type": "Point", "coordinates": [-0.249709, 51.4881]}, "type": "Feature", "properties": {"name": "Fuller, Smith & Turner "}}, {"geometry": {"type": "Point", "coordinates": [7.89217, 44.5153]}, "type": "Feature", "properties": {"name": "Birra Baladin"}}, {"geometry": {"type": "Point", "coordinates": [3.39241, 50.8346]}, "type": "Feature", "properties": {"name": "Brouwerij Verhaeghe"}}, {"geometry": {"type": "Point", "coordinates": [-6.24792, 53.3614]}, "type": "Feature", "properties": {"name": "Guinness"}}, {"geometry": {"type": "Point", "coordinates": [12.5695, 55.6772]}, "type": "Feature", "properties": {"name": "Brewpub K\u00f8benhavn"}}, {"geometry": {"type": "Point", "coordinates": [3.27796, 50.7768]}, "type": "Feature", "properties": {"name": "Omer Vander Ghinste Brewery"}}, {"geometry": {"type": "Point", "coordinates": [-6.36862, 53.4004]}, "type": "Feature", "properties": {"name": "The Porterhouse Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [-3.68021, 40.391]}, "type": "Feature", "properties": {"name": "Mahou-San Miguel"}}, {"geometry": {"type": "Point", "coordinates": [6.00371, 58.4579]}, "type": "Feature", "properties": {"name": "Berentsens Brygghus"}}, {"geometry": {"type": "Point", "coordinates": [-6.97615, 52.6974]}, "type": "Feature", "properties": {"name": "O'Hara's Brewery (Carlow Brewing Company)"}}, {"geometry": {"type": "Point", "coordinates": [12.535, 55.6673]}, "type": "Feature", "properties": {"name": "Carlsberg Group"}}, {"geometry": {"type": "Point", "coordinates": [2.17806, 41.4091]}, "type": "Feature", "properties": {"name": "Grupo Damm"}}, {"geometry": {"type": "Point", "coordinates": [2.10611, 41.5497]}, "type": "Feature", "properties": {"name": "N\u00f3mada Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [12.5657, 55.6746]}, "type": "Feature", "properties": {"name": "Bryggeriet Apollo"}}, {"geometry": {"type": "Point", "coordinates": [0.891721, 51.3167]}, "type": "Feature", "properties": {"name": "Shepherd Neame"}}, {"geometry": {"type": "Point", "coordinates": [-117.12, 33.1157]}, "type": "Feature", "properties": {"name": "Stone Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [4.1097, 50.5019]}, "type": "Feature", "properties": {"name": "Brasserie St-Feuillien"}}, {"geometry": {"type": "Point", "coordinates": [15.2328, 59.2827]}, "type": "Feature", "properties": {"name": "N\u00e4rke Kulturbryggeri"}}, {"geometry": {"type": "Point", "coordinates": [12.5639, 55.6903]}, "type": "Feature", "properties": {"name": "N\u00f8rrebro Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [12.5963, 55.6245]}, "type": "Feature", "properties": {"name": "Amager Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [12.3832, 55.7628]}, "type": "Feature", "properties": {"name": "Bryggeri Skovlyst"}}, {"geometry": {"type": "Point", "coordinates": [10.6652, 55.2565]}, "type": "Feature", "properties": {"name": "\u00d8rb\u00e6k Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [13.471, 52.5421]}, "type": "Feature", "properties": {"name": "Berliner-Kindl-Schultheiss-Brauerei"}}, {"geometry": {"type": "Point", "coordinates": [-1.26197, 53.8821]}, "type": "Feature", "properties": {"name": "Samuel Smith Old Brewery"}}, {"geometry": {"type": "Point", "coordinates": [-3.75838, 56.1241]}, "type": "Feature", "properties": {"name": "Harviestoun Brewery"}}, {"geometry": {"type": "Point", "coordinates": [139.662, 35.7071]}, "type": "Feature", "properties": {"name": "Kirin Brewery Company"}}, {"geometry": {"type": "Point", "coordinates": [4.45378, 51.0514]}, "type": "Feature", "properties": {"name": "Brouwerij Alken-Maes"}}, {"geometry": {"type": "Point", "coordinates": [5.25793, 60.294]}, "type": "Feature", "properties": {"name": "Hansa Borg Bryggerier"}}, {"geometry": {"type": "Point", "coordinates": [4.22018, 50.7124]}, "type": "Feature", "properties": {"name": "Brouwerij Boon"}}, {"geometry": {"type": "Point", "coordinates": [4.30522, 50.7601]}, "type": "Feature", "properties": {"name": "Brouwerij Oud Beersel"}}, {"geometry": {"type": "Point", "coordinates": [-122.401, 37.7635]}, "type": "Feature", "properties": {"name": "Anchor Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [11.323, 64.0417]}, "type": "Feature", "properties": {"name": "\u00d8lve p\u00e5 Egge"}}, {"geometry": {"type": "Point", "coordinates": [13.4074, 52.5223]}, "type": "Feature", "properties": {"name": "Brauhaus Mitte"}}, {"geometry": {"type": "Point", "coordinates": [11.5832, 48.1223]}, "type": "Feature", "properties": {"name": "Paulaner Gruppe"}}, {"geometry": {"type": "Point", "coordinates": [10.242, 59.1296]}, "type": "Feature", "properties": {"name": "Grans Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [4.1117, 50.6933]}, "type": "Feature", "properties": {"name": "Gueuzerie Tilquin"}}, {"geometry": {"type": "Point", "coordinates": [-2.47943, 53.7492]}, "type": "Feature", "properties": {"name": "Thwaites Brewery"}}, {"geometry": {"type": "Point", "coordinates": [3.38923, 50.7715]}, "type": "Feature", "properties": {"name": "Brouwerij Alvinne"}}, {"geometry": {"type": "Point", "coordinates": [10.759, 59.9176]}, "type": "Feature", "properties": {"name": "Schouskjelleren Mikrobryggeri"}}, {"geometry": {"type": "Point", "coordinates": [8.799, 44.7621]}, "type": "Feature", "properties": {"name": "BrewFist"}}, {"geometry": {"type": "Point", "coordinates": [12.396, 55.6425]}, "type": "Feature", "properties": {"name": "Bryggeriet Skands"}}, {"geometry": {"type": "Point", "coordinates": [4.50006, 50.7315]}, "type": "Feature", "properties": {"name": "Brewery John Martin & Brewery Timmermans"}}, {"geometry": {"type": "Point", "coordinates": [-6.59053, 53.2487]}, "type": "Feature", "properties": {"name": "Trouble Brewing"}}, {"geometry": {"type": "Point", "coordinates": [-104.988, 39.7536]}, "type": "Feature", "properties": {"name": "Great Divide Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [146.687, -36.3596]}, "type": "Feature", "properties": {"name": "Bridge Road Brewers"}}, {"geometry": {"type": "Point", "coordinates": [12.5991, 41.9028]}, "type": "Feature", "properties": {"name": "Birra Peroni"}}, {"geometry": {"type": "Point", "coordinates": [10.9963, 49.4417]}, "type": "Feature", "properties": {"name": "Tucher Br\u00e4u"}}, {"geometry": {"type": "Point", "coordinates": [9.95066, 56.5124]}, "type": "Feature", "properties": {"name": "Raasted Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [-3.21091, 55.952]}, "type": "Feature", "properties": {"name": "Innis & Gunn"}}, {"geometry": {"type": "Point", "coordinates": [-3.47195, 56.4178]}, "type": "Feature", "properties": {"name": "Inveralmond Brewery"}}, {"geometry": {"type": "Point", "coordinates": [9.40957, 55.6718]}, "type": "Feature", "properties": {"name": "B\u00f8gedal Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [7.67849, 45.0629]}, "type": "Feature", "properties": {"name": "LoverBeer"}}, {"geometry": {"type": "Point", "coordinates": [-6.25748, 53.3473]}, "type": "Feature", "properties": {"name": "Messrs Maguire"}}, {"geometry": {"type": "Point", "coordinates": [17.8852, 59.6127]}, "type": "Feature", "properties": {"name": "Sigtuna Brygghus"}}, {"geometry": {"type": "Point", "coordinates": [4.2018, 51.0137]}, "type": "Feature", "properties": {"name": "Brouwerij Bosteels"}}, {"geometry": {"type": "Point", "coordinates": [-1.26263, 53.8834]}, "type": "Feature", "properties": {"name": "John Smiths"}}, {"geometry": {"type": "Point", "coordinates": [4.23548, 50.8751]}, "type": "Feature", "properties": {"name": "Brouwerij Girardin"}}, {"geometry": {"type": "Point", "coordinates": [3.80523, 51.0002]}, "type": "Feature", "properties": {"name": "Brouwerij Huyghe"}}, {"geometry": {"type": "Point", "coordinates": [3.1381, 50.946]}, "type": "Feature", "properties": {"name": "Brouwerij Rodenbach"}}, {"geometry": {"type": "Point", "coordinates": [-5.99778, 37.387]}, "type": "Feature", "properties": {"name": "Grupo Cruzcampo"}}, {"geometry": {"type": "Point", "coordinates": [-1.82684, 53.6515]}, "type": "Feature", "properties": {"name": "Magic Rock Brewing"}}, {"geometry": {"type": "Point", "coordinates": [4.38177, 50.0356]}, "type": "Feature", "properties": {"name": "Bi\u00e8res de Chimay (Abbaye Notre Dame de Scourmont) "}}, {"geometry": {"type": "Point", "coordinates": [4.19098, 50.971]}, "type": "Feature", "properties": {"name": "Affligem Brouwerij"}}, {"geometry": {"type": "Point", "coordinates": [-3.56629, 50.7644]}, "type": "Feature", "properties": {"name": "Hanlons Brewery (formerly O'Hanlon's Brewing)"}}, {"geometry": {"type": "Point", "coordinates": [-2.72754, 52.0596]}, "type": "Feature", "properties": {"name": "Bulmers Cider"}}, {"geometry": {"type": "Point", "coordinates": [7.14409, 58.0454]}, "type": "Feature", "properties": {"name": "Lindesnes Brygghus"}}, {"geometry": {"type": "Point", "coordinates": [13.3861, 49.7466]}, "type": "Feature", "properties": {"name": "Plzensky Prazdroj"}}, {"geometry": {"type": "Point", "coordinates": [2.10334, 41.3551]}, "type": "Feature", "properties": {"name": "Cerveza Fort"}}, {"geometry": {"type": "Point", "coordinates": [11.9848, 55.6692]}, "type": "Feature", "properties": {"name": "Herslev Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [0.232227, 53.1044]}, "type": "Feature", "properties": {"name": "Batemans"}}, {"geometry": {"type": "Point", "coordinates": [174.661, -36.3987]}, "type": "Feature", "properties": {"name": "8 Wired Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [14.4077, 50.0679]}, "type": "Feature", "properties": {"name": "Pivovary Staropramen"}}, {"geometry": {"type": "Point", "coordinates": [-8.26989, 52.2662]}, "type": "Feature", "properties": {"name": "Eight Degrees Brewing"}}, {"geometry": {"type": "Point", "coordinates": [15.1355, 55.1359]}, "type": "Feature", "properties": {"name": "Svaneke Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [17.9468, 58.9043]}, "type": "Feature", "properties": {"name": "Nyn\u00e4shamns \u00c5ngbryggeri "}}, {"geometry": {"type": "Point", "coordinates": [18.2947, 57.6418]}, "type": "Feature", "properties": {"name": "Gotlands Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [9.91475, 55.465]}, "type": "Feature", "properties": {"name": "Ugly Duck Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [103.647, 1.33617]}, "type": "Feature", "properties": {"name": "Asia Pacific Breweries (Singapore)"}}, {"geometry": {"type": "Point", "coordinates": [9.47112, 55.2504]}, "type": "Feature", "properties": {"name": "Bryggeriet S.C. Fuglsang"}}, {"geometry": {"type": "Point", "coordinates": [4.75835, 50.303]}, "type": "Feature", "properties": {"name": "Abbaye de Maredsous"}}, {"geometry": {"type": "Point", "coordinates": [2.73755, 50.932]}, "type": "Feature", "properties": {"name": "De Struise Brouwers"}}, {"geometry": {"type": "Point", "coordinates": [18.0748, 59.2925]}, "type": "Feature", "properties": {"name": "Three Towns Independent Brewers"}}, {"geometry": {"type": "Point", "coordinates": [-8.47333, 51.905]}, "type": "Feature", "properties": {"name": "Beamish & Crawford Plc."}}, {"geometry": {"type": "Point", "coordinates": [139.8, 35.7098]}, "type": "Feature", "properties": {"name": "Asahi Breweries"}}, {"geometry": {"type": "Point", "coordinates": [-76.6122, 39.2904]}, "type": "Feature", "properties": {"name": "Stillwater Artisanal Ales"}}, {"geometry": {"type": "Point", "coordinates": [2.1734, 41.3851]}, "type": "Feature", "properties": {"name": "Moritz"}}, {"geometry": {"type": "Point", "coordinates": [5.3485, 60.3861]}, "type": "Feature", "properties": {"name": "Waldemars Mikrobryggeri (Hansa Borg)"}}, {"geometry": {"type": "Point", "coordinates": [77.5963, 12.9719]}, "type": "Feature", "properties": {"name": "United Breweries (India)"}}, {"geometry": {"type": "Point", "coordinates": [11.7289, 48.3952]}, "type": "Feature", "properties": {"name": "Bayerische Staatsbrauerei Weihenstephan"}}, {"geometry": {"type": "Point", "coordinates": [8.79008, 53.0787]}, "type": "Feature", "properties": {"name": "Brauerei Beck"}}, {"geometry": {"type": "Point", "coordinates": [-68.975, 44.4295]}, "type": "Feature", "properties": {"name": "Belfast Bay Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [-2.50964, 55.9933]}, "type": "Feature", "properties": {"name": "Belhaven Brewery"}}, {"geometry": {"type": "Point", "coordinates": [-99.2031, 19.4296]}, "type": "Feature", "properties": {"name": "Grupo Modelo S.A. de C.V."}}, {"geometry": {"type": "Point", "coordinates": [4.8611, 44.5164]}, "type": "Feature", "properties": {"name": "Abbaye Notre-Dame de Saint-R\u00e9my"}}, {"geometry": {"type": "Point", "coordinates": [9.61052, 56.2378]}, "type": "Feature", "properties": {"name": "Grauballe Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [14.5294, 52.3643]}, "type": "Feature", "properties": {"name": "Frankfurter Brauhaus"}}, {"geometry": {"type": "Point", "coordinates": [-7.13211, 52.2547]}, "type": "Feature", "properties": {"name": "Metalman Brewing"}}, {"geometry": {"type": "Point", "coordinates": [-8.92, 53.2683]}, "type": "Feature", "properties": {"name": "Galway Hooker Brewery"}}, {"geometry": {"type": "Point", "coordinates": [116.001, -31.8134]}, "type": "Feature", "properties": {"name": "Duckstein Brewery"}}, {"geometry": {"type": "Point", "coordinates": [3.33515, 50.8356]}, "type": "Feature", "properties": {"name": "Brouwerij 't Gaverhopke"}}, {"geometry": {"type": "Point", "coordinates": [100.515, 13.787]}, "type": "Feature", "properties": {"name": "Boon Rawd Brewery"}}, {"geometry": {"type": "Point", "coordinates": [-80.3803, 40.2341]}, "type": "Feature", "properties": {"name": "Westbrook Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [-81.4677, 41.0246]}, "type": "Feature", "properties": {"name": "Hoppin' Frog Brewery"}}, {"geometry": {"type": "Point", "coordinates": [12.281, 55.35]}, "type": "Feature", "properties": {"name": "Stevns Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [8.69139, 50.0943]}, "type": "Feature", "properties": {"name": "Binding Brauerei"}}, {"geometry": {"type": "Point", "coordinates": [4.32601, 51.0421]}, "type": "Feature", "properties": {"name": "Duvel Moortgat"}}, {"geometry": {"type": "Point", "coordinates": [10.0694, 44.9531]}, "type": "Feature", "properties": {"name": "Birrificio Del Ducato"}}, {"geometry": {"type": "Point", "coordinates": [-97.9998, 30.2323]}, "type": "Feature", "properties": {"name": "Jester King Brewery"}}, {"geometry": {"type": "Point", "coordinates": [4.47285, 51.0323]}, "type": "Feature", "properties": {"name": "Brouwerij Het Anker"}}, {"geometry": {"type": "Point", "coordinates": [4.41256, 50.2235]}, "type": "Feature", "properties": {"name": "Brasserie De Silenrieux"}}, {"geometry": {"type": "Point", "coordinates": [3.92802, 50.6516]}, "type": "Feature", "properties": {"name": "Brasserie de Silly"}}, {"geometry": {"type": "Point", "coordinates": [4.94347, 50.3114]}, "type": "Feature", "properties": {"name": "Brasserie du Bocq"}}, {"geometry": {"type": "Point", "coordinates": [-104.991, 39.7369]}, "type": "Feature", "properties": {"name": "Pints Pub Brewery - Freehouse"}}, {"geometry": {"type": "Point", "coordinates": [-3.36799, 54.6633]}, "type": "Feature", "properties": {"name": "Jennings Brewery"}}, {"geometry": {"type": "Point", "coordinates": [7.49557, 48.466]}, "type": "Feature", "properties": {"name": "Brasseries Kronenbourg"}}, {"geometry": {"type": "Point", "coordinates": [10.8927, 49.8969]}, "type": "Feature", "properties": {"name": "Brauerei Spezial"}}, {"geometry": {"type": "Point", "coordinates": [8.89229, 49.9186]}, "type": "Feature", "properties": {"name": "Brauerei Pinkus M\u00fcller"}}, {"geometry": {"type": "Point", "coordinates": [11.7282, 55.4487]}, "type": "Feature", "properties": {"name": "Det Lille Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [4.92075, 51.299]}, "type": "Feature", "properties": {"name": "Brouwerij Corsendonk"}}, {"geometry": {"type": "Point", "coordinates": [13.8839, 42.6549]}, "type": "Feature", "properties": {"name": "OpperBacco"}}, {"geometry": {"type": "Point", "coordinates": [4.2229, 50.9848]}, "type": "Feature", "properties": {"name": "Brouwerij De Block"}}, {"geometry": {"type": "Point", "coordinates": [3.18572, 50.8105]}, "type": "Feature", "properties": {"name": "Brouwerij De Ranke"}}, {"geometry": {"type": "Point", "coordinates": [4.70101, 50.8858]}, "type": "Feature", "properties": {"name": "Stella Artois"}}, {"geometry": {"type": "Point", "coordinates": [3.6175, 50.8453]}, "type": "Feature", "properties": {"name": "Brouwerij Liefmans"}}, {"geometry": {"type": "Point", "coordinates": [-0.881782, 41.6378]}, "type": "Feature", "properties": {"name": "La Zaragozana"}}, {"geometry": {"type": "Point", "coordinates": [3.25783, 50.9201]}, "type": "Feature", "properties": {"name": "Brouwerij Van Honsebrouck"}}, {"geometry": {"type": "Point", "coordinates": [9.02985, 56.583]}, "type": "Feature", "properties": {"name": "Hancock Bryggerierne"}}, {"geometry": {"type": "Point", "coordinates": [8.39525, 55.4388]}, "type": "Feature", "properties": {"name": "Fan\u00f8 Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [8.34323, 51.4215]}, "type": "Feature", "properties": {"name": "Warsteiner"}}, {"geometry": {"type": "Point", "coordinates": [12.5595, 55.7589]}, "type": "Feature", "properties": {"name": "Kissmeyer Beer & Brewing"}}, {"geometry": {"type": "Point", "coordinates": [4.72552, 51.4728]}, "type": "Feature", "properties": {"name": "Brouwerij Sterkens"}}, {"geometry": {"type": "Point", "coordinates": [12.316, 43.0964]}, "type": "Feature", "properties": {"name": "Mastri Birrai Umbri"}}, {"geometry": {"type": "Point", "coordinates": [-1.48842, 51.7826]}, "type": "Feature", "properties": {"name": "Brakspear Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [12.1059, 55.6438]}, "type": "Feature", "properties": {"name": "\u00d8lfabrikken"}}, {"geometry": {"type": "Point", "coordinates": [-2.15588, 53.4101]}, "type": "Feature", "properties": {"name": "Robinsons Brewing Company "}}, {"geometry": {"type": "Point", "coordinates": [3.78184, 51.0242]}, "type": "Feature", "properties": {"name": "Brouwerij Slaapmutske"}}, {"geometry": {"type": "Point", "coordinates": [-87.9631, 43.0422]}, "type": "Feature", "properties": {"name": "Miller Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [-1.4902, 51.7822]}, "type": "Feature", "properties": {"name": "Wychwood Brewery"}}, {"geometry": {"type": "Point", "coordinates": [-20.7687, 63.9573]}, "type": "Feature", "properties": {"name": "\u00d6lvisholt Bruggh\u00fas"}}, {"geometry": {"type": "Point", "coordinates": [12.5366, 55.6565]}, "type": "Feature", "properties": {"name": "Croocked Moon Brewing"}}, {"geometry": {"type": "Point", "coordinates": [-82.5092, 27.9593]}, "type": "Feature", "properties": {"name": "Cigar City Brewing"}}, {"geometry": {"type": "Point", "coordinates": [-8.39615, 51.8874]}, "type": "Feature", "properties": {"name": "Murphy Brewery Ireland "}}, {"geometry": {"type": "Point", "coordinates": [-105.217, 39.7591]}, "type": "Feature", "properties": {"name": "Coors Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [10.3962, 54.8511]}, "type": "Feature", "properties": {"name": "Rise Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [7.74845, 48.6052]}, "type": "Feature", "properties": {"name": "Brasserie Fischer"}}, {"geometry": {"type": "Point", "coordinates": [-18.1105, 65.6839]}, "type": "Feature", "properties": {"name": "Viking \u00d6lgerd"}}, {"geometry": {"type": "Point", "coordinates": [-4.2723, 55.8673]}, "type": "Feature", "properties": {"name": "John Crabbie & Co"}}, {"geometry": {"type": "Point", "coordinates": [6.16848, 48.7377]}, "type": "Feature", "properties": {"name": "Brasserie Champigneulles (TCB Beverages)"}}, {"geometry": {"type": "Point", "coordinates": [-84.9641, 42.2667]}, "type": "Feature", "properties": {"name": "Dark Horse Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [30.3351, 59.9343]}, "type": "Feature", "properties": {"name": "Baltika Brew"}}, {"geometry": {"type": "Point", "coordinates": [8.69094, 50.0943]}, "type": "Feature", "properties": {"name": "Radeberger Gruppe"}}, {"geometry": {"type": "Point", "coordinates": [-1.49235, 51.9966]}, "type": "Feature", "properties": {"name": "Hook Norton Brewery"}}, {"geometry": {"type": "Point", "coordinates": [13.5381, 52.4199]}, "type": "Feature", "properties": {"name": "Bier-Company"}}, {"geometry": {"type": "Point", "coordinates": [-3.314, 59.0698]}, "type": "Feature", "properties": {"name": "Orkney Brewery"}}, {"geometry": {"type": "Point", "coordinates": [-105.122, 40.1391]}, "type": "Feature", "properties": {"name": "Oskar Blues Brewery"}}, {"geometry": {"type": "Point", "coordinates": [11.6975, 48.144]}, "type": "Feature", "properties": {"name": "Staatliches Hofbr\u00e4uhaus M\u00fcnchen"}}, {"geometry": {"type": "Point", "coordinates": [-1.99442, 53.6967]}, "type": "Feature", "properties": {"name": "Little Valley Brewery"}}, {"geometry": {"type": "Point", "coordinates": [145.003, -37.8094]}, "type": "Feature", "properties": {"name": "Carlton & United Breweries"}}, {"geometry": {"type": "Point", "coordinates": [13.3652, 52.5598]}, "type": "Feature", "properties": {"name": "St. Georgen Br\u00e4u Buttenheim"}}, {"geometry": {"type": "Point", "coordinates": [10.8853, 49.892]}, "type": "Feature", "properties": {"name": "Schlenkerla Heller-Br\u00e4u Trum"}}, {"geometry": {"type": "Point", "coordinates": [3.71153, 51.5772]}, "type": "Feature", "properties": {"name": "Bierbrouwerij Emelisse"}}, {"geometry": {"type": "Point", "coordinates": [3.2989, 50.8629]}, "type": "Feature", "properties": {"name": "Brouwerij De Brabandere (Bavik)"}}, {"geometry": {"type": "Point", "coordinates": [10.1474, 55.3899]}, "type": "Feature", "properties": {"name": "Coisbo Beer"}}, {"geometry": {"type": "Point", "coordinates": [-1.65728, 52.8075]}, "type": "Feature", "properties": {"name": "Marston's Beer Co"}}, {"geometry": {"type": "Point", "coordinates": [4.30729, 50.7667]}, "type": "Feature", "properties": {"name": "Brouwerij 3 Fonteinen"}}, {"geometry": {"type": "Point", "coordinates": [-122.662, 38.2724]}, "type": "Feature", "properties": {"name": "Lagunitas Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [-10.2612, 52.1441]}, "type": "Feature", "properties": {"name": "Dingle Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [13.0634, 47.8369]}, "type": "Feature", "properties": {"name": "Brauhaus Gusswerk"}}, {"geometry": {"type": "Point", "coordinates": [11.8735, 48.9175]}, "type": "Feature", "properties": {"name": "Weisses Br\u00e4uhaus G. Schneider & Sohn"}}]};
+                        var map = L.map('map-2012');
+                        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                        }).addTo(map);
+
+                        var features = L.geoJson(positions, {
+                            onEachFeature: function (feature, layer) {
+                                layer.bindPopup(feature.properties.name);
+                            }
+                        });
+
+                        map.fitBounds(features.getBounds());
+                        features.addTo(map);
+                    }());
+
+
+                </script>
+
+            </div>
+        
+            <div class="col-md-2">
+                <h2>2013</h2>
+                <dl>
+                    <dt>Antall innsjekkinger:</dt>
+                    <dd>824</dd>
+                    <dt>Antall forskjellige øl:</dt>
+                    <dd>612</dd>
+                    <dt>Mest innsjekkede øl:</dt>
+                    <dd>
+                        <ol>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/335745" target="_blank">
+                                    Kort Lunte Bryggeri Bleik Drammenser
+                                </a>
+                                (15)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/326654" target="_blank">
+                                    Kort Lunte Bryggeri Humlefaen
+                                </a>
+                                (14)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/44455" target="_blank">
+                                    E. C. Dahls Bryggeri Dahls Pils
+                                </a>
+                                (12)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/325272" target="_blank">
+                                    HaandBryggeriet Humlesus
+                                </a>
+                                (8)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/475738" target="_blank">
+                                    Kort Lunte Bryggeri Pål Sine Humler
+                                </a>
+                                (7)
+                            </li>
+                            
+                        </ol>
+                    </dd>
+                    <dt>Høyest ratede øl*:</dt>
+                    <dd>
+                        <ol>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/6860" target="_blank">
+                                    Omer Vander Ghinste Brewery Cuvée Des Jacobins Rouge
+                                </a>
+                                (5.0 / 5) (5 checkins)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/866538" target="_blank">
+                                    Aass Bryggeri Juleøl Vellagret
+                                </a>
+                                (5.0 / 5) (4 checkins)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/142353" target="_blank">
+                                    Nøgne Ø Imperial Rye Porter
+                                </a>
+                                (5.0 / 5) (2 checkins)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/124451" target="_blank">
+                                    HaandBryggeriet Fyr & Flamme
+                                </a>
+                                (5.0 / 5) (2 checkins)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/300283" target="_blank">
+                                    Bridge Road Brewers Aurora Australis
+                                </a>
+                                (5.0 / 5) (2 checkins)
+                            </li>
+                            
+                        </ol>
+                        <p>*Øl med minst 2 checkins, snitt av alle ratinger på festivalen</p>
+                    </dd>
+                    <dt>Antall forskjellige bryggerier:</dt>
+                    <dd>236</dd>
+                    <dt>Mest innsjekkede bryggerier:</dt>
+                    <dd>
+                        <ol>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/923" target="_blank">
+                                        Nøgne Ø
+                                    </a>
+                                    (52)
+                                </li>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/2206" target="_blank">
+                                        HaandBryggeriet
+                                    </a>
+                                    (44)
+                                </li>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/26237" target="_blank">
+                                        Kort Lunte Bryggeri
+                                    </a>
+                                    (42)
+                                </li>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/69202" target="_blank">
+                                        Austmann Bryggeri
+                                    </a>
+                                    (36)
+                                </li>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/241" target="_blank">
+                                        BrewDog
+                                    </a>
+                                    (30)
+                                </li>
+                            
+                        </ol>
+                    </dd>
+                    <dt>Antall forskjellige brukere:</dt>
+                    <dd>1</dd>
+                    <dt>Brukere med flest innsjekkinger:</dt>
+                    <dd>
+                        <ol>
+                            
+                            <li>
+                                <a href="https://untappd.com/user/atlefren" target="_blank">
+                                    atlefren
+                                </a>
+                                (824)
+                            </li>
+                            
+                        </ol>
+                    </dd>
+                </dl>
+
+                <h4>Bilder</h4>
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_12_06/b9a44462d2ac2b65a86b4b39f6354c79_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_12_06/4b39758c440d537ddccca21519e1aaed_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_11_16/02bc3d733dfaeece142fd259f8b766dc_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_11_16/a409f3dd84e57ae49c8b728d6738762f_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_11_16/c1c5b971d02abcb2f99c2b676ad846a3_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_11_16/aa5eec6b2ebf703f42c79fe0b739b427_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_09_07/bf078a22bb7187043d23b4cd1cabf205_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_09_06/571cdf23172a464b4c170ce60be6b124_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_09_06/31244398d86e529c922f1d830626a3a7_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_09_06/f0db20c18df28e8174094fc7aa6c7ec1_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_08_17/76641bc4756f2bf6f1b9db969626b9b0_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_08_10/be2db2f700081726d0ded29255f6cfd2_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_08_09/cc6f98ad7b74af60bc63e2611ada8e99_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_08_09/5284484023cccfb47a1063a301d533d4_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_08_09/35787c0b1d029812a59b16e9484ddd82_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_07_19/388d18ce0e5d3bea1b9682f2a9cf75d6_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_07_16/7cf7b7ab23d7df1a8f5a914278fd5944_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_07_14/f8f3c11ad5cc65d68d1fc0b816135859_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_07_10/fd91848d7646f6f8d9e36d455dc16778_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_07_08/f5711d7d7c5ce61b6cb3aa250c785a34_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_06_20/f07065d61005d1d88feea43f2af5d167_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_05_18/2b05eca3a83cac00ae1184ca72378b78_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_04_26/26093738645ba6c07419a3b46f1cb7a8_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_04_12/ca3a1ce7b97ca46757392f49f6d9e2fc_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_04_12/d15ff6b9d31010d3c9839f339936bffd_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2013_01_18/869cffa3f6d8c446e3b47a0c5489f814_100x100.jpg" height="100" width="100" />
+                
+
+                <h4>Bryggerikart</h4>
+                <div id="map-2013" class="map"></div>
+
+                <script type="text/javascript">
+                    (function () {
+                        var positions = {"type": "FeatureCollection", "features": [{"geometry": {"type": "Point", "coordinates": [8.63723, 58.406]}, "type": "Feature", "properties": {"name": "N\u00f8gne \u00d8"}}, {"geometry": {"type": "Point", "coordinates": [10.1814, 59.7398]}, "type": "Feature", "properties": {"name": "HaandBryggeriet"}}, {"geometry": {"type": "Point", "coordinates": [10.3482, 63.4424]}, "type": "Feature", "properties": {"name": "Austmann Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-2.04834, 57.3716]}, "type": "Feature", "properties": {"name": "BrewDog"}}, {"geometry": {"type": "Point", "coordinates": [7.12075, 60.8381]}, "type": "Feature", "properties": {"name": "\u00c6gir Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [12.5589, 55.6731]}, "type": "Feature", "properties": {"name": "Mikkeller"}}, {"geometry": {"type": "Point", "coordinates": [10.2117, 59.7417]}, "type": "Feature", "properties": {"name": "Aass Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-94.5965, 39.0821]}, "type": "Feature", "properties": {"name": "Boulevard Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [5.74646, 58.9457]}, "type": "Feature", "properties": {"name": "Lervig Aktiebryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-73.9575, 40.7215]}, "type": "Feature", "properties": {"name": "Brooklyn Brewery"}}, {"geometry": {"type": "Point", "coordinates": [10.427, 63.4409]}, "type": "Feature", "properties": {"name": "E. C. Dahls Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.6386, 63.5648]}, "type": "Feature", "properties": {"name": "Klosterg\u00e5rden H\u00e5ndbryggeri"}}, {"geometry": {"type": "Point", "coordinates": [11.295, 63.8826]}, "type": "Feature", "properties": {"name": "Inder\u00f8y G\u00e5rdsbryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-121.815, 39.7242]}, "type": "Feature", "properties": {"name": "Sierra Nevada Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [11.935, 55.7075]}, "type": "Feature", "properties": {"name": "Hornbeer"}}, {"geometry": {"type": "Point", "coordinates": [12.5856, 55.7032]}, "type": "Feature", "properties": {"name": "To \u00d8l"}}, {"geometry": {"type": "Point", "coordinates": [3.38923, 50.7715]}, "type": "Feature", "properties": {"name": "Brouwerij Alvinne"}}, {"geometry": {"type": "Point", "coordinates": [10.1474, 55.3899]}, "type": "Feature", "properties": {"name": "Coisbo Beer"}}, {"geometry": {"type": "Point", "coordinates": [3.27796, 50.7768]}, "type": "Feature", "properties": {"name": "Omer Vander Ghinste Brewery"}}, {"geometry": {"type": "Point", "coordinates": [10.374, 63.4242]}, "type": "Feature", "properties": {"name": "To T\u00e5rn Bryggeri AS"}}, {"geometry": {"type": "Point", "coordinates": [-2.78348, 51.0509]}, "type": "Feature", "properties": {"name": "Moor Beer Company"}}, {"geometry": {"type": "Point", "coordinates": [-71.1034, 42.3144]}, "type": "Feature", "properties": {"name": "Boston Beer Company (Samuel Adams)"}}, {"geometry": {"type": "Point", "coordinates": [10.8328, 61.7313]}, "type": "Feature", "properties": {"name": "Atna \u00d8l"}}, {"geometry": {"type": "Point", "coordinates": [174.661, -36.3987]}, "type": "Feature", "properties": {"name": "8 Wired Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [5.03114, 61.6]}, "type": "Feature", "properties": {"name": "Kinn Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-77.4265, 39.3627]}, "type": "Feature", "properties": {"name": "Flying Dog Brewery"}}, {"geometry": {"type": "Point", "coordinates": [140.468, 36.4685]}, "type": "Feature", "properties": {"name": "Kiuchi Brewery"}}, {"geometry": {"type": "Point", "coordinates": [173.96, -41.5014]}, "type": "Feature", "properties": {"name": "Renaissance Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [4.74211, 52.0857]}, "type": "Feature", "properties": {"name": "Brouwerij De Molen"}}, {"geometry": {"type": "Point", "coordinates": [10.7592, 59.9301]}, "type": "Feature", "properties": {"name": "Ringnes Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [12.5567, 55.6684]}, "type": "Feature", "properties": {"name": "Beer Here"}}, {"geometry": {"type": "Point", "coordinates": [151.174, -33.8866]}, "type": "Feature", "properties": {"name": "Malt Shovel Brewery (Lion Nathan)"}}, {"geometry": {"type": "Point", "coordinates": [171.207, -42.4517]}, "type": "Feature", "properties": {"name": "Monteith's Brewing Co. "}}, {"geometry": {"type": "Point", "coordinates": [9.91475, 55.465]}, "type": "Feature", "properties": {"name": "Ugly Duck Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [18.0032, 59.2988]}, "type": "Feature", "properties": {"name": "CAP Brewery"}}, {"geometry": {"type": "Point", "coordinates": [0.714876, 52.2411]}, "type": "Feature", "properties": {"name": "Greene King"}}, {"geometry": {"type": "Point", "coordinates": [146.687, -36.3596]}, "type": "Feature", "properties": {"name": "Bridge Road Brewers"}}, {"geometry": {"type": "Point", "coordinates": [-122.419, 37.7749]}, "type": "Feature", "properties": {"name": "Almanac Beer Co."}}, {"geometry": {"type": "Point", "coordinates": [7.89217, 44.5153]}, "type": "Feature", "properties": {"name": "Birra Baladin"}}, {"geometry": {"type": "Point", "coordinates": [12.4959, 55.6617]}, "type": "Feature", "properties": {"name": "Evil Twin Brewing"}}, {"geometry": {"type": "Point", "coordinates": [-1.63295, 42.7684]}, "type": "Feature", "properties": {"name": "Naparbier"}}, {"geometry": {"type": "Point", "coordinates": [13.2385, 42.1883]}, "type": "Feature", "properties": {"name": "Birra del Borgo"}}, {"geometry": {"type": "Point", "coordinates": [-0.249709, 51.4881]}, "type": "Feature", "properties": {"name": "Fuller, Smith & Turner "}}, {"geometry": {"type": "Point", "coordinates": [10.7522, 59.9139]}, "type": "Feature", "properties": {"name": "Frydenlund Bryggerier (Ringnes A.S.)"}}, {"geometry": {"type": "Point", "coordinates": [8.39525, 55.4388]}, "type": "Feature", "properties": {"name": "Fan\u00f8 Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [15.2328, 59.2827]}, "type": "Feature", "properties": {"name": "N\u00e4rke Kulturbryggeri"}}, {"geometry": {"type": "Point", "coordinates": [12.535, 55.6673]}, "type": "Feature", "properties": {"name": "Carlsberg Group"}}, {"geometry": {"type": "Point", "coordinates": [172.682, -43.5487]}, "type": "Feature", "properties": {"name": "Three Boys Brewery"}}, {"geometry": {"type": "Point", "coordinates": [13.3861, 49.7466]}, "type": "Feature", "properties": {"name": "Plzensky Prazdroj"}}, {"geometry": {"type": "Point", "coordinates": [-124.052, 44.6202]}, "type": "Feature", "properties": {"name": "Rogue Ales"}}, {"geometry": {"type": "Point", "coordinates": [174.821, -36.9489]}, "type": "Feature", "properties": {"name": "Epic Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [-117.178, 32.9073]}, "type": "Feature", "properties": {"name": "Green Flash Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [10.4524, 55.3067]}, "type": "Feature", "properties": {"name": "Midtfyns Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [-4.78857, 50.3415]}, "type": "Feature", "properties": {"name": "St Austell Brewery"}}, {"geometry": {"type": "Point", "coordinates": [5.25793, 60.294]}, "type": "Feature", "properties": {"name": "Hansa Borg Bryggerier"}}, {"geometry": {"type": "Point", "coordinates": [4.22018, 50.7124]}, "type": "Feature", "properties": {"name": "Brouwerij Boon"}}, {"geometry": {"type": "Point", "coordinates": [6.00371, 58.4579]}, "type": "Feature", "properties": {"name": "Berentsens Brygghus"}}, {"geometry": {"type": "Point", "coordinates": [15.0529, 62.9663]}, "type": "Feature", "properties": {"name": "J\u00e4mtlands Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [11.323, 64.0417]}, "type": "Feature", "properties": {"name": "\u00d8lve p\u00e5 Egge"}}, {"geometry": {"type": "Point", "coordinates": [-1.82684, 53.6515]}, "type": "Feature", "properties": {"name": "Magic Rock Brewing"}}, {"geometry": {"type": "Point", "coordinates": [-1.65728, 52.8075]}, "type": "Feature", "properties": {"name": "Marston's Beer Co"}}, {"geometry": {"type": "Point", "coordinates": [103.844, 1.28848]}, "type": "Feature", "properties": {"name": "Brewerkz"}}, {"geometry": {"type": "Point", "coordinates": [12.5963, 55.6245]}, "type": "Feature", "properties": {"name": "Amager Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [12.5543, 55.6912]}, "type": "Feature", "properties": {"name": "Stronzo Brewing"}}, {"geometry": {"type": "Point", "coordinates": [171.599, -41.7535]}, "type": "Feature", "properties": {"name": "West Coast Brewing"}}, {"geometry": {"type": "Point", "coordinates": [15.1355, 55.1359]}, "type": "Feature", "properties": {"name": "Svaneke Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [-120.694, 35.5953]}, "type": "Feature", "properties": {"name": "Firestone Walker Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [-122.712, 38.4418]}, "type": "Feature", "properties": {"name": "Russian River Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [8.799, 44.7621]}, "type": "Feature", "properties": {"name": "BrewFist"}}, {"geometry": {"type": "Point", "coordinates": [11.3867, 62.5763]}, "type": "Feature", "properties": {"name": "R\u00f8ros Bryggeri Og Mineralvannfabrikk"}}, {"geometry": {"type": "Point", "coordinates": [-6.24792, 53.3614]}, "type": "Feature", "properties": {"name": "Guinness"}}, {"geometry": {"type": "Point", "coordinates": [10.3923, 63.4313]}, "type": "Feature", "properties": {"name": "Trondhjem Mikrobryggeri"}}, {"geometry": {"type": "Point", "coordinates": [174.638, -36.89]}, "type": "Feature", "properties": {"name": "Liberty Brewing"}}, {"geometry": {"type": "Point", "coordinates": [116.037, -31.7987]}, "type": "Feature", "properties": {"name": "Feral Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [0.891721, 51.3167]}, "type": "Feature", "properties": {"name": "Shepherd Neame"}}, {"geometry": {"type": "Point", "coordinates": [7.00258, 47.2543]}, "type": "Feature", "properties": {"name": "BFM (Brasserie des Franches-Montagnes)"}}, {"geometry": {"type": "Point", "coordinates": [171.164, -43.7542]}, "type": "Feature", "properties": {"name": "Valley Brewing "}}, {"geometry": {"type": "Point", "coordinates": [-122.38, 37.7381]}, "type": "Feature", "properties": {"name": "Speakeasy Ales and Lagers"}}, {"geometry": {"type": "Point", "coordinates": [4.33562, 50.8416]}, "type": "Feature", "properties": {"name": "Brasserie Cantillon"}}, {"geometry": {"type": "Point", "coordinates": [1.43363, 52.4162]}, "type": "Feature", "properties": {"name": "St. Peter\u2019s Brewery Co."}}, {"geometry": {"type": "Point", "coordinates": [3.71153, 51.5772]}, "type": "Feature", "properties": {"name": "Bierbrouwerij Emelisse"}}, {"geometry": {"type": "Point", "coordinates": [-105.116, 40.1586]}, "type": "Feature", "properties": {"name": "Left Hand Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [2.90407, 51.0281]}, "type": "Feature", "properties": {"name": "Brouwerij De Dolle Brouwers"}}, {"geometry": {"type": "Point", "coordinates": [3.80523, 51.0002]}, "type": "Feature", "properties": {"name": "Brouwerij Huyghe"}}, {"geometry": {"type": "Point", "coordinates": [17.8811, 59.6135]}, "type": "Feature", "properties": {"name": "S:t Eriks Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [4.30522, 50.7601]}, "type": "Feature", "properties": {"name": "Brouwerij Oud Beersel"}}, {"geometry": {"type": "Point", "coordinates": [3.1381, 50.946]}, "type": "Feature", "properties": {"name": "Brouwerij Rodenbach"}}, {"geometry": {"type": "Point", "coordinates": [-123.356, 39.0005]}, "type": "Feature", "properties": {"name": "Anderson Valley Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [103.814, 1.46279]}, "type": "Feature", "properties": {"name": "Barefoot Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [145.048, -37.8454]}, "type": "Feature", "properties": {"name": "Steamrail Brewing Company (Coles)"}}, {"geometry": {"type": "Point", "coordinates": [15.8842, 60.2564]}, "type": "Feature", "properties": {"name": "Oppig\u00e5rds Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-3.81965, 57.2017]}, "type": "Feature", "properties": {"name": "Cairngorm Brewery Co."}}, {"geometry": {"type": "Point", "coordinates": [-122.714, 38.4405]}, "type": "Feature", "properties": {"name": "Moonlight Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [173.877, -41.5007]}, "type": "Feature", "properties": {"name": "Moa Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [153.006, -27.467]}, "type": "Feature", "properties": {"name": "Castlemaine Perkins (Lion Nathan)"}}, {"geometry": {"type": "Point", "coordinates": [8.05219, 45.571]}, "type": "Feature", "properties": {"name": "G. Menabrea & Figli"}}, {"geometry": {"type": "Point", "coordinates": [2.73755, 50.932]}, "type": "Feature", "properties": {"name": "De Struise Brouwers"}}, {"geometry": {"type": "Point", "coordinates": [-1.15809, 52.9548]}, "type": "Feature", "properties": {"name": "Castle Rock Brewery"}}, {"geometry": {"type": "Point", "coordinates": [-155.997, 19.64]}, "type": "Feature", "properties": {"name": "Kona Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [-0.0596362, 51.4917]}, "type": "Feature", "properties": {"name": "Partizan Brewing"}}, {"geometry": {"type": "Point", "coordinates": [-75.3099, 38.7776]}, "type": "Feature", "properties": {"name": "Dogfish Head Craft Brewery"}}, {"geometry": {"type": "Point", "coordinates": [172.563, -43.5464]}, "type": "Feature", "properties": {"name": "The Twisted Hop Real Ale Brewery"}}, {"geometry": {"type": "Point", "coordinates": [13.7737, 50.1739]}, "type": "Feature", "properties": {"name": "The Royal Brewery of Kru\u0161ovice"}}, {"geometry": {"type": "Point", "coordinates": [4.1117, 50.6933]}, "type": "Feature", "properties": {"name": "Gueuzerie Tilquin"}}, {"geometry": {"type": "Point", "coordinates": [-117.149, 33.1416]}, "type": "Feature", "properties": {"name": "Port Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [174.776, -41.2865]}, "type": "Feature", "properties": {"name": "Yeastie Boys"}}, {"geometry": {"type": "Point", "coordinates": [10.7534, 59.9172]}, "type": "Feature", "properties": {"name": "Crowbar & Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-1.75329, 53.8447]}, "type": "Feature", "properties": {"name": "Green's"}}, {"geometry": {"type": "Point", "coordinates": [-4.90776, 56.2797]}, "type": "Feature", "properties": {"name": "Fyne Ales"}}, {"geometry": {"type": "Point", "coordinates": [-85.6735, 42.9585]}, "type": "Feature", "properties": {"name": "Founders Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [172.743, -43.1788]}, "type": "Feature", "properties": {"name": "Brew Moon Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [2.71381, 50.4254]}, "type": "Feature", "properties": {"name": "Brasserie Saint Germain"}}, {"geometry": {"type": "Point", "coordinates": [115.792, -32.0512]}, "type": "Feature", "properties": {"name": "Gage Roads Brewing Co "}}, {"geometry": {"type": "Point", "coordinates": [4.70101, 50.8858]}, "type": "Feature", "properties": {"name": "Stella Artois"}}, {"geometry": {"type": "Point", "coordinates": [25.9249, 60.5466]}, "type": "Feature", "properties": {"name": "Malmg\u00e5rdin Panimo"}}, {"geometry": {"type": "Point", "coordinates": [138.432, 36.7325]}, "type": "Feature", "properties": {"name": "Tamamura Honten Co."}}, {"geometry": {"type": "Point", "coordinates": [-1.26197, 53.8821]}, "type": "Feature", "properties": {"name": "Samuel Smith Old Brewery"}}, {"geometry": {"type": "Point", "coordinates": [9.57223, 49.9892]}, "type": "Feature", "properties": {"name": "Keiler Bier"}}, {"geometry": {"type": "Point", "coordinates": [77.5963, 12.9719]}, "type": "Feature", "properties": {"name": "United Breweries (India)"}}, {"geometry": {"type": "Point", "coordinates": [11.7289, 48.3952]}, "type": "Feature", "properties": {"name": "Bayerische Staatsbrauerei Weihenstephan"}}, {"geometry": {"type": "Point", "coordinates": [8.79008, 53.0787]}, "type": "Feature", "properties": {"name": "Brauerei Beck"}}, {"geometry": {"type": "Point", "coordinates": [-2.50964, 55.9933]}, "type": "Feature", "properties": {"name": "Belhaven Brewery"}}, {"geometry": {"type": "Point", "coordinates": [16.1714, 50.415]}, "type": "Feature", "properties": {"name": "Pivovar N\u00e1chod Prim\u00e1tor A.S."}}, {"geometry": {"type": "Point", "coordinates": [8.92271, 45.8418]}, "type": "Feature", "properties": {"name": "Ticino Brewing Company (Birrificio Ticinese)"}}, {"geometry": {"type": "Point", "coordinates": [4.8611, 44.5164]}, "type": "Feature", "properties": {"name": "Abbaye Notre-Dame de Saint-R\u00e9my"}}, {"geometry": {"type": "Point", "coordinates": [10.9963, 49.4417]}, "type": "Feature", "properties": {"name": "Tucher Br\u00e4u"}}, {"geometry": {"type": "Point", "coordinates": [-3.75838, 56.1241]}, "type": "Feature", "properties": {"name": "Harviestoun Brewery"}}, {"geometry": {"type": "Point", "coordinates": [139.724, 35.6609]}, "type": "Feature", "properties": {"name": "Nippon Craft Beer Co., Ltd."}}, {"geometry": {"type": "Point", "coordinates": [-122.259, 37.8634]}, "type": "Feature", "properties": {"name": "Bison Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [10.5835, 57.7222]}, "type": "Feature", "properties": {"name": "Skagen Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [-3.21091, 55.952]}, "type": "Feature", "properties": {"name": "Innis & Gunn"}}, {"geometry": {"type": "Point", "coordinates": [-2.61598, 53.7603]}, "type": "Feature", "properties": {"name": "Boddington's Brewery"}}, {"geometry": {"type": "Point", "coordinates": [147.295, -42.8965]}, "type": "Feature", "properties": {"name": "Cascade Brewery Co. (Australia)"}}, {"geometry": {"type": "Point", "coordinates": [4.1097, 50.5019]}, "type": "Feature", "properties": {"name": "Brasserie St-Feuillien"}}, {"geometry": {"type": "Point", "coordinates": [174.78, -41.2903]}, "type": "Feature", "properties": {"name": "Mac's Brewery (Lion Nathan)"}}, {"geometry": {"type": "Point", "coordinates": [3.72646, 50.3703]}, "type": "Feature", "properties": {"name": "Brasserie De L'Abbaye Des Rocs"}}, {"geometry": {"type": "Point", "coordinates": [-76.6122, 39.2904]}, "type": "Feature", "properties": {"name": "Stillwater Artisanal Ales"}}, {"geometry": {"type": "Point", "coordinates": [-117.12, 33.1157]}, "type": "Feature", "properties": {"name": "Stone Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [6.77501, 51.2296]}, "type": "Feature", "properties": {"name": "Brauerei im F\u00fcchschen"}}, {"geometry": {"type": "Point", "coordinates": [6.85205, 61.1829]}, "type": "Feature", "properties": {"name": "Balder Brygg AS"}}, {"geometry": {"type": "Point", "coordinates": [-122.584, 37.986]}, "type": "Feature", "properties": {"name": "Iron Springs Pub & Brewery"}}, {"geometry": {"type": "Point", "coordinates": [-6.37653, 57.5873]}, "type": "Feature", "properties": {"name": "Isle of Skye Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [4.1521, 50.6743]}, "type": "Feature", "properties": {"name": "Brasserie Lefebvre"}}, {"geometry": {"type": "Point", "coordinates": [-77.6155, 43.1646]}, "type": "Feature", "properties": {"name": "Dundee Ales & Lagers"}}, {"geometry": {"type": "Point", "coordinates": [7.49557, 48.466]}, "type": "Feature", "properties": {"name": "Brasseries Kronenbourg"}}, {"geometry": {"type": "Point", "coordinates": [14.9859, 60.0577]}, "type": "Feature", "properties": {"name": "Kopparbergs Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [9.40957, 55.6718]}, "type": "Feature", "properties": {"name": "B\u00f8gedal Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [12.5777, 55.7089]}, "type": "Feature", "properties": {"name": "Bryggeriet Dj\u00e6vlebryg"}}, {"geometry": {"type": "Point", "coordinates": [4.82928, 51.5847]}, "type": "Feature", "properties": {"name": "United Dutch Breweries"}}, {"geometry": {"type": "Point", "coordinates": [-122.338, 47.5606]}, "type": "Feature", "properties": {"name": "Two Beers Brewing Co. "}}, {"geometry": {"type": "Point", "coordinates": [19.4871, 46.442]}, "type": "Feature", "properties": {"name": "Hopfanatic S\u00f6rf\u0151zde"}}, {"geometry": {"type": "Point", "coordinates": [4.92075, 51.299]}, "type": "Feature", "properties": {"name": "Brouwerij Corsendonk"}}, {"geometry": {"type": "Point", "coordinates": [149.074, -33.2569]}, "type": "Feature", "properties": {"name": "Badlands Brewery"}}, {"geometry": {"type": "Point", "coordinates": [138.496, 36.2982]}, "type": "Feature", "properties": {"name": "Yo-Ho Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [17.8812, 59.2571]}, "type": "Feature", "properties": {"name": "Brutal Brewing"}}, {"geometry": {"type": "Point", "coordinates": [-0.175835, 51.4699]}, "type": "Feature", "properties": {"name": "Sambrook's Brewery"}}, {"geometry": {"type": "Point", "coordinates": [14.4762, 48.9936]}, "type": "Feature", "properties": {"name": "Brewery Budweiser Budvar (BBNP)"}}, {"geometry": {"type": "Point", "coordinates": [11.051, 55.6964]}, "type": "Feature", "properties": {"name": "Nordic Brewing Co"}}, {"geometry": {"type": "Point", "coordinates": [2.1734, 41.3851]}, "type": "Feature", "properties": {"name": "Barcelona Beer Company"}}, {"geometry": {"type": "Point", "coordinates": [4.65889, 51.2852]}, "type": "Feature", "properties": {"name": "Brouwerij der Trappisten van Westmalle"}}, {"geometry": {"type": "Point", "coordinates": [15.8697, 49.2175]}, "type": "Feature", "properties": {"name": "Podkl\u00e1\u0161tern\u00ed Pivovar T\u0159eb\u00ed\u010d"}}, {"geometry": {"type": "Point", "coordinates": [4.2018, 51.0137]}, "type": "Feature", "properties": {"name": "Brouwerij Bosteels"}}, {"geometry": {"type": "Point", "coordinates": [18.9502, 69.6454]}, "type": "Feature", "properties": {"name": "Mack Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-82.5532, 35.5886]}, "type": "Feature", "properties": {"name": "Green Man Brewery (NC)"}}, {"geometry": {"type": "Point", "coordinates": [4.25154, 50.8173]}, "type": "Feature", "properties": {"name": "Brouwerij Lindemans"}}, {"geometry": {"type": "Point", "coordinates": [174.731, -36.8557]}, "type": "Feature", "properties": {"name": "Hancock  Co"}}, {"geometry": {"type": "Point", "coordinates": [13.1653, 55.6263]}, "type": "Feature", "properties": {"name": "Brekeriet Beer AB"}}, {"geometry": {"type": "Point", "coordinates": [175.001, -40.9057]}, "type": "Feature", "properties": {"name": "Tuatara Brewery"}}, {"geometry": {"type": "Point", "coordinates": [15.4836, 46.9606]}, "type": "Feature", "properties": {"name": "Handbrauerei Forstner"}}, {"geometry": {"type": "Point", "coordinates": [-0.0692936, 51.4957]}, "type": "Feature", "properties": {"name": "The Kernel Brewery"}}, {"geometry": {"type": "Point", "coordinates": [11.9848, 55.6692]}, "type": "Feature", "properties": {"name": "Herslev Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [-122.401, 37.7635]}, "type": "Feature", "properties": {"name": "Anchor Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [19.1742, 49.6622]}, "type": "Feature", "properties": {"name": "Grupa \u017bywiec"}}, {"geometry": {"type": "Point", "coordinates": [172.724, -40.7799]}, "type": "Feature", "properties": {"name": "The Mussel Inn"}}, {"geometry": {"type": "Point", "coordinates": [-156.679, 20.8792]}, "type": "Feature", "properties": {"name": "Maui Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [136.938, 35.3374]}, "type": "Feature", "properties": {"name": "Wadakan Corp."}}, {"geometry": {"type": "Point", "coordinates": [0.0083409, 51.4894]}, "type": "Feature", "properties": {"name": "Meantime Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [103.647, 1.33617]}, "type": "Feature", "properties": {"name": "Asia Pacific Breweries (Singapore)"}}, {"geometry": {"type": "Point", "coordinates": [-3.75838, 56.1241]}, "type": "Feature", "properties": {"name": "Williams Brothers Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [12.5509, 56.9008]}, "type": "Feature", "properties": {"name": "Carlsberg Sverige"}}, {"geometry": {"type": "Point", "coordinates": [9.90347, 55.2649]}, "type": "Feature", "properties": {"name": "Bryggeriet Vestfyen"}}, {"geometry": {"type": "Point", "coordinates": [-1.4902, 51.7822]}, "type": "Feature", "properties": {"name": "Wychwood Brewery"}}, {"geometry": {"type": "Point", "coordinates": [-85.7441, 38.2554]}, "type": "Feature", "properties": {"name": "Against the Grain Brewery & Smokehouse (Kentucky)"}}, {"geometry": {"type": "Point", "coordinates": [4.30729, 50.7667]}, "type": "Feature", "properties": {"name": "Brouwerij 3 Fonteinen"}}, {"geometry": {"type": "Point", "coordinates": [12.537, 55.7076]}, "type": "Feature", "properties": {"name": "Flying Couch"}}, {"geometry": {"type": "Point", "coordinates": [1.52338, 41.2122]}, "type": "Feature", "properties": {"name": "Cervesa Artesana Reptilian"}}, {"geometry": {"type": "Point", "coordinates": [4.53398, 52.1375]}, "type": "Feature", "properties": {"name": "Heineken"}}, {"geometry": {"type": "Point", "coordinates": [174.963, -37.0765]}, "type": "Feature", "properties": {"name": "Boundary Road Brewery"}}, {"geometry": {"type": "Point", "coordinates": [-79.3482, 42.0889]}, "type": "Feature", "properties": {"name": "Southern Tier Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [12.5991, 41.9028]}, "type": "Feature", "properties": {"name": "Birra Peroni"}}, {"geometry": {"type": "Point", "coordinates": [13.5419, 50.3322]}, "type": "Feature", "properties": {"name": "\u017datecky Pivovar"}}, {"geometry": {"type": "Point", "coordinates": [-0.795028, 53.2768]}, "type": "Feature", "properties": {"name": "Springhead Brewery"}}, {"geometry": {"type": "Point", "coordinates": [-123.806, 39.4465]}, "type": "Feature", "properties": {"name": "North Coast Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [172.655, -43.539]}, "type": "Feature", "properties": {"name": "Harrington's Breweries"}}, {"geometry": {"type": "Point", "coordinates": [103.845, 1.29068]}, "type": "Feature", "properties": {"name": "Pump Room Microbrewery"}}, {"geometry": {"type": "Point", "coordinates": [2.10334, 41.3551]}, "type": "Feature", "properties": {"name": "Cerveza Fort"}}, {"geometry": {"type": "Point", "coordinates": [14.3567, 50.0852]}, "type": "Feature", "properties": {"name": "Brevnovsky Klasterni Pivovar"}}, {"geometry": {"type": "Point", "coordinates": [-87.5167, 41.5355]}, "type": "Feature", "properties": {"name": "3 Floyds Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [-117.144, 32.892]}, "type": "Feature", "properties": {"name": "AleSmith Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [-0.379307, 54.146]}, "type": "Feature", "properties": {"name": "Wold Top Brewery "}}, {"geometry": {"type": "Point", "coordinates": [10.6652, 55.2565]}, "type": "Feature", "properties": {"name": "\u00d8rb\u00e6k Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-2.74768, 54.9413]}, "type": "Feature", "properties": {"name": "Geltsdale Brewery"}}, {"geometry": {"type": "Point", "coordinates": [11.0368, 59.0253]}, "type": "Feature", "properties": {"name": "Kofoedbryggeriet Hvaler"}}, {"geometry": {"type": "Point", "coordinates": [0.695395, 51.0487]}, "type": "Feature", "properties": {"name": "Curious Drinks (Chapel Down)"}}, {"geometry": {"type": "Point", "coordinates": [-3.15039, 52.5757]}, "type": "Feature", "properties": {"name": "Monty's Brewery"}}, {"geometry": {"type": "Point", "coordinates": [-122.003, 38.5138]}, "type": "Feature", "properties": {"name": "Berryessa Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [11.8911, 48.3153]}, "type": "Feature", "properties": {"name": "Erdinger Weissbr\u00e4u"}}, {"geometry": {"type": "Point", "coordinates": [170.498, -45.8748]}, "type": "Feature", "properties": {"name": "Speight's Brewery"}}, {"geometry": {"type": "Point", "coordinates": [3.2989, 50.8629]}, "type": "Feature", "properties": {"name": "Brouwerij De Brabandere (Bavik)"}}, {"geometry": {"type": "Point", "coordinates": [-122.015, 38.2737]}, "type": "Feature", "properties": {"name": "Heretic Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [10.242, 59.1296]}, "type": "Feature", "properties": {"name": "Grans Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [12.605, 49.8925]}, "type": "Feature", "properties": {"name": "Pivovar Matu\u0161ka"}}, {"geometry": {"type": "Point", "coordinates": [-73.4079, 41.1176]}, "type": "Feature", "properties": {"name": "The Jeremiah Weed Distilling Company"}}, {"geometry": {"type": "Point", "coordinates": [173.226, -41.3187]}, "type": "Feature", "properties": {"name": "McCashin's Brewery"}}, {"geometry": {"type": "Point", "coordinates": [12.2464, 57.6765]}, "type": "Feature", "properties": {"name": "Dugges Ale- & Porterbryggeri AB"}}, {"geometry": {"type": "Point", "coordinates": [14.4077, 50.0679]}, "type": "Feature", "properties": {"name": "Pivovary Staropramen"}}, {"geometry": {"type": "Point", "coordinates": [-122.162, 37.4442]}, "type": "Feature", "properties": {"name": "Palo Alto Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [169.196, -44.7041]}, "type": "Feature", "properties": {"name": "Wanaka Beerworks"}}, {"geometry": {"type": "Point", "coordinates": [153.586, -28.6344]}, "type": "Feature", "properties": {"name": "Stone & Wood"}}]};
+                        var map = L.map('map-2013');
+                        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                        }).addTo(map);
+
+                        var features = L.geoJson(positions, {
+                            onEachFeature: function (feature, layer) {
+                                layer.bindPopup(feature.properties.name);
+                            }
+                        });
+
+                        map.fitBounds(features.getBounds());
+                        features.addTo(map);
+                    }());
+
+
+                </script>
+
+            </div>
+        
+            <div class="col-md-2">
+                <h2>2014</h2>
+                <dl>
+                    <dt>Antall innsjekkinger:</dt>
+                    <dd>704</dd>
+                    <dt>Antall forskjellige øl:</dt>
+                    <dd>544</dd>
+                    <dt>Mest innsjekkede øl:</dt>
+                    <dd>
+                        <ol>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/396363" target="_blank">
+                                    Austmann Bryggeri Northumberland
+                                </a>
+                                (15)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/475738" target="_blank">
+                                    Kort Lunte Bryggeri Pål Sine Humler
+                                </a>
+                                (6)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/23896" target="_blank">
+                                    HaandBryggeriet Pale Ale
+                                </a>
+                                (6)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/83409" target="_blank">
+                                    Thai Beverage PLC Chang Classic
+                                </a>
+                                (6)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/325272" target="_blank">
+                                    HaandBryggeriet Humlesus
+                                </a>
+                                (6)
+                            </li>
+                            
+                        </ol>
+                    </dd>
+                    <dt>Høyest ratede øl*:</dt>
+                    <dd>
+                        <ol>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/68933" target="_blank">
+                                    8 Wired Brewing Co. Super Conductor
+                                </a>
+                                (5.0 / 5) (5 checkins)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/6860" target="_blank">
+                                    Omer Vander Ghinste Brewery Cuvée Des Jacobins Rouge
+                                </a>
+                                (5.0 / 5) (4 checkins)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/134" target="_blank">
+                                    Hair of the Dog Brewing Company Blue Dot
+                                </a>
+                                (5.0 / 5) (2 checkins)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/411798" target="_blank">
+                                    HaandBryggeriet Surpomp
+                                </a>
+                                (5.0 / 5) (2 checkins)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/142353" target="_blank">
+                                    Nøgne Ø Imperial Rye Porter
+                                </a>
+                                (5.0 / 5) (2 checkins)
+                            </li>
+                            
+                        </ol>
+                        <p>*Øl med minst 2 checkins, snitt av alle ratinger på festivalen</p>
+                    </dd>
+                    <dt>Antall forskjellige bryggerier:</dt>
+                    <dd>215</dd>
+                    <dt>Mest innsjekkede bryggerier:</dt>
+                    <dd>
+                        <ol>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/69202" target="_blank">
+                                        Austmann Bryggeri
+                                    </a>
+                                    (54)
+                                </li>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/2206" target="_blank">
+                                        HaandBryggeriet
+                                    </a>
+                                    (37)
+                                </li>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/923" target="_blank">
+                                        Nøgne Ø
+                                    </a>
+                                    (33)
+                                </li>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/5233" target="_blank">
+                                        Kinn Bryggeri
+                                    </a>
+                                    (28)
+                                </li>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/2813" target="_blank">
+                                        Mikkeller
+                                    </a>
+                                    (24)
+                                </li>
+                            
+                        </ol>
+                    </dd>
+                    <dt>Antall forskjellige brukere:</dt>
+                    <dd>1</dd>
+                    <dt>Brukere med flest innsjekkinger:</dt>
+                    <dd>
+                        <ol>
+                            
+                            <li>
+                                <a href="https://untappd.com/user/atlefren" target="_blank">
+                                    atlefren
+                                </a>
+                                (704)
+                            </li>
+                            
+                        </ol>
+                    </dd>
+                </dl>
+
+                <h4>Bilder</h4>
+                
+                    <img src="https://untappd.akamaized.net/photo/2014_12_31/06a2c86620981ea962930017d553b609_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2014_12_25/a845b593710cc65052d53938bd2feee6_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2014_11_29/93713196ea099935c1bfad00e18049ac_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2014_10_04/3a12866c4831a45c1c4fb13fd22081fa_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2014_10_03/e36b5993cc9f6d3cda6529f25db4b9cc_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2014_10_03/6750594b8bd3303a43e3194ce132a991_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2014_07_19/ad14b28c8a489199500e8e53169ef667_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2014_05_22/c245d8d4c11715393d305527a916bd33_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2014_02_14/1cfc1a5c5c5c26ede997f4682165bb3a_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2014_02_14/1bf08b217fedee601b0ccc3db57883bc_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2014_02_07/6da35e89c85cfef03b94c4b8a00663a7_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2014_01_11/8fada26ccfc3451ba0e141c32413b542_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2014_01_04/2733cd35a6cb72da4b75ee874c6b68e8_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2014_01_03/ad8b06bc8e4e3cd40823e3e3fa12226a_100x100.jpg" height="100" width="100" />
+                
+
+                <h4>Bryggerikart</h4>
+                <div id="map-2014" class="map"></div>
+
+                <script type="text/javascript">
+                    (function () {
+                        var positions = {"type": "FeatureCollection", "features": [{"geometry": {"type": "Point", "coordinates": [10.3482, 63.4424]}, "type": "Feature", "properties": {"name": "Austmann Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.1814, 59.7398]}, "type": "Feature", "properties": {"name": "HaandBryggeriet"}}, {"geometry": {"type": "Point", "coordinates": [8.63723, 58.406]}, "type": "Feature", "properties": {"name": "N\u00f8gne \u00d8"}}, {"geometry": {"type": "Point", "coordinates": [5.03114, 61.6]}, "type": "Feature", "properties": {"name": "Kinn Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [12.5589, 55.6731]}, "type": "Feature", "properties": {"name": "Mikkeller"}}, {"geometry": {"type": "Point", "coordinates": [5.74646, 58.9457]}, "type": "Feature", "properties": {"name": "Lervig Aktiebryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.6386, 63.5648]}, "type": "Feature", "properties": {"name": "Klosterg\u00e5rden H\u00e5ndbryggeri"}}, {"geometry": {"type": "Point", "coordinates": [4.74211, 52.0857]}, "type": "Feature", "properties": {"name": "Brouwerij De Molen"}}, {"geometry": {"type": "Point", "coordinates": [9.20186, 59.385]}, "type": "Feature", "properties": {"name": "Lindheim \u00d8lkompani"}}, {"geometry": {"type": "Point", "coordinates": [10.374, 63.4242]}, "type": "Feature", "properties": {"name": "To T\u00e5rn Bryggeri AS"}}, {"geometry": {"type": "Point", "coordinates": [12.5856, 55.7032]}, "type": "Feature", "properties": {"name": "To \u00d8l"}}, {"geometry": {"type": "Point", "coordinates": [174.661, -36.3987]}, "type": "Feature", "properties": {"name": "8 Wired Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [3.38923, 50.7715]}, "type": "Feature", "properties": {"name": "Brouwerij Alvinne"}}, {"geometry": {"type": "Point", "coordinates": [3.27796, 50.7768]}, "type": "Feature", "properties": {"name": "Omer Vander Ghinste Brewery"}}, {"geometry": {"type": "Point", "coordinates": [7.12075, 60.8381]}, "type": "Feature", "properties": {"name": "\u00c6gir Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [4.33562, 50.8416]}, "type": "Feature", "properties": {"name": "Brasserie Cantillon"}}, {"geometry": {"type": "Point", "coordinates": [-124.052, 44.6202]}, "type": "Feature", "properties": {"name": "Rogue Ales"}}, {"geometry": {"type": "Point", "coordinates": [-94.5965, 39.0821]}, "type": "Feature", "properties": {"name": "Boulevard Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [7.00258, 47.2543]}, "type": "Feature", "properties": {"name": "BFM (Brasserie des Franches-Montagnes)"}}, {"geometry": {"type": "Point", "coordinates": [11.935, 55.7075]}, "type": "Feature", "properties": {"name": "Hornbeer"}}, {"geometry": {"type": "Point", "coordinates": [12.5963, 55.6245]}, "type": "Feature", "properties": {"name": "Amager Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [-2.04834, 57.3716]}, "type": "Feature", "properties": {"name": "BrewDog"}}, {"geometry": {"type": "Point", "coordinates": [7.99401, 58.1445]}, "type": "Feature", "properties": {"name": "Christianssand Brygghus"}}, {"geometry": {"type": "Point", "coordinates": [10.427, 63.4409]}, "type": "Feature", "properties": {"name": "E. C. Dahls Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.2117, 59.7417]}, "type": "Feature", "properties": {"name": "Aass Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-122.656, 45.5167]}, "type": "Feature", "properties": {"name": "Cascade Brewing Company (USA)"}}, {"geometry": {"type": "Point", "coordinates": [-122.666, 45.5159]}, "type": "Feature", "properties": {"name": "Hair of the Dog Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [-121.815, 39.7242]}, "type": "Feature", "properties": {"name": "Sierra Nevada Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [10.4022, 63.4346]}, "type": "Feature", "properties": {"name": "Brygghus 9"}}, {"geometry": {"type": "Point", "coordinates": [-73.9575, 40.7215]}, "type": "Feature", "properties": {"name": "Brooklyn Brewery"}}, {"geometry": {"type": "Point", "coordinates": [10.7025, 55.2909]}, "type": "Feature", "properties": {"name": "Bryggeriet Refsvindinge"}}, {"geometry": {"type": "Point", "coordinates": [-1.91483, 53.2591]}, "type": "Feature", "properties": {"name": "Buxton Brewery"}}, {"geometry": {"type": "Point", "coordinates": [12.5543, 55.6912]}, "type": "Feature", "properties": {"name": "Stronzo Brewing"}}, {"geometry": {"type": "Point", "coordinates": [5.29608, 60.3326]}, "type": "Feature", "properties": {"name": "7 Fjell Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.1474, 55.3899]}, "type": "Feature", "properties": {"name": "Coisbo Beer"}}, {"geometry": {"type": "Point", "coordinates": [6.50849, 60.6734]}, "type": "Feature", "properties": {"name": "Voss Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-121.322, 44.0468]}, "type": "Feature", "properties": {"name": "Deschutes Brewery"}}, {"geometry": {"type": "Point", "coordinates": [18.0032, 59.2988]}, "type": "Feature", "properties": {"name": "CAP Brewery"}}, {"geometry": {"type": "Point", "coordinates": [10.7522, 59.9139]}, "type": "Feature", "properties": {"name": "Frydenlund Bryggerier (Ringnes A.S.)"}}, {"geometry": {"type": "Point", "coordinates": [10.7592, 59.9301]}, "type": "Feature", "properties": {"name": "Ringnes Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [15.8842, 60.2564]}, "type": "Feature", "properties": {"name": "Oppig\u00e5rds Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-105.067, 40.5934]}, "type": "Feature", "properties": {"name": "New Belgium Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [2.73755, 50.932]}, "type": "Feature", "properties": {"name": "De Struise Brouwers"}}, {"geometry": {"type": "Point", "coordinates": [11.8735, 48.9175]}, "type": "Feature", "properties": {"name": "Weisses Br\u00e4uhaus G. Schneider & Sohn"}}, {"geometry": {"type": "Point", "coordinates": [106.661, 10.8206]}, "type": "Feature", "properties": {"name": "Sabeco"}}, {"geometry": {"type": "Point", "coordinates": [10.7594, 59.925]}, "type": "Feature", "properties": {"name": "Gr\u00fcnerl\u00f8kka Brygghus"}}, {"geometry": {"type": "Point", "coordinates": [9.71238, 57.3702]}, "type": "Feature", "properties": {"name": "L\u00f8kken Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [-122.658, 45.5233]}, "type": "Feature", "properties": {"name": "Burnside Brewing Co. (Oregon)"}}, {"geometry": {"type": "Point", "coordinates": [12.5567, 55.6684]}, "type": "Feature", "properties": {"name": "Beer Here"}}, {"geometry": {"type": "Point", "coordinates": [-85.3093, 35.0369]}, "type": "Feature", "properties": {"name": "Rock Bottom Restaurant & Brewery"}}, {"geometry": {"type": "Point", "coordinates": [4.50006, 50.7315]}, "type": "Feature", "properties": {"name": "Brewery John Martin & Brewery Timmermans"}}, {"geometry": {"type": "Point", "coordinates": [3.18572, 50.8105]}, "type": "Feature", "properties": {"name": "Brouwerij De Ranke"}}, {"geometry": {"type": "Point", "coordinates": [-122.655, 45.5094]}, "type": "Feature", "properties": {"name": "The Commons Brewery"}}, {"geometry": {"type": "Point", "coordinates": [11.9746, 57.7089]}, "type": "Feature", "properties": {"name": "All In Brewing"}}, {"geometry": {"type": "Point", "coordinates": [13.1207, 63.4908]}, "type": "Feature", "properties": {"name": "\u00c5re Bryggcompagni"}}, {"geometry": {"type": "Point", "coordinates": [7.14409, 58.0454]}, "type": "Feature", "properties": {"name": "Lindesnes Brygghus"}}, {"geometry": {"type": "Point", "coordinates": [-122.676, 45.541]}, "type": "Feature", "properties": {"name": "Widmer Brothers Brewing"}}, {"geometry": {"type": "Point", "coordinates": [103.647, 1.33617]}, "type": "Feature", "properties": {"name": "Asia Pacific Breweries (Singapore)"}}, {"geometry": {"type": "Point", "coordinates": [12.5297, 55.6648]}, "type": "Feature", "properties": {"name": "Jacobsen"}}, {"geometry": {"type": "Point", "coordinates": [-85.6735, 42.9585]}, "type": "Feature", "properties": {"name": "Founders Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [2.10611, 41.5497]}, "type": "Feature", "properties": {"name": "N\u00f3mada Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [100.316, 14.0071]}, "type": "Feature", "properties": {"name": "Thai Asia Pacific Brewery (Heineken)"}}, {"geometry": {"type": "Point", "coordinates": [24.1206, 57.0064]}, "type": "Feature", "properties": {"name": "Aldaris"}}, {"geometry": {"type": "Point", "coordinates": [10.9963, 49.4417]}, "type": "Feature", "properties": {"name": "Tucher Br\u00e4u"}}, {"geometry": {"type": "Point", "coordinates": [14.605, 50.9181]}, "type": "Feature", "properties": {"name": "Pivovar Kocour Varnsdorf"}}, {"geometry": {"type": "Point", "coordinates": [7.89217, 44.5153]}, "type": "Feature", "properties": {"name": "Birra Baladin"}}, {"geometry": {"type": "Point", "coordinates": [8.799, 44.7621]}, "type": "Feature", "properties": {"name": "BrewFist"}}, {"geometry": {"type": "Point", "coordinates": [12.4959, 55.6617]}, "type": "Feature", "properties": {"name": "Evil Twin Brewing"}}, {"geometry": {"type": "Point", "coordinates": [100.515, 13.787]}, "type": "Feature", "properties": {"name": "Boon Rawd Brewery"}}, {"geometry": {"type": "Point", "coordinates": [-2.46339, 51.1518]}, "type": "Feature", "properties": {"name": "The Wild Beer Co"}}, {"geometry": {"type": "Point", "coordinates": [5.51304, 50.2862]}, "type": "Feature", "properties": {"name": "Brasserie Fant\u00f4me"}}, {"geometry": {"type": "Point", "coordinates": [-0.249709, 51.4881]}, "type": "Feature", "properties": {"name": "Fuller, Smith & Turner "}}, {"geometry": {"type": "Point", "coordinates": [4.30842, 50.8601]}, "type": "Feature", "properties": {"name": "Brasserie de la Senne"}}, {"geometry": {"type": "Point", "coordinates": [-1.63295, 42.7684]}, "type": "Feature", "properties": {"name": "Naparbier"}}, {"geometry": {"type": "Point", "coordinates": [174.768, -41.2953]}, "type": "Feature", "properties": {"name": "Garage Project"}}, {"geometry": {"type": "Point", "coordinates": [-122.682, 45.5315]}, "type": "Feature", "properties": {"name": "BridgePort Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [10.8328, 61.7313]}, "type": "Feature", "properties": {"name": "Atna \u00d8l"}}, {"geometry": {"type": "Point", "coordinates": [18.9502, 69.6454]}, "type": "Feature", "properties": {"name": "Mack Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [6.09267, 46.1223]}, "type": "Feature", "properties": {"name": "Brasserie du Mont Sal\u00e8ve"}}, {"geometry": {"type": "Point", "coordinates": [4.22018, 50.7124]}, "type": "Feature", "properties": {"name": "Brouwerij Boon"}}, {"geometry": {"type": "Point", "coordinates": [4.44952, 51.1037]}, "type": "Feature", "properties": {"name": "Brouwerij Mort Subite"}}, {"geometry": {"type": "Point", "coordinates": [4.30522, 50.7601]}, "type": "Feature", "properties": {"name": "Brouwerij Oud Beersel"}}, {"geometry": {"type": "Point", "coordinates": [15.2328, 59.2827]}, "type": "Feature", "properties": {"name": "N\u00e4rke Kulturbryggeri"}}, {"geometry": {"type": "Point", "coordinates": [3.45933, 50.8548]}, "type": "Feature", "properties": {"name": "Brouwers Verzet"}}, {"geometry": {"type": "Point", "coordinates": [12.535, 55.6673]}, "type": "Feature", "properties": {"name": "Carlsberg Group"}}, {"geometry": {"type": "Point", "coordinates": [-1.82684, 53.6515]}, "type": "Feature", "properties": {"name": "Magic Rock Brewing"}}, {"geometry": {"type": "Point", "coordinates": [-9.06087, 38.8821]}, "type": "Feature", "properties": {"name": "Sociedade Central de Cervejas e Bebidas SA"}}, {"geometry": {"type": "Point", "coordinates": [11.4442, 50.106]}, "type": "Feature", "properties": {"name": "Kulmbacher Brauerei"}}, {"geometry": {"type": "Point", "coordinates": [-122.655, 45.5068]}, "type": "Feature", "properties": {"name": "Baerlic Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [-96.0472, 36.1368]}, "type": "Feature", "properties": {"name": "Prairie Artisan Ales"}}, {"geometry": {"type": "Point", "coordinates": [4.1117, 50.6933]}, "type": "Feature", "properties": {"name": "Gueuzerie Tilquin"}}, {"geometry": {"type": "Point", "coordinates": [174.821, -36.9489]}, "type": "Feature", "properties": {"name": "Epic Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [3.8432, 50.3588]}, "type": "Feature", "properties": {"name": "Brasserie de Blaugies"}}, {"geometry": {"type": "Point", "coordinates": [10.7354, 59.9138]}, "type": "Feature", "properties": {"name": "Amundsen Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-0.0692936, 51.4957]}, "type": "Feature", "properties": {"name": "The Kernel Brewery"}}, {"geometry": {"type": "Point", "coordinates": [9.91475, 55.465]}, "type": "Feature", "properties": {"name": "Ugly Duck Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [-3.23103, 55.935]}, "type": "Feature", "properties": {"name": "Caledonian Brewing Company "}}, {"geometry": {"type": "Point", "coordinates": [6.40788, 48.5575]}, "type": "Feature", "properties": {"name": "Brasserie Le Paradis"}}, {"geometry": {"type": "Point", "coordinates": [4.90721, 50.2693]}, "type": "Feature", "properties": {"name": "Abbaye de Leffe"}}, {"geometry": {"type": "Point", "coordinates": [3.22052, 50.8435]}, "type": "Feature", "properties": {"name": "Brouwerij Gulden Spoor"}}, {"geometry": {"type": "Point", "coordinates": [172.743, -43.1788]}, "type": "Feature", "properties": {"name": "Brew Moon Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [-93.2086, 44.9733]}, "type": "Feature", "properties": {"name": "Surly Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [10.3923, 63.4313]}, "type": "Feature", "properties": {"name": "Trondhjem Mikrobryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-80.3803, 40.2341]}, "type": "Feature", "properties": {"name": "Westbrook Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [-1.26197, 53.8821]}, "type": "Feature", "properties": {"name": "Samuel Smith Old Brewery"}}, {"geometry": {"type": "Point", "coordinates": [-123.108, 44.0582]}, "type": "Feature", "properties": {"name": "Hop Valley Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [11.7289, 48.3952]}, "type": "Feature", "properties": {"name": "Bayerische Staatsbrauerei Weihenstephan"}}, {"geometry": {"type": "Point", "coordinates": [-104.988, 39.7536]}, "type": "Feature", "properties": {"name": "Great Divide Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [8.79008, 53.0787]}, "type": "Feature", "properties": {"name": "Brauerei Beck"}}, {"geometry": {"type": "Point", "coordinates": [10.7522, 59.9139]}, "type": "Feature", "properties": {"name": "NILS HANSEN"}}, {"geometry": {"type": "Point", "coordinates": [3.74606, 51.1765]}, "type": "Feature", "properties": {"name": "Brouwerij Van Steenberge"}}, {"geometry": {"type": "Point", "coordinates": [-123.103, 44.0575]}, "type": "Feature", "properties": {"name": "Oakshire Brewing"}}, {"geometry": {"type": "Point", "coordinates": [146.687, -36.3596]}, "type": "Feature", "properties": {"name": "Bridge Road Brewers"}}, {"geometry": {"type": "Point", "coordinates": [6.50018, 46.8225]}, "type": "Feature", "properties": {"name": "Brasserie Trois Dames"}}, {"geometry": {"type": "Point", "coordinates": [3.86459, 50.6661]}, "type": "Feature", "properties": {"name": "Caulier"}}, {"geometry": {"type": "Point", "coordinates": [-122.715, 42.1991]}, "type": "Feature", "properties": {"name": "Caldera Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [10.4524, 55.3067]}, "type": "Feature", "properties": {"name": "Midtfyns Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [10.0181, 59.0515]}, "type": "Feature", "properties": {"name": "Larvik Mikrobryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-122.638, 45.5221]}, "type": "Feature", "properties": {"name": "Coalition Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [17.6627, 59.8544]}, "type": "Feature", "properties": {"name": "Slottsk\u00e4llans Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-122.38, 37.7381]}, "type": "Feature", "properties": {"name": "Speakeasy Ales and Lagers"}}, {"geometry": {"type": "Point", "coordinates": [-0.0571249, 51.5908]}, "type": "Feature", "properties": {"name": "Beavertown"}}, {"geometry": {"type": "Point", "coordinates": [-81.4677, 41.0246]}, "type": "Feature", "properties": {"name": "Hoppin' Frog Brewery"}}, {"geometry": {"type": "Point", "coordinates": [3.72646, 50.3703]}, "type": "Feature", "properties": {"name": "Brasserie De L'Abbaye Des Rocs"}}, {"geometry": {"type": "Point", "coordinates": [-76.6122, 39.2904]}, "type": "Feature", "properties": {"name": "Stillwater Artisanal Ales"}}, {"geometry": {"type": "Point", "coordinates": [-2.78348, 51.0509]}, "type": "Feature", "properties": {"name": "Moor Beer Company"}}, {"geometry": {"type": "Point", "coordinates": [8.72023, 58.4637]}, "type": "Feature", "properties": {"name": "Arendals Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [25.3048, 57.318]}, "type": "Feature", "properties": {"name": "C\u0113su Alus"}}, {"geometry": {"type": "Point", "coordinates": [4.1521, 50.6743]}, "type": "Feature", "properties": {"name": "Brasserie Lefebvre"}}, {"geometry": {"type": "Point", "coordinates": [9.40957, 55.6718]}, "type": "Feature", "properties": {"name": "B\u00f8gedal Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [12.5777, 55.7089]}, "type": "Feature", "properties": {"name": "Bryggeriet Dj\u00e6vlebryg"}}, {"geometry": {"type": "Point", "coordinates": [7.67849, 45.0629]}, "type": "Feature", "properties": {"name": "LoverBeer"}}, {"geometry": {"type": "Point", "coordinates": [-70.3182, 43.7028]}, "type": "Feature", "properties": {"name": "Allagash Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [11.3867, 62.5763]}, "type": "Feature", "properties": {"name": "R\u00f8ros Bryggeri Og Mineralvannfabrikk"}}, {"geometry": {"type": "Point", "coordinates": [4.1097, 50.5019]}, "type": "Feature", "properties": {"name": "Brasserie St-Feuillien"}}, {"geometry": {"type": "Point", "coordinates": [-121.516, 45.7106]}, "type": "Feature", "properties": {"name": "Full Sail Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [14.4762, 48.9936]}, "type": "Feature", "properties": {"name": "Brewery Budweiser Budvar (BBNP)"}}, {"geometry": {"type": "Point", "coordinates": [4.45378, 51.0514]}, "type": "Feature", "properties": {"name": "Brouwerij Alken-Maes"}}, {"geometry": {"type": "Point", "coordinates": [4.2018, 51.0137]}, "type": "Feature", "properties": {"name": "Brouwerij Bosteels"}}, {"geometry": {"type": "Point", "coordinates": [-123.11, 44.0569]}, "type": "Feature", "properties": {"name": "Ninkasi Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [11.1695, 60.143]}, "type": "Feature", "properties": {"name": "Sundbytunet"}}, {"geometry": {"type": "Point", "coordinates": [4.23548, 50.8751]}, "type": "Feature", "properties": {"name": "Brouwerij Girardin"}}, {"geometry": {"type": "Point", "coordinates": [-8.62786, 41.2111]}, "type": "Feature", "properties": {"name": "Unicer Bebidas"}}, {"geometry": {"type": "Point", "coordinates": [-117.272, 45.4192]}, "type": "Feature", "properties": {"name": "Terminal Gravity Brewing (TG)"}}, {"geometry": {"type": "Point", "coordinates": [10.9565, 49.9582]}, "type": "Feature", "properties": {"name": "Brauerei Wagner"}}, {"geometry": {"type": "Point", "coordinates": [17.8811, 59.6135]}, "type": "Feature", "properties": {"name": "S:t Eriks Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [6.85205, 61.1829]}, "type": "Feature", "properties": {"name": "Balder Brygg AS"}}, {"geometry": {"type": "Point", "coordinates": [-122.611, 45.54]}, "type": "Feature", "properties": {"name": "Laurelwood Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [18.0745, 59.3149]}, "type": "Feature", "properties": {"name": "Omnipollo"}}, {"geometry": {"type": "Point", "coordinates": [3.25783, 50.9201]}, "type": "Feature", "properties": {"name": "Brouwerij Van Honsebrouck"}}, {"geometry": {"type": "Point", "coordinates": [3.39241, 50.8346]}, "type": "Feature", "properties": {"name": "Brouwerij Verhaeghe"}}, {"geometry": {"type": "Point", "coordinates": [-122.401, 37.7635]}, "type": "Feature", "properties": {"name": "Anchor Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [8.39525, 55.4388]}, "type": "Feature", "properties": {"name": "Fan\u00f8 Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [6.00371, 58.4579]}, "type": "Feature", "properties": {"name": "Berentsens Brygghus"}}, {"geometry": {"type": "Point", "coordinates": [-104.98, 39.7688]}, "type": "Feature", "properties": {"name": "Crooked Stave Artisan Beer Project"}}, {"geometry": {"type": "Point", "coordinates": [-8.65726, 40.6335]}, "type": "Feature", "properties": {"name": "Faustino Microcervejeira "}}, {"geometry": {"type": "Point", "coordinates": [4.97747, 50.6782]}, "type": "Feature", "properties": {"name": "Brasserie de Jandrain-Jandrenouille"}}, {"geometry": {"type": "Point", "coordinates": [-72.2623, 44.6072]}, "type": "Feature", "properties": {"name": "Grassroots Brewing"}}, {"geometry": {"type": "Point", "coordinates": [19.2108, 47.6202]}, "type": "Feature", "properties": {"name": "F\u00f3ti K\u00e9zm\u0171ves S\u00f6rf\u0151zde"}}, {"geometry": {"type": "Point", "coordinates": [9.90347, 55.2649]}, "type": "Feature", "properties": {"name": "Bryggeriet Vestfyen"}}, {"geometry": {"type": "Point", "coordinates": [8.05219, 45.571]}, "type": "Feature", "properties": {"name": "G. Menabrea & Figli"}}, {"geometry": {"type": "Point", "coordinates": [4.53398, 52.1375]}, "type": "Feature", "properties": {"name": "Heineken"}}, {"geometry": {"type": "Point", "coordinates": [4.38177, 50.0356]}, "type": "Feature", "properties": {"name": "Bi\u00e8res de Chimay (Abbaye Notre Dame de Scourmont) "}}, {"geometry": {"type": "Point", "coordinates": [4.30729, 50.7667]}, "type": "Feature", "properties": {"name": "Brouwerij 3 Fonteinen"}}, {"geometry": {"type": "Point", "coordinates": [12.5639, 55.6903]}, "type": "Feature", "properties": {"name": "N\u00f8rrebro Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [-123.828, 46.1885]}, "type": "Feature", "properties": {"name": "Fort George Brewery"}}, {"geometry": {"type": "Point", "coordinates": [-1.2814, 51.466]}, "type": "Feature", "properties": {"name": "Siren Craft Brew"}}, {"geometry": {"type": "Point", "coordinates": [11.5561, 48.1477]}, "type": "Feature", "properties": {"name": "Spaten-Franziskaner-L\u00f6wenbr\u00e4u-Gruppe"}}, {"geometry": {"type": "Point", "coordinates": [-123.806, 39.4465]}, "type": "Feature", "properties": {"name": "North Coast Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [9.63461, 56.9889]}, "type": "Feature", "properties": {"name": "Nibe Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [-0.0115723, 51.5747]}, "type": "Feature", "properties": {"name": "Brodie's Brewery"}}, {"geometry": {"type": "Point", "coordinates": [-2.72754, 52.0596]}, "type": "Feature", "properties": {"name": "Bulmers Cider"}}, {"geometry": {"type": "Point", "coordinates": [-87.5167, 41.5355]}, "type": "Feature", "properties": {"name": "3 Floyds Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [-117.144, 32.892]}, "type": "Feature", "properties": {"name": "AleSmith Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [-84.9641, 42.2667]}, "type": "Feature", "properties": {"name": "Dark Horse Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [-1.15809, 52.9548]}, "type": "Feature", "properties": {"name": "Castle Rock Brewery"}}, {"geometry": {"type": "Point", "coordinates": [107.595, 16.4872]}, "type": "Feature", "properties": {"name": "Hue Brewery Ltd"}}, {"geometry": {"type": "Point", "coordinates": [-105.122, 40.1391]}, "type": "Feature", "properties": {"name": "Oskar Blues Brewery"}}, {"geometry": {"type": "Point", "coordinates": [-155.997, 19.64]}, "type": "Feature", "properties": {"name": "Kona Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [-75.3099, 38.7776]}, "type": "Feature", "properties": {"name": "Dogfish Head Craft Brewery"}}, {"geometry": {"type": "Point", "coordinates": [-118.311, 33.8416]}, "type": "Feature", "properties": {"name": "The Dudes' Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [3.71153, 51.5772]}, "type": "Feature", "properties": {"name": "Bierbrouwerij Emelisse"}}, {"geometry": {"type": "Point", "coordinates": [24.1964, 56.407]}, "type": "Feature", "properties": {"name": "Bauskas Alus"}}, {"geometry": {"type": "Point", "coordinates": [121.059, 14.5802]}, "type": "Feature", "properties": {"name": "San Miguel Brewery"}}, {"geometry": {"type": "Point", "coordinates": [13.1653, 55.6263]}, "type": "Feature", "properties": {"name": "Brekeriet Beer AB"}}, {"geometry": {"type": "Point", "coordinates": [-122.662, 38.2724]}, "type": "Feature", "properties": {"name": "Lagunitas Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [10.0694, 44.9531]}, "type": "Feature", "properties": {"name": "Birrificio Del Ducato"}}, {"geometry": {"type": "Point", "coordinates": [-1.67814, 53.2161]}, "type": "Feature", "properties": {"name": "Thornbridge Brewery"}}]};
+                        var map = L.map('map-2014');
+                        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                        }).addTo(map);
+
+                        var features = L.geoJson(positions, {
+                            onEachFeature: function (feature, layer) {
+                                layer.bindPopup(feature.properties.name);
+                            }
+                        });
+
+                        map.fitBounds(features.getBounds());
+                        features.addTo(map);
+                    }());
+
+
+                </script>
+
+            </div>
+        
+            <div class="col-md-2">
+                <h2>2015</h2>
+                <dl>
+                    <dt>Antall innsjekkinger:</dt>
+                    <dd>465</dd>
+                    <dt>Antall forskjellige øl:</dt>
+                    <dd>381</dd>
+                    <dt>Mest innsjekkede øl:</dt>
+                    <dd>
+                        <ol>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/876690" target="_blank">
+                                    HaandBryggeriet Sorachi Sess
+                                </a>
+                                (5)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/10759" target="_blank">
+                                    Oskar Blues Brewery Dale's Pale Ale
+                                </a>
+                                (5)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/23896" target="_blank">
+                                    HaandBryggeriet Pale Ale
+                                </a>
+                                (5)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/1063475" target="_blank">
+                                    Kort Lunte Bryggeri Gå Hjem Og Hesj
+                                </a>
+                                (4)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/600645" target="_blank">
+                                    Edge Brewing Barcelona Flor De La Vida Pale Ale
+                                </a>
+                                (4)
+                            </li>
+                            
+                        </ol>
+                    </dd>
+                    <dt>Høyest ratede øl*:</dt>
+                    <dd>
+                        <ol>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/123800" target="_blank">
+                                    HaandBryggeriet Sundland Kreosot
+                                </a>
+                                (5.0 / 5) (2 checkins)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/402909" target="_blank">
+                                    Buxton Brewery Sky Mountain Sour
+                                </a>
+                                (5.0 / 5) (2 checkins)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/1000235" target="_blank">
+                                    HaandBryggeriet Flemish Brown Cherry
+                                </a>
+                                (4.75 / 5) (2 checkins)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/23896" target="_blank">
+                                    HaandBryggeriet Pale Ale
+                                </a>
+                                (4.5 / 5) (5 checkins)
+                            </li>
+                            
+                            <li>
+                                <a href="https://untappd.com/beer/600645" target="_blank">
+                                    Edge Brewing Barcelona Flor De La Vida Pale Ale
+                                </a>
+                                (4.5 / 5) (4 checkins)
+                            </li>
+                            
+                        </ol>
+                        <p>*Øl med minst 2 checkins, snitt av alle ratinger på festivalen</p>
+                    </dd>
+                    <dt>Antall forskjellige bryggerier:</dt>
+                    <dd>173</dd>
+                    <dt>Mest innsjekkede bryggerier:</dt>
+                    <dd>
+                        <ol>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/2206" target="_blank">
+                                        HaandBryggeriet
+                                    </a>
+                                    (32)
+                                </li>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/923" target="_blank">
+                                        Nøgne Ø
+                                    </a>
+                                    (23)
+                                </li>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/69202" target="_blank">
+                                        Austmann Bryggeri
+                                    </a>
+                                    (17)
+                                </li>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/2813" target="_blank">
+                                        Mikkeller
+                                    </a>
+                                    (14)
+                                </li>
+                            
+                                <li>
+                                    <a href="https://untappd.com/brewery/15285" target="_blank">
+                                        Klostergården Håndbryggeri
+                                    </a>
+                                    (13)
+                                </li>
+                            
+                        </ol>
+                    </dd>
+                    <dt>Antall forskjellige brukere:</dt>
+                    <dd>1</dd>
+                    <dt>Brukere med flest innsjekkinger:</dt>
+                    <dd>
+                        <ol>
+                            
+                            <li>
+                                <a href="https://untappd.com/user/atlefren" target="_blank">
+                                    atlefren
+                                </a>
+                                (465)
+                            </li>
+                            
+                        </ol>
+                    </dd>
+                </dl>
+
+                <h4>Bilder</h4>
+                
+                    <img src="https://untappd.akamaized.net/photo/2015_07_19/9a7c309b975926d31a1558d42bea0363_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2015_07_03/53710d00791a19f99b142c052dc631e8_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2015_07_02/a7b82390374b7673d9a65e6ccc4e30f6_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2015_06_12/df7e20c477bcb31a9275865db73f486d_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2015_05_17/25e01d06a55ba05ee760decd42d5970d_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2015_05_17/8646801438d8822d145651cabc3ecf6b_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2015_03_07/de89bc05869f0ecfbb7a59684db0b888_100x100.jpg" height="100" width="100" />
+                
+                    <img src="https://untappd.akamaized.net/photo/2015_01_23/d2801fccf746f995158cd294979beb99_100x100.jpg" height="100" width="100" />
+                
+
+                <h4>Bryggerikart</h4>
+                <div id="map-2015" class="map"></div>
+
+                <script type="text/javascript">
+                    (function () {
+                        var positions = {"type": "FeatureCollection", "features": [{"geometry": {"type": "Point", "coordinates": [10.1814, 59.7398]}, "type": "Feature", "properties": {"name": "HaandBryggeriet"}}, {"geometry": {"type": "Point", "coordinates": [8.63723, 58.406]}, "type": "Feature", "properties": {"name": "N\u00f8gne \u00d8"}}, {"geometry": {"type": "Point", "coordinates": [10.3482, 63.4424]}, "type": "Feature", "properties": {"name": "Austmann Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [12.5589, 55.6731]}, "type": "Feature", "properties": {"name": "Mikkeller"}}, {"geometry": {"type": "Point", "coordinates": [10.6386, 63.5648]}, "type": "Feature", "properties": {"name": "Klosterg\u00e5rden H\u00e5ndbryggeri"}}, {"geometry": {"type": "Point", "coordinates": [12.5856, 55.7032]}, "type": "Feature", "properties": {"name": "To \u00d8l"}}, {"geometry": {"type": "Point", "coordinates": [7.12075, 60.8381]}, "type": "Feature", "properties": {"name": "\u00c6gir Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.3923, 63.4313]}, "type": "Feature", "properties": {"name": "Trondhjem Mikrobryggeri"}}, {"geometry": {"type": "Point", "coordinates": [5.03114, 61.6]}, "type": "Feature", "properties": {"name": "Kinn Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.374, 63.4242]}, "type": "Feature", "properties": {"name": "To T\u00e5rn Bryggeri AS"}}, {"geometry": {"type": "Point", "coordinates": [-1.91483, 53.2591]}, "type": "Feature", "properties": {"name": "Buxton Brewery"}}, {"geometry": {"type": "Point", "coordinates": [-122.662, 38.2724]}, "type": "Feature", "properties": {"name": "Lagunitas Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [5.74646, 58.9457]}, "type": "Feature", "properties": {"name": "Lervig Aktiebryggeri"}}, {"geometry": {"type": "Point", "coordinates": [9.20186, 59.385]}, "type": "Feature", "properties": {"name": "Lindheim \u00d8lkompani"}}, {"geometry": {"type": "Point", "coordinates": [10.9176, 63.4678]}, "type": "Feature", "properties": {"name": "Stj\u00f8rdalsbryggeriet"}}, {"geometry": {"type": "Point", "coordinates": [-85.6735, 42.9585]}, "type": "Feature", "properties": {"name": "Founders Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [-80.3803, 40.2341]}, "type": "Feature", "properties": {"name": "Westbrook Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [-0.0571249, 51.5908]}, "type": "Feature", "properties": {"name": "Beavertown"}}, {"geometry": {"type": "Point", "coordinates": [2.1934, 41.3942]}, "type": "Feature", "properties": {"name": "Edge Brewing Barcelona"}}, {"geometry": {"type": "Point", "coordinates": [-96.0472, 36.1368]}, "type": "Feature", "properties": {"name": "Prairie Artisan Ales"}}, {"geometry": {"type": "Point", "coordinates": [-105.122, 40.1391]}, "type": "Feature", "properties": {"name": "Oskar Blues Brewery"}}, {"geometry": {"type": "Point", "coordinates": [4.1117, 50.6933]}, "type": "Feature", "properties": {"name": "Gueuzerie Tilquin"}}, {"geometry": {"type": "Point", "coordinates": [18.9502, 69.6454]}, "type": "Feature", "properties": {"name": "Mack Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.9511, 59.1967]}, "type": "Feature", "properties": {"name": "N\u00f8isom"}}, {"geometry": {"type": "Point", "coordinates": [5.39812, 61.3631]}, "type": "Feature", "properties": {"name": "Gulating H\u00e5ndverksbrygg"}}, {"geometry": {"type": "Point", "coordinates": [10.7592, 59.9301]}, "type": "Feature", "properties": {"name": "Ringnes Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [3.38923, 50.7715]}, "type": "Feature", "properties": {"name": "Brouwerij Alvinne"}}, {"geometry": {"type": "Point", "coordinates": [8.41536, 59.6199]}, "type": "Feature", "properties": {"name": "Fjellbryggeriet"}}, {"geometry": {"type": "Point", "coordinates": [12.5598, 55.6686]}, "type": "Feature", "properties": {"name": "WarPigs Brewpub"}}, {"geometry": {"type": "Point", "coordinates": [5.29608, 60.3326]}, "type": "Feature", "properties": {"name": "7 Fjell Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [19.969, 60.2424]}, "type": "Feature", "properties": {"name": "Stallhagen"}}, {"geometry": {"type": "Point", "coordinates": [10.2117, 59.7417]}, "type": "Feature", "properties": {"name": "Aass Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [14.4477, 67.2732]}, "type": "Feature", "properties": {"name": "B\u00e5din"}}, {"geometry": {"type": "Point", "coordinates": [10.7594, 59.925]}, "type": "Feature", "properties": {"name": "Gr\u00fcnerl\u00f8kka Brygghus"}}, {"geometry": {"type": "Point", "coordinates": [7.00258, 47.2543]}, "type": "Feature", "properties": {"name": "BFM (Brasserie des Franches-Montagnes)"}}, {"geometry": {"type": "Point", "coordinates": [12.4959, 55.6617]}, "type": "Feature", "properties": {"name": "Evil Twin Brewing"}}, {"geometry": {"type": "Point", "coordinates": [5.51304, 50.2862]}, "type": "Feature", "properties": {"name": "Brasserie Fant\u00f4me"}}, {"geometry": {"type": "Point", "coordinates": [12.5567, 55.6684]}, "type": "Feature", "properties": {"name": "Beer Here"}}, {"geometry": {"type": "Point", "coordinates": [-73.9575, 40.7215]}, "type": "Feature", "properties": {"name": "Brooklyn Brewery"}}, {"geometry": {"type": "Point", "coordinates": [15.2328, 59.2827]}, "type": "Feature", "properties": {"name": "N\u00e4rke Kulturbryggeri"}}, {"geometry": {"type": "Point", "coordinates": [19.1742, 49.6622]}, "type": "Feature", "properties": {"name": "Grupa \u017bywiec"}}, {"geometry": {"type": "Point", "coordinates": [11.0093, 59.2425]}, "type": "Feature", "properties": {"name": "Ego Brygghus"}}, {"geometry": {"type": "Point", "coordinates": [-106.589, 39.6488]}, "type": "Feature", "properties": {"name": "Crazy Mountain Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [10.427, 63.4409]}, "type": "Feature", "properties": {"name": "E. C. Dahls Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-122.411, 37.7772]}, "type": "Feature", "properties": {"name": "Cellarmaker Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [12.5963, 55.6245]}, "type": "Feature", "properties": {"name": "Amager Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [2.73755, 50.932]}, "type": "Feature", "properties": {"name": "De Struise Brouwers"}}, {"geometry": {"type": "Point", "coordinates": [-94.5965, 39.0821]}, "type": "Feature", "properties": {"name": "Boulevard Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [9.91475, 55.465]}, "type": "Feature", "properties": {"name": "Ugly Duck Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [-122.712, 38.4418]}, "type": "Feature", "properties": {"name": "Russian River Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [3.27796, 50.7768]}, "type": "Feature", "properties": {"name": "Omer Vander Ghinste Brewery"}}, {"geometry": {"type": "Point", "coordinates": [18.0032, 59.2988]}, "type": "Feature", "properties": {"name": "CAP Brewery"}}, {"geometry": {"type": "Point", "coordinates": [-2.46339, 51.1518]}, "type": "Feature", "properties": {"name": "The Wild Beer Co"}}, {"geometry": {"type": "Point", "coordinates": [18.4632, 54.2571]}, "type": "Feature", "properties": {"name": "Browar Amber"}}, {"geometry": {"type": "Point", "coordinates": [-122.38, 37.7381]}, "type": "Feature", "properties": {"name": "Speakeasy Ales and Lagers"}}, {"geometry": {"type": "Point", "coordinates": [174.768, -41.2953]}, "type": "Feature", "properties": {"name": "Garage Project"}}, {"geometry": {"type": "Point", "coordinates": [9.40957, 55.6718]}, "type": "Feature", "properties": {"name": "B\u00f8gedal Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [-2.04834, 57.3716]}, "type": "Feature", "properties": {"name": "BrewDog"}}, {"geometry": {"type": "Point", "coordinates": [-122.393, 37.7824]}, "type": "Feature", "properties": {"name": "21st Amendment Brewery "}}, {"geometry": {"type": "Point", "coordinates": [9.54983, 59.1396]}, "type": "Feature", "properties": {"name": "Bryggerhuset Veholt"}}, {"geometry": {"type": "Point", "coordinates": [12.5597, 55.6744]}, "type": "Feature", "properties": {"name": "Rocket Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [4.23548, 50.8751]}, "type": "Feature", "properties": {"name": "Brouwerij Girardin"}}, {"geometry": {"type": "Point", "coordinates": [4.30522, 50.7601]}, "type": "Feature", "properties": {"name": "Brouwerij Oud Beersel"}}, {"geometry": {"type": "Point", "coordinates": [8.02645, 58.1518]}, "type": "Feature", "properties": {"name": "Qvart \u00d8lkompani"}}, {"geometry": {"type": "Point", "coordinates": [18.0745, 59.3149]}, "type": "Feature", "properties": {"name": "Omnipollo"}}, {"geometry": {"type": "Point", "coordinates": [11.9848, 55.6692]}, "type": "Feature", "properties": {"name": "Herslev Bryghus"}}, {"geometry": {"type": "Point", "coordinates": [3.64837, 51.4893]}, "type": "Feature", "properties": {"name": "Brouwerij Kees"}}, {"geometry": {"type": "Point", "coordinates": [18.6605, 54.3492]}, "type": "Feature", "properties": {"name": "Brovarnia Gda\u0144sk"}}, {"geometry": {"type": "Point", "coordinates": [20.5961, 52.21]}, "type": "Feature", "properties": {"name": "Browar Artezan"}}, {"geometry": {"type": "Point", "coordinates": [-122.419, 37.7749]}, "type": "Feature", "properties": {"name": "Almanac Beer Co."}}, {"geometry": {"type": "Point", "coordinates": [-18.0935, 65.6901]}, "type": "Feature", "properties": {"name": "Einst\u00f6k Olger\u0111"}}, {"geometry": {"type": "Point", "coordinates": [-123.356, 39.0005]}, "type": "Feature", "properties": {"name": "Anderson Valley Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [10.6652, 55.2565]}, "type": "Feature", "properties": {"name": "\u00d8rb\u00e6k Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-124.052, 44.6202]}, "type": "Feature", "properties": {"name": "Rogue Ales"}}, {"geometry": {"type": "Point", "coordinates": [5.7533, 58.969]}, "type": "Feature", "properties": {"name": "Stavanger Brygghus"}}, {"geometry": {"type": "Point", "coordinates": [11.8735, 48.9175]}, "type": "Feature", "properties": {"name": "Weisses Br\u00e4uhaus G. Schneider & Sohn"}}, {"geometry": {"type": "Point", "coordinates": [-1.67814, 53.2161]}, "type": "Feature", "properties": {"name": "Thornbridge Brewery"}}, {"geometry": {"type": "Point", "coordinates": [4.90721, 50.2693]}, "type": "Feature", "properties": {"name": "Abbaye de Leffe"}}, {"geometry": {"type": "Point", "coordinates": [20.9854, 52.1853]}, "type": "Feature", "properties": {"name": "Browar Okocim (Carlsberg Polska)"}}, {"geometry": {"type": "Point", "coordinates": [1.68066, 52.3271]}, "type": "Feature", "properties": {"name": "Adnams"}}, {"geometry": {"type": "Point", "coordinates": [10.7354, 59.9138]}, "type": "Feature", "properties": {"name": "Amundsen Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [18.2947, 57.6418]}, "type": "Feature", "properties": {"name": "Gotlands Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [9.22145, 45.6093]}, "type": "Feature", "properties": {"name": "Birrificio Rurale"}}, {"geometry": {"type": "Point", "coordinates": [12.396, 55.6425]}, "type": "Feature", "properties": {"name": "Bryggeriet Skands"}}, {"geometry": {"type": "Point", "coordinates": [4.22018, 50.7124]}, "type": "Feature", "properties": {"name": "Brouwerij Boon"}}, {"geometry": {"type": "Point", "coordinates": [-1.26197, 53.8821]}, "type": "Feature", "properties": {"name": "Samuel Smith Old Brewery"}}, {"geometry": {"type": "Point", "coordinates": [-104.988, 39.7536]}, "type": "Feature", "properties": {"name": "Great Divide Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [12.8578, 56.6744]}, "type": "Feature", "properties": {"name": "Halmstad Brygghus"}}, {"geometry": {"type": "Point", "coordinates": [-122.401, 37.7635]}, "type": "Feature", "properties": {"name": "Anchor Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [10.7244, 59.9244]}, "type": "Feature", "properties": {"name": "Oslo Mikrobryggeri"}}, {"geometry": {"type": "Point", "coordinates": [0.891721, 51.3167]}, "type": "Feature", "properties": {"name": "Shepherd Neame"}}, {"geometry": {"type": "Point", "coordinates": [12.1887, 55.4538]}, "type": "Feature", "properties": {"name": "Bryghuset Braunstein"}}, {"geometry": {"type": "Point", "coordinates": [-87.7252, 41.919]}, "type": "Feature", "properties": {"name": "Off Color Brewing"}}, {"geometry": {"type": "Point", "coordinates": [-121.815, 39.7242]}, "type": "Feature", "properties": {"name": "Sierra Nevada Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [-107.876, 37.2388]}, "type": "Feature", "properties": {"name": "Ska Brewing"}}, {"geometry": {"type": "Point", "coordinates": [6.09267, 46.1223]}, "type": "Feature", "properties": {"name": "Brasserie du Mont Sal\u00e8ve"}}, {"geometry": {"type": "Point", "coordinates": [7.14409, 58.0454]}, "type": "Feature", "properties": {"name": "Lindesnes Brygghus"}}, {"geometry": {"type": "Point", "coordinates": [12.1901, 55.8925]}, "type": "Feature", "properties": {"name": "Dry & Bitter Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [-117.15, 33.1413]}, "type": "Feature", "properties": {"name": "The Lost Abbey"}}, {"geometry": {"type": "Point", "coordinates": [-71.1034, 42.3144]}, "type": "Feature", "properties": {"name": "Boston Beer Company (Samuel Adams)"}}, {"geometry": {"type": "Point", "coordinates": [8.69139, 50.0943]}, "type": "Feature", "properties": {"name": "Binding Brauerei"}}, {"geometry": {"type": "Point", "coordinates": [10.4022, 63.4346]}, "type": "Feature", "properties": {"name": "Brygghus 9"}}, {"geometry": {"type": "Point", "coordinates": [22.0381, 53.1596]}, "type": "Feature", "properties": {"name": "Browar \u0141om\u017ca (Van Pur)"}}, {"geometry": {"type": "Point", "coordinates": [-76.6122, 39.2904]}, "type": "Feature", "properties": {"name": "Stillwater Artisanal Ales"}}, {"geometry": {"type": "Point", "coordinates": [4.94347, 50.3114]}, "type": "Feature", "properties": {"name": "Brasserie du Bocq"}}, {"geometry": {"type": "Point", "coordinates": [10.5724, 60.3587]}, "type": "Feature", "properties": {"name": "Hadeland H\u00e5ndverksbryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.745, 59.9194]}, "type": "Feature", "properties": {"name": "Little Brother Brewery"}}, {"geometry": {"type": "Point", "coordinates": [0.624289, 41.6265]}, "type": "Feature", "properties": {"name": "Priorat Beer & Co"}}, {"geometry": {"type": "Point", "coordinates": [12.5777, 55.7089]}, "type": "Feature", "properties": {"name": "Bryggeriet Dj\u00e6vlebryg"}}, {"geometry": {"type": "Point", "coordinates": [11.935, 55.7075]}, "type": "Feature", "properties": {"name": "Hornbeer"}}, {"geometry": {"type": "Point", "coordinates": [-0.249709, 51.4881]}, "type": "Feature", "properties": {"name": "Fuller, Smith & Turner "}}, {"geometry": {"type": "Point", "coordinates": [-0.18489, 51.4325]}, "type": "Feature", "properties": {"name": "By The Horns Brewing Co."}}, {"geometry": {"type": "Point", "coordinates": [138.496, 36.2982]}, "type": "Feature", "properties": {"name": "Yo-Ho Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [17.8812, 59.2571]}, "type": "Feature", "properties": {"name": "Brutal Brewing"}}, {"geometry": {"type": "Point", "coordinates": [4.65889, 51.2852]}, "type": "Feature", "properties": {"name": "Brouwerij der Trappisten van Westmalle"}}, {"geometry": {"type": "Point", "coordinates": [-122.664, 38.2695]}, "type": "Feature", "properties": {"name": "101 North Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [10.5395, 55.4413]}, "type": "Feature", "properties": {"name": "Munkebo Mikrobryg"}}, {"geometry": {"type": "Point", "coordinates": [-122.037, 47.53]}, "type": "Feature", "properties": {"name": "Issaquah Brew House (Rogue Ales)"}}, {"geometry": {"type": "Point", "coordinates": [17.8852, 59.6127]}, "type": "Feature", "properties": {"name": "Sigtuna Brygghus"}}, {"geometry": {"type": "Point", "coordinates": [4.33759, 50.803]}, "type": "Feature", "properties": {"name": "OWA Brewery"}}, {"geometry": {"type": "Point", "coordinates": [17.0063, 58.7473]}, "type": "Feature", "properties": {"name": "Nils Oscar"}}, {"geometry": {"type": "Point", "coordinates": [-70.2643, 43.6628]}, "type": "Feature", "properties": {"name": "Peak Organic Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [4.25154, 50.8173]}, "type": "Feature", "properties": {"name": "Brouwerij Lindemans"}}, {"geometry": {"type": "Point", "coordinates": [-124.189, 40.7674]}, "type": "Feature", "properties": {"name": "Lost Coast Brewery"}}, {"geometry": {"type": "Point", "coordinates": [4.74211, 52.0857]}, "type": "Feature", "properties": {"name": "Brouwerij De Molen"}}, {"geometry": {"type": "Point", "coordinates": [3.25783, 50.9201]}, "type": "Feature", "properties": {"name": "Brouwerij Van Honsebrouck"}}, {"geometry": {"type": "Point", "coordinates": [11.7203, 55.1862]}, "type": "Feature", "properties": {"name": "Slotsbryggeriet Gavn\u00f8"}}, {"geometry": {"type": "Point", "coordinates": [15.8842, 60.2564]}, "type": "Feature", "properties": {"name": "Oppig\u00e5rds Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [10.7025, 55.2909]}, "type": "Feature", "properties": {"name": "Bryggeriet Refsvindinge"}}, {"geometry": {"type": "Point", "coordinates": [-104.98, 39.7688]}, "type": "Feature", "properties": {"name": "Crooked Stave Artisan Beer Project"}}, {"geometry": {"type": "Point", "coordinates": [12.1059, 55.6438]}, "type": "Feature", "properties": {"name": "\u00d8lfabrikken"}}, {"geometry": {"type": "Point", "coordinates": [11.323, 64.0417]}, "type": "Feature", "properties": {"name": "\u00d8lve p\u00e5 Egge"}}, {"geometry": {"type": "Point", "coordinates": [12.7066, 56.0319]}, "type": "Feature", "properties": {"name": "Helsingborgs Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [12.537, 55.7076]}, "type": "Feature", "properties": {"name": "Flying Couch"}}, {"geometry": {"type": "Point", "coordinates": [11.0006, 49.9594]}, "type": "Feature", "properties": {"name": "G\u00e4nstaller Br\u00e4u"}}, {"geometry": {"type": "Point", "coordinates": [-122.637, 38.2376]}, "type": "Feature", "properties": {"name": "HenHouse Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [5.3439, 60.2306]}, "type": "Feature", "properties": {"name": "Lysefjorden Mikrobryggeri "}}, {"geometry": {"type": "Point", "coordinates": [-122.714, 38.4405]}, "type": "Feature", "properties": {"name": "Moonlight Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [-122.655, 45.5094]}, "type": "Feature", "properties": {"name": "The Commons Brewery"}}, {"geometry": {"type": "Point", "coordinates": [4.30729, 50.7667]}, "type": "Feature", "properties": {"name": "Brouwerij 3 Fonteinen"}}, {"geometry": {"type": "Point", "coordinates": [16.9963, 52.3853]}, "type": "Feature", "properties": {"name": "Kompania Piwowarska"}}, {"geometry": {"type": "Point", "coordinates": [-1.2814, 51.466]}, "type": "Feature", "properties": {"name": "Siren Craft Brew"}}, {"geometry": {"type": "Point", "coordinates": [-123.806, 39.4465]}, "type": "Feature", "properties": {"name": "North Coast Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [12.2465, 57.6762]}, "type": "Feature", "properties": {"name": "Electric Nurse"}}, {"geometry": {"type": "Point", "coordinates": [12.2464, 57.6765]}, "type": "Feature", "properties": {"name": "Dugges Ale- & Porterbryggeri AB"}}, {"geometry": {"type": "Point", "coordinates": [10.4666, 61.1169]}, "type": "Feature", "properties": {"name": "Lillehammer Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [12.3832, 55.7628]}, "type": "Feature", "properties": {"name": "Bryggeri Skovlyst"}}, {"geometry": {"type": "Point", "coordinates": [-121.322, 44.0468]}, "type": "Feature", "properties": {"name": "Deschutes Brewery"}}, {"geometry": {"type": "Point", "coordinates": [18.1268, 59.4688]}, "type": "Feature", "properties": {"name": "Mohawk Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [15.0341, 50.1766]}, "type": "Feature", "properties": {"name": "Pivovar Nymburk"}}, {"geometry": {"type": "Point", "coordinates": [12.8347, 50.8145]}, "type": "Feature", "properties": {"name": "Bergt Brauerei Reichenbrand"}}, {"geometry": {"type": "Point", "coordinates": [-90.2657, 38.5457]}, "type": "Feature", "properties": {"name": "Perennial Artisan Ales"}}, {"geometry": {"type": "Point", "coordinates": [-122.182, 37.7176]}, "type": "Feature", "properties": {"name": "Drake's Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [10.8853, 49.892]}, "type": "Feature", "properties": {"name": "Schlenkerla Heller-Br\u00e4u Trum"}}, {"geometry": {"type": "Point", "coordinates": [3.2989, 50.8629]}, "type": "Feature", "properties": {"name": "Brouwerij De Brabandere (Bavik)"}}, {"geometry": {"type": "Point", "coordinates": [17.8812, 59.2571]}, "type": "Feature", "properties": {"name": "Spendrups Bryggeri"}}, {"geometry": {"type": "Point", "coordinates": [-87.5167, 41.5355]}, "type": "Feature", "properties": {"name": "3 Floyds Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [-73.12, 41.4685]}, "type": "Feature", "properties": {"name": "OEC Brewing (Ordinem Ecentrici Coctores)"}}, {"geometry": {"type": "Point", "coordinates": [12.1901, 55.8925]}, "type": "Feature", "properties": {"name": "Gamma Brewing Company"}}, {"geometry": {"type": "Point", "coordinates": [-117.348, 33.1596]}, "type": "Feature", "properties": {"name": "Pizza Port"}}]};
+                        var map = L.map('map-2015');
+                        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                        }).addTo(map);
+
+                        var features = L.geoJson(positions, {
+                            onEachFeature: function (feature, layer) {
+                                layer.bindPopup(feature.properties.name);
+                            }
+                        });
+
+                        map.fitBounds(features.getBounds());
+                        features.addTo(map);
+                    }());
+
+
+                </script>
+
+            </div>
+        
+        </div>
+    </div>
+</body>
+</html>

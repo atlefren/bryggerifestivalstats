@@ -15,7 +15,7 @@ def get(url):
 
 def get_data(url, filename):
     checkins = []
-    max_id = 17409082
+    max_id = 0
     while max_id is not None:
         d = get(url + '&max_id=%s' % max_id)
         if d['meta']['code'] == 500:

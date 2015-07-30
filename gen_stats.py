@@ -95,6 +95,11 @@ class Stats(object):
                 photos += wp.photos('photo_img_sm')
         return photos
 
+    def checkins_by_hour(self):
+        hours = defaultdict(int)
+        for checkin in self.checkins:
+            hours[checkin.date().strftime('%Y.%m.%d-%H')] += 1
+        print hours
 
 def get_positions(breweries):
     features = []
@@ -165,9 +170,11 @@ def generate_stats(checkins):
             year['user_top_5'].append(drinker)
         print '\n'
         year['photos'] = stat.photos()
+
+        stat.checkins_by_hour()
+
         years.append(year)
         year['pos'] = json.dumps(get_positions(stat.breweries))
-
     return {'years': years}
 
 
@@ -184,11 +191,11 @@ def print_template(data):
     template_env = jinja2.Environment(loader=template_loader)
     template = template_env.get_template('template.html')
     output_html = template.render(data)
-    with open('data.html', 'w') as outfile:
+    with open('data2.html', 'w') as outfile:
         outfile.write(output_html.encode('utf-8'))
 
 
 if __name__ == '__main__':
-        checkins = load_checkins('run4.json')
+        checkins = load_checkins('atlefren.json')
         data = generate_stats(checkins)
         print_template(data)
