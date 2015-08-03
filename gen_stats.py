@@ -271,6 +271,6 @@ if __name__ == '__main__':
     '''
 
     checkins = load_checkins('run4.json')
+    checkins += load_checkins('2015.json')
     data = generate_stats(checkins, 'venue', limit_months=[7, 8])
     print_template(data, 'Bryggerifestivalen i Trondheim', 'data.html')
-    

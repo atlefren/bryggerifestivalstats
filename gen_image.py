@@ -41,19 +41,27 @@ def get_image(checkin, size):
     image = image.resize((size, size), Image.ANTIALIAS)
     return image
 
-
+diff = 1000000
+closest_size = None
 if __name__ == '__main__':
     checkins = [Checkin(c) for c in load_checkins('run3.json')]
+    checkins += [Checkin(c) for c in load_checkins('2015.json')]
     with_imgs = [c for c in checkins if c.has_media()]
     num_images = len(with_imgs)
-
     image_size = None
-    for size in range(100, 320):
+    for size in range(1, 640):
         rows, cols = get_rowcol(size)
         num = rows * cols
+        new_diff = num_images - num
+        if new_diff > 0 and new_diff < diff:
+            diff = new_diff
+            closest_size = size
+
         if num == num_images:
             image_size = size
             break
+    if not image_size:
+        image_size = closest_size
 
     rows, cols = get_rowcol(image_size)
 
@@ -64,7 +72,7 @@ if __name__ == '__main__':
     for col in range(0, int(cols)):
         for row in range(0, int(rows)):
             image = images[i]
-            background.paste(image, (size * col, size * row))
+            background.paste(image, (image_size * col, image_size * row))
             i += 1
     background.show()
-    background.save("out.jpg", "JPEG", quality=100, optimize=True)
+    background.save("out2.jpg", "JPEG", quality=100, optimize=True)
