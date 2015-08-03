@@ -264,13 +264,13 @@ def print_template(data, title, filename):
 
 
 if __name__ == '__main__':
-
-    checkins = load_checkins('martinp.json')
+    '''
+    checkins = load_checkins('atlefren.json')
     data = generate_stats(checkins, 'user')
-    print_template(data, u'Martins øldrikking', 'martinp.html')
+    print_template(data, u'Atles øldrikking', 'atlefren.html')
     '''
 
     checkins = load_checkins('run4.json')
+    checkins += load_checkins('2015.json')
     data = generate_stats(checkins, 'venue', limit_months=[7, 8])
     print_template(data, 'Bryggerifestivalen i Trondheim', 'data.html')
-    '''
