@@ -6,7 +6,6 @@ import json
 from dateutil.parser import parse
 from collections import defaultdict
 import jinja2
-
 from datetime import timedelta
 
 DIRECTORY = os.path.dirname(os.path.realpath(__file__))
@@ -57,10 +56,13 @@ class Stats(object):
         for key, beerlist in beercheckins.items():
             beer = beerlist[0].beer
             beer['num'] = len(beerlist)
-            scores = [checkin.data['rating_score'] for checkin in beerlist if checkin.data['rating_score'] > 0]
+            scores = [checkin.data['rating_score'] for checkin in beerlist
+                      if checkin.data['rating_score'] > 0]
             if len(scores):
                 beer['score'] = sum(scores) / len(scores)
-                beers.append(beer)
+            else:
+                beer['score'] = 0.0
+            beers.append(beer)
         self.beers = sorted(beers, key=lambda beer: beer['num'], reverse=True)
 
         breweries = []
@@ -83,7 +85,11 @@ class Stats(object):
         for key, venuelist in venuecheckins.items():
             venuelist[0]['num'] = len(venuelist)
             venues.append(venuelist[0])
-        self.venues = sorted(venues, key=lambda venue: venue['num'], reverse=True)
+        self.venues = sorted(
+            venues,
+            key=lambda venue: venue['num'],
+            reverse=True
+        )
 
     def _sorted(self):
         return sorted(self.checkins, key=lambda checkin: checkin.date())
@@ -203,13 +209,10 @@ def get_positions(places, name_param):
     }
 
 
-def generate_stats(checkins, report_type, limit_months=None):
+def generate_stats(checkins, report_type):
 
     year_stats = defaultdict(list)
     checkins = [Checkin(checkin) for checkin in checkins]
-
-    if limit_months:
-        checkins = [c for c in checkins if c.date().month in limit_months]
 
     for checkin in checkins:
         year_stats[checkin.date().year].append(checkin)
@@ -220,6 +223,7 @@ def generate_stats(checkins, report_type, limit_months=None):
 
         data = {
             'year': stat.year(),
+            'beers': stat.beers,
             'num_checkins': stat.num(),
             'num_beers': len(stat.beers),
             'beer_top_5': stat.beers[:5],
@@ -239,7 +243,9 @@ def generate_stats(checkins, report_type, limit_months=None):
         if report_type == 'user':
             data['num_venues'] = len(stat.venues)
             data['venues_top_5'] = stat.venues[:5]
-            data['venue_pos'] = json.dumps(get_positions(stat.venues, 'venue_name'))
+            data['venue_pos'] = json.dumps(
+                get_positions(stat.venues, 'venue_name')
+            )
 
         years.append(data)
     return {'years': years}
@@ -264,13 +270,12 @@ def print_template(data, title, filename):
 
 
 if __name__ == '__main__':
-    '''
-    checkins = load_checkins('atlefren.json')
-    data = generate_stats(checkins, 'user')
-    print_template(data, u'Atles øldrikking', 'atlefren.html')
-    '''
 
-    checkins = load_checkins('run4.json')
-    checkins += load_checkins('2015.json')
-    data = generate_stats(checkins, 'venue', limit_months=[7, 8])
+    checkins = []
+    checkins = load_checkins('201314.json')
+    checkins += load_checkins('bryggerifestivalen_2015.json')
+    checkins += load_checkins('tt2.json')
+    checkins += load_checkins('torvet2.json')
+
+    data = generate_stats(checkins, 'venue')
     print_template(data, 'Bryggerifestivalen i Trondheim', 'data.html')

@@ -264,6 +264,19 @@
                     </script>
 
                     <hr />
+                    <h4>Alle øl</h4>
+                    <ol>
+                    {% for beer in year.beers %}
+                    <li>
+                        <a href="https://untappd.com/beer/{{beer.bid}}" target="_blank">
+                            {{beer.brewery.brewery_name}} - {{beer.beer_name}}
+                        </a>
+                        ({{beer.num}} checkins) {{beer.score |round(2)}} / 5
+                    </li>
+                    {% endfor %}
+
+
+                    <hr />
                     <h4>Bilder</h4>
                     {% for photo in year.photos %}
                         <img class="thumbnail-img" src="{{photo}}" height="100" width="100" />
@@ -277,7 +290,7 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="well">
                     <h4>Om</h4>
-                    <p>Lister alle public Untappd-innsjekkinger på Venue "Bryggerifestivalen", begrenser til juli og august.</p>
+                    <p>Lister alle public Untappd-innsjekkinger på Venue "Bryggerifestivalen" (2013 og 2015), samt "Torvet", "Trondheim Torg" og "Bryggerifestivalen 2015" (2015) begrenset til festivaldagene++.</p>
                     <p>Dataene er statisk innhentet og oppdateres <em>ikke</em> automatisk.</p>
                     <p>Laget av Atle F. Sveen, kode på <a href="https://github.com/atlefren/bryggerifestivalstats">GitHub</a></p>
 

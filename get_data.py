@@ -3,6 +3,9 @@
 import os
 import requests
 import json
+from datetime import datetime
+from gen_stats import Checkin
+import pytz
 
 requests.packages.urllib3.disable_warnings()
 
@@ -35,7 +38,7 @@ def get_next(response):
     return None
 
 
-def get_checkins(checkin_type, id):
+def get_checkins(checkin_type, id, min_date=None):
     params = (checkin_type, id, _url_params())
     url = 'https://api.untappd.com/v4/%s/checkins/%s?%s&limit=100' % params
     # url += '&max_id=208783463'
@@ -51,6 +54,10 @@ def get_checkins(checkin_type, id):
             new = json['response']['checkins']['items']
             print len(new)
             checkins += new
+            if min_date:
+                older = [checkin for checkin in checkins if Checkin(checkin).date() < min_date]
+                if len(older) > 0:
+                    break
             next = get_next(json)
             print len(checkins)
         except Exception, e:
@@ -88,11 +95,14 @@ def get_data_for_user(username, filename):
     save(data, filename)
 
 
-def get_data_for_venue(venue_id, filename):
-    data = get_checkins('venue', venue_id)
+def get_data_for_venue(venue_id, filename, min_date=None):
+    data = get_checkins('venue', venue_id, min_date)
     save(data, filename)
 
 
 if __name__ == '__main__':
-    get_data_for_venue('3327343', '20152.json')
+    get_data_for_venue('3327343', 'bryggerifestivalen_2015.json') # , min_date=datetime(day=30, month=6, year=2015, tzinfo=pytz.utc)
     # get_data_for_user('atlefren', 'atlefren.json')
+
+    # 767507 # Trondheim torg
+    # 339434 # torvet
